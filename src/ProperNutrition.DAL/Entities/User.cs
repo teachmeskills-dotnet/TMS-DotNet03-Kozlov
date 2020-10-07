@@ -10,5 +10,6 @@ namespace ProperNutrition.DAL.Entities
     /// </summary>
     public class User : IdentityUser
     {
+        public int UserId { get; set; }
     }
 }
