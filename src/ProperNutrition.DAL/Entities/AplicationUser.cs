@@ -8,8 +8,8 @@ namespace ProperNutrition.DAL.Entities
     /// <summary>
     /// User by IdentityUser .
     /// </summary>
-    public class User : IdentityUser
+    public class ApplicationUser : IdentityUser
     {
-        public int UserId { get; set; }
+        public Profile Profile { get; set; }
     }
 }

@@ -25,7 +25,7 @@ namespace ProperNutrition.Web
             services.AddDbContext<ProperNutritionContext>(options =>
                 options.UseSqlServer(Configuration.GetConnectionString("ProperNutritionConnection")));
 
-            services.AddIdentity<User, IdentityRole>()
+            services.AddIdentity<ApplicationUser, IdentityRole>()
                 .AddEntityFrameworkStores<ProperNutritionContext>();
 
             services.AddControllersWithViews();

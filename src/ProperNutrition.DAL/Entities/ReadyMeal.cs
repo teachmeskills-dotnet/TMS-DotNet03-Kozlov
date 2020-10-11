@@ -33,5 +33,7 @@ namespace ProperNutrition.DAL.Entities
         /// Ready date time.
         /// </summary>
         public DateTime ReadyTime { get; set; }
+
+
     }
 }
