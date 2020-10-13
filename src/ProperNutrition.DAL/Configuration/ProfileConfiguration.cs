@@ -8,49 +8,56 @@ using System.Text;
 
 namespace ProperNutrition.DAL.Configuration
 {
+    /// <summary>
+    /// EF Configuration for Profile entity.
+    /// </summary>
     public class ProfileConfiguration : IEntityTypeConfiguration<Profile>
     {
         /// <inheritdoc/>
         public void Configure(EntityTypeBuilder<Profile> builder)
         {
-            builder.ToTable("Profiles")
-                .HasKey(p => p.Id);
+            builder = builder ?? throw new ArgumentNullException(nameof(builder));
 
-            builder.Property(p => p.FirstName)
+            builder.ToTable(TablesConstants.Profiles, BranchConstants.Account)
+                .HasKey(profile => profile.Id);
+
+            builder.Property(profile => profile.FirstName)
                 .IsRequired()
                 .HasMaxLength(ConfigurationConstants.SmallLenghtSimvbol);
             
-            builder.Property(p => p.LastName)
+            builder.Property(profile => profile.LastName)
                 .IsRequired()
                 .HasMaxLength(ConfigurationConstants.SmallLenghtSimvbol);
 
-            builder.Property(p => p.MiddleName)
+            builder.Property(profile => profile.MiddleName)
                 .HasMaxLength(ConfigurationConstants.SmallLenghtSimvbol);
 
-            builder.Property(p => p.BirthDate)
+            builder.Property(profile => profile.BirthDate)
                 .IsRequired()
                 .HasColumnType(ConfigurationConstants.DateFormat);
             
-            builder.Property(p => p.Phone)
+            builder.Property(profile => profile.Phone)
                 .HasMaxLength(ConfigurationConstants.ShotLenghtSimvbol);
 
-            builder.Property(p => p.Telegram)
+            builder.Property(profile => profile.Telegram)
                 .HasMaxLength(ConfigurationConstants.ShotLenghtSimvbol);
 
-            builder.Property(p => p.SocialNetwork)
+            builder.Property(profile => profile.SocialNetwork)
                 .IsRequired()
                 .HasMaxLength(ConfigurationConstants.SmallLenghtSimvbol);
 
-            builder.Property(p => p.ChatId)
+            builder.Property(profile => profile.ChatId)
                 .HasMaxLength(ConfigurationConstants.MaxLenghtSimvbol);
 
-            builder.Property(p => p.SecretKey)
+            builder.Property(profile => profile.SecretKey)
                 .IsRequired()
                 .HasMaxLength(ConfigurationConstants.MiddLenghtSimvbol);
 
-            builder.HasOne(p => p.User)
-                .WithOne(i => i.Profile)
-                .HasForeignKey<Profile>(p => p.UserId);   
+            builder.HasOne(profile => profile.User)
+                .WithOne(identity => identity.Profile)
+                .HasForeignKey<Profile>(profile => profile.UserId)
+                .OnDelete(DeleteBehavior.Restrict);
+
         }
     }
 }

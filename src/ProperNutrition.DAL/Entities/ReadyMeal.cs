@@ -30,6 +30,11 @@ namespace ProperNutrition.DAL.Entities
         public int TeastyMeal { get; set; }
 
         /// <summary>
+        /// Comments.
+        /// </summary>
+        public string Comments { get; set; }
+
+        /// <summary>
         /// Ready date time.
         /// </summary>
         public DateTime ReadyTime { get; set; }

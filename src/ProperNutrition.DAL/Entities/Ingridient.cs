@@ -8,23 +8,27 @@ namespace ProperNutrition.DAL.Entities
     /// <summary>
     /// Ingridents.
     /// </summary>
-    public class Ingridients : IHasDbIdentity, IHasUserIdentity
+    public class Ingridient : IHasDbIdentity
     {
         /// <inheritdoc/>
         public int Id { get; set; }
-
-        /// <inheritdoc/>
-        public string UserId { get; set; }
+        
+       
 
         /// <summary>
         /// Name of ingridient
         /// </summary>
-        public string Name { get; set; }
+        public string NameIngridient { get; set; }
 
         /// <summary>
         /// Type of ingridient
         /// </summary>
-        public string Type { get; set; }
+        public string Category { get; set; }
+
+        /// <summary>
+        /// Type of ingridient
+        /// </summary>
+        public string Description { get; set; }
 
         /// <summary>
         /// Number of calories.
@@ -44,7 +48,13 @@ namespace ProperNutrition.DAL.Entities
         /// <summary>
         /// Date of Ingridient.
         /// </summary>
-        public DateTime IngridientDate { get; set; }
+        public DateTime? IngridientDate { get; set; }
+
+
+        /// <inheritdoc/>
+        public string UserId { get; set; }
+
+        public ApplicationUser ApplicationUser { get; set; }
 
     }
 }

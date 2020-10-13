@@ -13,5 +13,6 @@ namespace ProperNutrition.DAL.Entities
         /// Weight of ingridients in meal.
         /// </summary>
         public decimal Weight { get; set; }
+
     }
 }

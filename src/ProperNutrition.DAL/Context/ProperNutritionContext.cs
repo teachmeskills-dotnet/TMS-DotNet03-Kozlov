@@ -30,7 +30,7 @@ namespace ProperNutrition.DAL.Context
         /// <summary>
         /// Ingridients entities.
         /// </summary>
-        //public DbSet<Ingridients> Ingridients { get; set; }
+        public DbSet<Ingridient> Ingridients { get; set; }
 
         /// <summary>
         /// ReadyMeals entities.
@@ -49,8 +49,10 @@ namespace ProperNutrition.DAL.Context
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            modelBuilder = modelBuilder ?? throw new ArgumentNullException(nameof(modelBuilder));
+
             modelBuilder.ApplyConfiguration(new ProfileConfiguration());
-            //modelBuilder.ApplyConfiguration(new IngridientConfiguration());
+            modelBuilder.ApplyConfiguration(new IngridientConfiguration());
             //modelBuilder.ApplyConfiguration(new ReadyMealConfiguration());
             //modelBuilder.ApplyConfiguration(new ReadyMealIngridientsConfiguration());
             base.OnModelCreating(modelBuilder);

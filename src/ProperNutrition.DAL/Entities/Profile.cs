@@ -1,10 +1,5 @@
-﻿using Microsoft.AspNetCore.Identity;
-using Microsoft.EntityFrameworkCore.Metadata;
-using ProperNutrition.Common.Interfaces;
+﻿using ProperNutrition.Common.Interfaces;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations.Schema;
-using System.Text;
 
 namespace ProperNutrition.DAL.Entities
 {
@@ -12,18 +7,19 @@ namespace ProperNutrition.DAL.Entities
     /// Description of profiles.
     /// </summary>
     public class Profile : IHasUserIdentity, IHasDbIdentity
-    {        
+    {
         /// <summary>
         /// Id.
         /// </summary>
         public int Id { get; set; }
-        
-        /// UserId
+
+        /// <summary>
+        /// UserId.
         /// </summary>
         public string UserId { get; set; }
 
         /// <summary>
-        /// User. 
+        /// Application User. 
         /// </summary>
         //[ForeignKey(nameof(UserId))]
         public ApplicationUser User { get; set; }
