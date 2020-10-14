@@ -40,6 +40,10 @@ namespace ProperNutrition.DAL.Configuration
             builder.HasOne(ingridient => ingridient.ApplicationUser)
                 .WithMany(identity => identity.Ingridients);
 
+            builder.HasMany(ingridient => ingridient.ReadyMealIngridients)
+                .WithOne(readyMealIngridients => readyMealIngridients.Ingridient)
+                .HasForeignKey(readyMealIngridients => readyMealIngridients.IngridientId)
+                .OnDelete(DeleteBehavior.Restrict);
             //TODO: Are decimal entities has configuration
         }
     }

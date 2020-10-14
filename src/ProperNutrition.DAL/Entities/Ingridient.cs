@@ -56,5 +56,10 @@ namespace ProperNutrition.DAL.Entities
 
         public ApplicationUser ApplicationUser { get; set; }
 
+        /// <summary>
+        /// Navigation to ReadyMealIngridients
+        /// </summary>
+        public ICollection<ReadyMealIngridients> ReadyMealIngridients { get; set; }
+
     }
 }

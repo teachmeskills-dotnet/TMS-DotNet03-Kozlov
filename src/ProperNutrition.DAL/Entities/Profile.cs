@@ -19,9 +19,8 @@ namespace ProperNutrition.DAL.Entities
         public string UserId { get; set; }
 
         /// <summary>
-        /// Application User. 
+        /// Navigation to Application User. 
         /// </summary>
-        //[ForeignKey(nameof(UserId))]
         public ApplicationUser User { get; set; }
 
 

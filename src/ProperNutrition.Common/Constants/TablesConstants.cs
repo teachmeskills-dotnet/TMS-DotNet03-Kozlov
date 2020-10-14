@@ -18,5 +18,15 @@ namespace ProperNutrition.Common.Constants
         /// Ingridient table.
         /// </summary>
         public const string Ingridient = nameof(Ingridient);
+
+        // <summary>
+        /// ReadyMeal table.
+        /// </summary>
+        public const string ReadyMeal = nameof(ReadyMeal);
+
+        // <summary>
+        /// ReadyMeal table.
+        /// </summary>
+        public const string ReadyMealIngridients = nameof(ReadyMealIngridients);
     }
 }

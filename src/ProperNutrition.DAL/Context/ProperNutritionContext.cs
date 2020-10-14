@@ -33,14 +33,14 @@ namespace ProperNutrition.DAL.Context
         public DbSet<Ingridient> Ingridients { get; set; }
 
         /// <summary>
-        /// ReadyMeals entities.
+        /// ReadyMeal entities.
         /// </summary>
-        //public DbSet<ReadyMeal> ReadyMeals { get; set; }
+        public DbSet<ReadyMeal> ReadyMeals { get; set; }
 
         /// <summary>
         /// ReadyMealIngridients entities.
         /// </summary>
-        //public DbSet<ReadyMealIngridients> ReadyMealIngridients { get; set; }
+        public DbSet<ReadyMealIngridients> ReadyMealIngridients { get; set; }
 
         /// <summary>
         /// Users entities.
@@ -53,8 +53,8 @@ namespace ProperNutrition.DAL.Context
 
             modelBuilder.ApplyConfiguration(new ProfileConfiguration());
             modelBuilder.ApplyConfiguration(new IngridientConfiguration());
-            //modelBuilder.ApplyConfiguration(new ReadyMealConfiguration());
-            //modelBuilder.ApplyConfiguration(new ReadyMealIngridientsConfiguration());
+            modelBuilder.ApplyConfiguration(new ReadyMealConfiguration());
+            modelBuilder.ApplyConfiguration(new ReadyMealIngridientsConfiguration());
             base.OnModelCreating(modelBuilder);
         }
     }

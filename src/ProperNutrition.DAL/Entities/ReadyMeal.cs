@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ProperNutrition.Common.Interfaces;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
@@ -7,8 +8,11 @@ namespace ProperNutrition.DAL.Entities
     /// <summary>
     /// ReadyMeal.
     /// </summary>
-    public class ReadyMeal
+    public class ReadyMeal : IHasDbIdentity
     {
+        /// <inheritdoc/>
+        public int Id { get; set; }
+        
         /// <summary>
         /// Name of meal. 
         /// </summary>
@@ -22,12 +26,12 @@ namespace ProperNutrition.DAL.Entities
         /// <summary>
         /// Reaction of child on ready meat.
         /// </summary>
-        public int ChildReacrion { get; set; }
+        public string ChildReacrion { get; set; }
 
         /// <summary>
         /// Mark of testy meal.
         /// </summary>
-        public int TeastyMeal { get; set; }
+        public string TeastyMeal { get; set; }
 
         /// <summary>
         /// Comments.
@@ -39,6 +43,10 @@ namespace ProperNutrition.DAL.Entities
         /// </summary>
         public DateTime ReadyTime { get; set; }
 
+        /// <summary>
+        /// Navigation to ReadyMealIngridients
+        /// </summary>
+        public ICollection<ReadyMealIngridients> ReadyMealIngridients { get; set; }
 
     }
 }
