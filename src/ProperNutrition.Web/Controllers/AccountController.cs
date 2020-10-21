@@ -20,13 +20,13 @@ namespace ProperNutrition.Web.Controllers
         }
 
         [HttpGet]
-        public IActionResult Register()
+        public IActionResult SignUp()
         {
             return View();
         }
 
         [HttpPost]
-        public async Task<IActionResult> Register(RegisterViewModel model)
+        public async Task<IActionResult> SignUp(SignUpViewModel model)
         {
             if (ModelState.IsValid)
             {
@@ -37,7 +37,7 @@ namespace ProperNutrition.Web.Controllers
 
                 };
 
-                var result = await _accountManager.RegisterAsync(model.Email, model.Applicationusername, model.Password);
+                var result = await _accountManager.SignUpAsync(model.Email, model.Applicationusername, model.Password);
 
                 if (result.Succeeded)
                 {
@@ -51,6 +51,52 @@ namespace ProperNutrition.Web.Controllers
                 }
             }
             return View(model);
+        }
+
+        [HttpGet]
+        public IActionResult SignIn(string returnUrl = null)
+        {
+            var singInViewModel = new SignInViewModels
+            {
+                ReturnUrl = returnUrl
+            };
+
+            return View(singInViewModel);
+        }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> SignIn(SignInViewModels model)
+        {
+            if (ModelState.IsValid)
+            {
+                var result = await _signInManager.PasswordSignInAsync(model.Email, model.Password, model.RememberMe, false);
+                if (result.Succeeded)
+                {
+                    // проверяем, принадлежит ли URL приложению
+                    if (!string.IsNullOrEmpty(model.ReturnUrl) && Url.IsLocalUrl(model.ReturnUrl))
+                    {
+                        return Redirect(model.ReturnUrl);
+                    }
+                    else
+                    {
+                        return RedirectToAction("Index", "Home");
+                    }
+                }
+                else
+                {
+                    ModelState.AddModelError(string.Empty, "Incorrect login and (or) password");
+                }
+            }
+            return View(model);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> LogOut()
+        {
+            // удаляем аутентификационные куки
+            await _signInManager.SignOutAsync();
+            return RedirectToAction("Index", "Home");
         }
     }
 }

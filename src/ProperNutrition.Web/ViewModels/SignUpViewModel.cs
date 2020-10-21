@@ -1,15 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using System.ComponentModel.DataAnnotations;
 
 namespace ProperNutrition.Web.ViewModels
 {
     /// <summary>
-    /// Register view model.
+    /// Sing up view model.
     /// </summary>
-    public class RegisterViewModel
+    public class SignUpViewModel
     {
         /// <summary>
         /// Email.
@@ -22,7 +18,7 @@ namespace ProperNutrition.Web.ViewModels
         /// ApplicationUserName.
         /// </summary>
         [Required]
-        [Display(Name = nameof(Applicationusername))]
+        [Display(Name = "User Name")]
         public string Applicationusername { get; set; }
 
         /// <summary>
@@ -37,7 +33,7 @@ namespace ProperNutrition.Web.ViewModels
         /// Password confirm.
         /// </summary>
         [Required]
-        [Compare(nameof(Password), ErrorMessage = "Passwordы are different")]
+        [Compare(nameof(Password), ErrorMessage = "Passwords are different")]
         [DataType(DataType.Password)]
         [Display(Name = "Confirm your password")]
         public string PasswordConfirm { get; set; }

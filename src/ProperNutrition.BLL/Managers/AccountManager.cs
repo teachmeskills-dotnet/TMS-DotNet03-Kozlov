@@ -15,8 +15,7 @@ namespace ProperNutrition.BLL.Managers
         {
             _userManager = userManager ?? throw new ArgumentNullException(nameof(userManager));
         }
-
-        public async Task<IdentityResult> RegisterAsync(string email, string applicationUserName, string password)
+        public async Task<IdentityResult> SignUpAsync(string email, string applicationUserName, string password)
         {
             var applicationUser = new ApplicationUser
             {
@@ -24,7 +23,6 @@ namespace ProperNutrition.BLL.Managers
                 UserName = applicationUserName,
 
             };
-
             // добавляем пользователя
             return await _userManager.CreateAsync(applicationUser, password);
         }
