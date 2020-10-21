@@ -1,7 +1,6 @@
 ﻿using ProperNutrition.Common.Interfaces;
 using System;
 using System.Collections.Generic;
-using System.Text;
 
 namespace ProperNutrition.DAL.Entities
 {
@@ -12,7 +11,7 @@ namespace ProperNutrition.DAL.Entities
     {
         /// <inheritdoc/>
         public int Id { get; set; }
-        
+
         /// <summary>
         /// Name of meal. 
         /// </summary>
@@ -47,6 +46,5 @@ namespace ProperNutrition.DAL.Entities
         /// Navigation to ReadyMealIngridients
         /// </summary>
         public ICollection<ReadyMealIngridients> ReadyMealIngridients { get; set; }
-
     }
 }

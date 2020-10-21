@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace ProperNutrition.Common.Enums
+﻿namespace ProperNutrition.Common.Enums
 {
     /// <summary>
     /// Testy of ready meal.

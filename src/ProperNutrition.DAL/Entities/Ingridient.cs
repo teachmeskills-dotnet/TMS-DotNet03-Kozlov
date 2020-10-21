@@ -1,19 +1,16 @@
 ﻿using ProperNutrition.Common.Interfaces;
 using System;
 using System.Collections.Generic;
-using System.Text;
 
 namespace ProperNutrition.DAL.Entities
 {
     /// <summary>
     /// Ingridents.
     /// </summary>
-    public class Ingridient : IHasDbIdentity
+    public class Ingridient : IHasDbIdentity, IHasUserIdentity
     {
         /// <inheritdoc/>
         public int Id { get; set; }
-        
-       
 
         /// <summary>
         /// Name of ingridient
@@ -50,7 +47,6 @@ namespace ProperNutrition.DAL.Entities
         /// </summary>
         public DateTime? IngridientDate { get; set; }
 
-
         /// <inheritdoc/>
         public string UserId { get; set; }
 
@@ -60,6 +56,5 @@ namespace ProperNutrition.DAL.Entities
         /// Navigation to ReadyMealIngridients
         /// </summary>
         public ICollection<ReadyMealIngridients> ReadyMealIngridients { get; set; }
-
     }
 }

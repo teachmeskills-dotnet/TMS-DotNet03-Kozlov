@@ -3,8 +3,6 @@ using Microsoft.EntityFrameworkCore;
 using ProperNutrition.DAL.Configuration;
 using ProperNutrition.DAL.Entities;
 using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace ProperNutrition.DAL.Context
 {

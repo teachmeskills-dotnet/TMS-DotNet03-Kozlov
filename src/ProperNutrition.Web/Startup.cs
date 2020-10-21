@@ -6,6 +6,8 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using ProperNutrition.BLL.Managers;
+using ProperNutrition.Common.Interfaces;
 using ProperNutrition.DAL.Context;
 using ProperNutrition.DAL.Entities;
 
@@ -22,6 +24,8 @@ namespace ProperNutrition.Web
 
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddScoped<IAccountManager, AccountManager>();
+
             services.AddDbContext<ProperNutritionContext>(options =>
                 options.UseSqlServer(Configuration.GetConnectionString("ProperNutritionConnection")));
 
@@ -33,20 +37,23 @@ namespace ProperNutrition.Web
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
-            if (env.IsDevelopment())
-            {
-                app.UseDeveloperExceptionPage();
-            }
+            app.UseDeveloperExceptionPage();
+
+            app.UseHttpsRedirection();
+            app.UseStaticFiles();
 
             app.UseRouting();
 
+            app.UseAuthentication();    // подключение аутентификации
+            app.UseAuthorization();
+
             app.UseEndpoints(endpoints =>
             {
-                endpoints.MapGet("/", async context =>
-                {
-                    await context.Response.WriteAsync("Hello World!");
-                });
+                endpoints.MapControllerRoute(
+                    name: "default",
+                    pattern: "{controller=Home}/{action=Index}/{id?}");
             });
+
         }
     }
 }
