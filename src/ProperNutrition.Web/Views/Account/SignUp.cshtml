@@ -6,25 +6,25 @@
 
 <h1>Sign up page</h1>
 
-<form method="post" asp-controller="Account" asp-action="SingUp">
+<form method="post" asp-controller="Account" asp-action="SignUp">
     <div asp-validation-summary="ModelOnly"></div>
     <div>
-        <label asp-for="Email"></label><br />
+        <label asp-for="Email"></label>
         <input asp-for="Email" />
         <span asp-validation-for="Email"></span>
     </div>
     <div>
-        <label asp-for="Applicationusername"></label><br />
+        <label asp-for="Applicationusername"></label>
         <input asp-for="Applicationusername" />
         <span asp-validation-for="Applicationusername"></span>
     </div>
     <div>
-        <label asp-for="Password"></label><br />
+        <label asp-for="Password"></label>
         <input asp-for="Password" />
         <span asp-validation-for="Password"></span>
     </div>
     <div>
-        <label asp-for="PasswordConfirm"></label><br />
+        <label asp-for="PasswordConfirm"></label>
         <input asp-for="PasswordConfirm" />
         <span asp-validation-for="PasswordConfirm"></span>
     </div>

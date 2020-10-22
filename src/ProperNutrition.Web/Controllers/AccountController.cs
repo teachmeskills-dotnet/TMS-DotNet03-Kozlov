@@ -34,21 +34,19 @@ namespace ProperNutrition.Web.Controllers
                 {
                     Email = model.Email,
                     UserName = model.Applicationusername,
-
                 };
 
                 var result = await _accountManager.SignUpAsync(model.Email, model.Applicationusername, model.Password);
-
                 if (result.Succeeded)
                 {
                     // установка куки
                     await _signInManager.SignInAsync(applicationUser, false);
                     return RedirectToAction("Index", "Home");
                 }
-                foreach (var error in result.Errors)
-                {
-                    ModelState.AddModelError(string.Empty, error.Description);
-                }
+                    foreach (var error in result.Errors)
+                    {
+                        ModelState.AddModelError(string.Empty, error.Description);
+                    }
             }
             return View(model);
         }
@@ -56,20 +54,20 @@ namespace ProperNutrition.Web.Controllers
         [HttpGet]
         public IActionResult SignIn(string returnUrl = null)
         {
-            var singInViewModel = new SignInViewModels
+            var signInViewModel = new SignInViewModels
             {
                 ReturnUrl = returnUrl
             };
-
-            return View(singInViewModel);
+            return View(signInViewModel);
         }
+
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> SignIn(SignInViewModels model)
         {
             if (ModelState.IsValid)
             {
-                var result = await _signInManager.PasswordSignInAsync(model.Email, model.Password, model.RememberMe, false);
+                var result = await _signInManager.PasswordSignInAsync(model.UserName, model.Password, model.RememberMe, false);
                 if (result.Succeeded)
                 {
                     // проверяем, принадлежит ли URL приложению
@@ -77,15 +75,9 @@ namespace ProperNutrition.Web.Controllers
                     {
                         return Redirect(model.ReturnUrl);
                     }
-                    else
-                    {
                         return RedirectToAction("Index", "Home");
-                    }
                 }
-                else
-                {
                     ModelState.AddModelError(string.Empty, "Incorrect login and (or) password");
-                }
             }
             return View(model);
         }

@@ -11,8 +11,8 @@ namespace ProperNutrition.Web.ViewModels
         /// Email.
         /// </summary>
         [Required]
-        [Display(Name = nameof(Email))]
-        public string Email { get; set; }
+        [Display(Name = "Username")]
+        public string UserName { get; set; }
 
         /// <summary>
         /// Password.
@@ -21,6 +21,8 @@ namespace ProperNutrition.Web.ViewModels
         [DataType(DataType.Password)]
         [Display(Name = nameof(Password))]
         public string Password { get; set; }
+
+        //ToDo: Resource file.
 
         /// <summary>
         /// RememberMe.
@@ -32,7 +34,5 @@ namespace ProperNutrition.Web.ViewModels
         /// Return Url.
         /// </summary>
         public string ReturnUrl { get; set; }
-
-        //TODO: Constants
     }
 }

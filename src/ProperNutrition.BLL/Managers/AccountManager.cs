@@ -15,13 +15,13 @@ namespace ProperNutrition.BLL.Managers
         {
             _userManager = userManager ?? throw new ArgumentNullException(nameof(userManager));
         }
+
         public async Task<IdentityResult> SignUpAsync(string email, string applicationUserName, string password)
         {
             var applicationUser = new ApplicationUser
             {
                 Email = email,
                 UserName = applicationUserName,
-
             };
             // добавляем пользователя
             return await _userManager.CreateAsync(applicationUser, password);

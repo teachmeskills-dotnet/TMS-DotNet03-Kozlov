@@ -16,5 +16,6 @@ namespace ProperNutrition.Common.Interfaces
         /// <param name="password">Passowrd.</param>
         /// <returns>IdentityResult</returns>
         Task<IdentityResult> SignUpAsync(string email, string applicationUserMame, string password);
+
     }
 }
