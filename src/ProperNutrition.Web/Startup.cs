@@ -10,6 +10,7 @@ using ProperNutrition.BLL.Repository;
 using ProperNutrition.Common.Interfaces;
 using ProperNutrition.DAL.Context;
 using ProperNutrition.DAL.Entities;
+using Serilog;
 
 namespace ProperNutrition.Web
 {
@@ -47,7 +48,10 @@ namespace ProperNutrition.Web
         {
             app.UseDeveloperExceptionPage();
 
+            app.UseSerilogRequestLogging(); // add serilog
+
             app.UseHttpsRedirection();
+
             app.UseStaticFiles();
 
             app.UseRouting();
