@@ -17,5 +17,11 @@ namespace ProperNutrition.Common.Interfaces
         /// <returns>IdentityResult</returns>
         Task<IdentityResult> SignUpAsync(string email, string applicationUserMame, string password);
 
+        /// <summary>
+        /// Get userId by name.
+        /// </summary>
+        /// <param name="name">User name</param>
+        /// <returns>Identifier (GUID)</returns>
+        Task<string> GetUserIdByNameAsync(string name);
     }
 }

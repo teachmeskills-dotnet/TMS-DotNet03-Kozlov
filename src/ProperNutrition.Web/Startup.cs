@@ -1,12 +1,12 @@
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Hosting;
+using ProperNutrition.BLL.Interfaces;
 using ProperNutrition.BLL.Managers;
+using ProperNutrition.BLL.Repository;
 using ProperNutrition.Common.Interfaces;
 using ProperNutrition.DAL.Context;
 using ProperNutrition.DAL.Entities;
@@ -24,14 +24,22 @@ namespace ProperNutrition.Web
 
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddScoped<IAccountManager, AccountManager>();
+            // Repositoy pattern services.
+            services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
 
+            // Managers services.
+            services.AddScoped<IAccountManager, AccountManager>();
+            services.AddScoped<IIngridientManager, IngridientManager>();
+
+            // Db context services.
             services.AddDbContext<ProperNutritionContext>(options =>
                 options.UseSqlServer(Configuration.GetConnectionString("ProperNutritionConnection")));
 
+            //Identity add services.
             services.AddIdentity<ApplicationUser, IdentityRole>()
                 .AddEntityFrameworkStores<ProperNutritionContext>();
 
+            //AddControllersWithViews Microsoft services.
             services.AddControllersWithViews();
         }
 

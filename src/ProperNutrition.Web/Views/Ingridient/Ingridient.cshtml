@@ -1,0 +1,25 @@
+﻿@model IEnumerable<IngridientViewModel>
+
+@{
+    ViewData["Title"] = "Ingridients";
+}
+
+@if (Model.Any())
+{
+    foreach (var ingridient in Model)
+    {
+        <div> @ingridient.Id</div>
+        <div> @ingridient.NameIngridient</div>
+        <div> @ingridient.Category</div>
+        <div> @ingridient.Description</div>
+        <div> @ingridient.Colories</div>
+        <div> @ingridient.IsRecomended</div>
+        <div> @ingridient.Reaction</div>
+        <div> @ingridient.IngridientDate</div>
+    }
+    <br />
+}
+else
+	{
+    <div> Empty ingridients</div>
+	}

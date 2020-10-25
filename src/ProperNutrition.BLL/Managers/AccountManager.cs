@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
 using ProperNutrition.Common.Interfaces;
 using ProperNutrition.DAL.Entities;
 using System;
@@ -25,6 +26,14 @@ namespace ProperNutrition.BLL.Managers
             };
             // добавляем пользователя
             return await _userManager.CreateAsync(applicationUser, password);
+        }
+
+        /// <inheritdoc />
+        public async Task<string> GetUserIdByNameAsync(string name)
+        {
+            var user = await _userManager.Users.FirstAsync(applicationUser => applicationUser.UserName == name);
+
+            return user.Id;
         }
     }
 }
