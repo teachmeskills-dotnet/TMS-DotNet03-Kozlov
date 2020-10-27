@@ -1,0 +1,22 @@
+﻿.ingridient {
+    width: 321px;
+    background: rgb(218, 236, 190);
+    border-radius: 5px;
+}
+
+.ingridient__text {
+    font-style: normal;
+    font-size: 16px;
+    line-height: 20px;
+    color: rgb(98, 206, 206);
+}
+
+.ingridient__wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.ingridient__progress {
+    cursor: pointer;
+}

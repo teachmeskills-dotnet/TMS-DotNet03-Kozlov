@@ -42,6 +42,11 @@ namespace ProperNutrition.Web
 
             //AddControllersWithViews Microsoft services.
             services.AddControllersWithViews();
+            services.ConfigureApplicationCookie(config =>
+            {
+                config.Cookie.Name = "TeachMeSkills.Cookie";
+                config.LoginPath = "/Account/SignIn";
+            });
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
@@ -51,7 +56,6 @@ namespace ProperNutrition.Web
             app.UseSerilogRequestLogging(); // add serilog
 
             app.UseHttpsRedirection();
-
             app.UseStaticFiles();
 
             app.UseRouting();
@@ -65,7 +69,6 @@ namespace ProperNutrition.Web
                     name: "default",
                     pattern: "{controller=Home}/{action=Index}/{id?}");
             });
-
         }
     }
 }

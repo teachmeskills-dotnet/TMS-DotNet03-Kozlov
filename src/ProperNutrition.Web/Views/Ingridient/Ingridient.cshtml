@@ -1,25 +1,37 @@
 ﻿@model IEnumerable<IngridientViewModel>
 
 @{
-    ViewData["Title"] = "Ingridients";
+    ViewData["Title"] = "Ingridient";
 }
 
 @if (Model.Any())
 {
     foreach (var ingridient in Model)
     {
+        <div class="ingridient">
+            <div class="ingridient__wrapper">
+                <span class="ingridient__text"> @ingridient.Description </span>
+                <div class="ingridient__progress">
+                    <img src="/images/in-progress.svg" alt="Alternate Text" />
 
-        <div> @ingridient.NameIngridient</div>
-        <div> @ingridient.Category</div>
-        <div> @ingridient.Description</div>
-        <div> @ingridient.Colories</div>
-        <div> @ingridient.IsRecomended</div>
-        <div> @ingridient.Reaction</div>
-        <div> @ingridient.IngridientDate</div>
+                </div>
+            </div>
+        </div>
+
+        @*<div>@ingridient.NameIngridient</div>
+            <div> @ingridient.Category</div>
+            <div> @ingridient.Description</div>
+            <div> @ingridient.Colories</div>
+            <div> @ingridient.IsRecomended</div>
+            <div> @ingridient.Reaction</div>
+            <div> @ingridient.IngridientDate</div>*@
     }
-    <br />
+
 }
 else
-	{
+{
     <div> Empty ingridients</div>
-	}
+}
+@section Css {
+    <link href="~/css/ingridient.css" rel="stylesheet" />
+}

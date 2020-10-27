@@ -1,9 +1,7 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using ProperNutrition.BLL.Interfaces;
-using ProperNutrition.BLL.Managers;
 using ProperNutrition.Common.Interfaces;
-using ProperNutrition.DAL.Entities;
 using ProperNutrition.Web.ViewModels;
 using System;
 using System.Collections.Generic;
@@ -49,6 +47,6 @@ namespace ProperNutrition.Web.Controllers
             }
 
             return View(ingridientViewModels);
-        } 
+        }
     }
 }
