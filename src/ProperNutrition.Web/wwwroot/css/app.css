@@ -1,13 +1,95 @@
-﻿
-
-* {
+﻿* {
     margin: 0;
     padding: 0;
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Roboto', sans-serif;
+    color: #7ac245;
+}
+
+.auth {
+    width: 150px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.button {
+    cursor: pointer;
+    padding: 4px 12px;
+    background: #b8e0e8;
+    border-radius: 3px;
+    border: none;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 14px;
+    line-height: 17px;
+    text-transform: uppercase;
+    color: #9f56e5;
+}
+
+.button:hover {
+     background: #9f56e5;
+     color: #b8e0e8;
+}
+
+.button__link {
+    text-decoration: none;
+}
+
+
+.auth__name {
+    font-style: normal;
+    font-weight: bold;
+    font-size: 15px;
+    line-height: normal;
+    text-align: center;
+    color: #123e25;
 }
 
 body {
-    background-color: rgb(216, 238, 238);
+    background-image: url('/images/look.com.ua-55662.png');
+    background-position: top, center;
+    background-repeat: no-repeat;
+    background-size: 80%;
 }
 
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800;900&display=swap');
+header {
+    
+}
+
+.header {
+    display: flex;
+    padding: 10px 0;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header__indent-bottom {
+    margin-bottom: 10px;
+}
+
+.link {
+    
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 20px;
+    text-decoration: none;
+}
+
+    .link:hover {
+        text-decoration: underline;
+    }
+
+
+.logo {
+    font-weight: bold;
+}
+
+.wrapper {
+    margin: 0 auto;
+    width: 1920px;
+}
+
+
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap');

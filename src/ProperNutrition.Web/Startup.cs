@@ -41,7 +41,9 @@ namespace ProperNutrition.Web
                 .AddEntityFrameworkStores<ProperNutritionContext>();
 
             //AddControllersWithViews Microsoft services.
-            services.AddControllersWithViews();
+            services.AddControllersWithViews()
+                    .AddRazorRuntimeCompilation(); //RuntimeCompilation
+
             services.ConfigureApplicationCookie(config =>
             {
                 config.Cookie.Name = "TeachMeSkills.Cookie";
