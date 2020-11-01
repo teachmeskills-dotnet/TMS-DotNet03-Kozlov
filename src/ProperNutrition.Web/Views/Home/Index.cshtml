@@ -8,11 +8,15 @@
 
 @if (User.Identity.IsAuthenticated)
 {
-    <p>@User.Identity.Name</p>
+    <p>@User.Identity.Name, </p>
+    <h1 class="indent__margin-bottom">Welcome!</h1>
 
     <form method="post" asp-controller="Account" asp-action="Logout">
         <input type="submit" value="LogOut" />
     </form>
+
+    <a class="button button__link" asp-controller="Ingridient" asp-action="Index">Go to todos</a>
+
 }
 else
 {

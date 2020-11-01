@@ -24,8 +24,7 @@ namespace ProperNutrition.Web.Controllers
             _ingridientManager = ingridientManager ?? throw new ArgumentNullException(nameof(ingridientManager));
         }
 
-        [ActionName("Ingridient")]
-        public async Task<IActionResult> IngridientAsync()
+        public async Task<IActionResult> Index()
         {
             var userId = await _accountManager.GetUserIdByNameAsync(User.Identity.Name);
             var ingridientDtos = await _ingridientManager.GetIngridientsByUserIdAsync(userId);
