@@ -23,7 +23,12 @@ namespace ProperNutrition.DAL.Entities
         public string Category { get; set; }
 
         /// <summary>
-        /// Type of ingridient
+        /// Vegan or Meat.
+        /// </summary>
+        //public bool VegetarionorMeat { get; set; }
+
+        /// <summary>
+        /// Description of ingridient
         /// </summary>
         public string Description { get; set; }
 

@@ -2,11 +2,11 @@
     ViewData["Title"] = "Index page";
 }
 
-
+<div class="welcome">Welcome!</div>
 
 @if (User.Identity.IsAuthenticated)
 {
-<h1>Welcome, @User.Identity.Name to Proper Nutrition application!</h1>
+<div class="welcome welcome__name" 8px"> @User.Identity.Name</div> <div class="welcome welcome welcome__margin">to Proper Nutrition applicationasdfasdfasd!</div>
 
     <a class="button button__link" asp-controller="Ingridient" asp-action="Index">Go to My meal</a>
 }

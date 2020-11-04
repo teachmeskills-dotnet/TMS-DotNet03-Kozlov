@@ -25,6 +25,11 @@ namespace ProperNutrition.BLL.Models
         public string Category { get; set; }
 
         /// <summary>
+        /// Vegan or Meat.
+        /// </summary>
+        ///public bool VegetarionorMeat { get; set; }
+
+        /// <summary>
         /// Description of ingridient.
         /// </summary>
         public string Description { get; set; }

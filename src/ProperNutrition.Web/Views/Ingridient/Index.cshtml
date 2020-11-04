@@ -4,12 +4,18 @@
     ViewData["Title"] = "Ingridient";
 }
 
+
+<h1>Ingridient</h1>
 @if (Model.Any())
 {
     foreach (var ingridient in Model)
     {
-        <div class="ingridient">
+ 
+
+
+        <div class="ingridient" title="@ingridient.Description">
             <div class="ingridient__wrapper">
+
                 <span class="ingridient__nameIngridient">@ingridient.NameIngridient</span>
                 <span class="ingridient__description">@ingridient.Description, @ingridient.Category, @ingridient.Colories, @ingridient.Reaction</span>
                 <div class="ingridient__progress">

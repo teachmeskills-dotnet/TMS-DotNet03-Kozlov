@@ -7,6 +7,8 @@
   <ItemGroup>
     <Compile Remove="Migrations\20201014185057_AddReadtmealIngridients.cs" />
     <Compile Remove="Migrations\20201014185057_AddReadtmealIngridients.Designer.cs" />
+    <Compile Remove="Migrations\20201103175332_AddIngridientVegetarianorMeatcolum.cs" />
+    <Compile Remove="Migrations\20201103175332_AddIngridientVegetarianorMeatcolum.Designer.cs" />
   </ItemGroup>
 
   <ItemGroup>

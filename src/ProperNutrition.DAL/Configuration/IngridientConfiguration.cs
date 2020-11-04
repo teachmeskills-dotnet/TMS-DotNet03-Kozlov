@@ -30,6 +30,9 @@ namespace ProperNutrition.DAL.Configuration
                     .IsRequired()
                     .HasMaxLength(ConfigurationConstants.SmallLenghtSimvbol);
 
+            //builder.Property(ingridient => ingridient.VegetarionorMeat)
+                    //.IsRequired();
+
             builder.Property(ingridient => ingridient.Description)
                     .HasMaxLength(ConfigurationConstants.MaxLenghtSimvbol);
 

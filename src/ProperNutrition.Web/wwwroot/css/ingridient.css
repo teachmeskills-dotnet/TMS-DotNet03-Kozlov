@@ -8,11 +8,13 @@
 }
 
 .ingridient {
-    width: 321px;
+    width: 350px;
     border-radius: 5px;
+    cursor: help;
 }
 
 .ingridient__nameIngridient {
+    margin-bottom: 6px;
     font-weight: bold;
     font-style: inherit;
     font-size: 16px;
@@ -28,11 +30,17 @@ ingridient__description {
 }
 
 .ingridient__wrapper {
+    margin-bottom: 6px;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    background-color: #fafdc4;
 }
 
 .ingridient__progress {
     cursor: pointer;
+}
+
+.recomended {
+    background-color: palegoldenrod;
 }

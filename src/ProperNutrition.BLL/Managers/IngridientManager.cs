@@ -37,6 +37,7 @@ namespace ProperNutrition.BLL.Managers
                     Id = ingridient.Id,
                     NameIngridient = ingridient.NameIngridient,
                     Category = ingridient.Category,
+                    //VegetarionorMeat = ingridient.VegetarionorMeat,
                     Description = ingridient.Description,
                     Colories = ingridient.Colories,
                     IsRecomended = ingridient.IsRecomended,

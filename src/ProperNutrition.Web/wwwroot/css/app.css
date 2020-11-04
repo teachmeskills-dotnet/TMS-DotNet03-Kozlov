@@ -6,7 +6,7 @@
 }
 
 .auth {
-    width: 150px;
+    width: 170px;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -83,6 +83,29 @@ header {
 
 .logo {
     font-weight: bold;
+}
+
+.welcome {
+    color: #7ac245;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 35px;
+}
+
+.welcome__name {
+    margin-left: 45px;
+    color: #acf657;
+    font-style: inherit;
+    font-weight: bold;
+    font-size: 45px;
+}
+
+.welcome__margin {
+    margin-left: 90px;
+    color: #7ac245;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 30px;
 }
 
 .wrapper {
