@@ -1,19 +1,22 @@
 ﻿using ProperNutrition.BLL.Models;
+using System;
 using System.Collections.Generic;
+using System.Text;
 using System.Threading.Tasks;
 
 namespace ProperNutrition.BLL.Interfaces
 {
     /// <summary>
-    /// Interface manager of Ingridients.
+    /// Interface manager of Profiles.
     /// </summary>
-    public interface IIngridientManager
+    public interface IProfileManager
     {
         /// <summary>
-        /// Get ingridient by Id.
+        /// Get Profiles by Id.
         /// </summary>
         /// <param name="Userid">User idetifier.</param>
-        /// <returns>Ingridient.</returns>
-        public Task<IEnumerable<IngridientDto>> GetIngridientsByUserIdAsync(string Userid);
+        /// <returns>Profiles.</returns>
+        public Task<IEnumerable<ProfileDto>> GetProfilesByUserIdAsync(string Userid);
+        
     }
 }

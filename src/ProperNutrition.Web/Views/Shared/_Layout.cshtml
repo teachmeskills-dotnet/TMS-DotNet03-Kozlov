@@ -17,7 +17,7 @@
                 @if (User.Identity.IsAuthenticated)
                 {
                     <div class="auth">
-                        <span class="auth__name">@User.Identity.Name</span>
+                        <span class="auth__name"><a asp-controller="Profile" asp-action="Index">@User.Identity.Name</a></span>
 
                         <form method="post" asp-controller="Account" asp-action="Logout">
                             <button class="button" type="submit">LogOut </button>

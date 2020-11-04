@@ -1,12 +1,12 @@
-﻿using ProperNutrition.Common.Interfaces;
-using System;
+﻿using System;
 
-namespace ProperNutrition.DAL.Entities
+namespace ProperNutrition.Web.ViewModels
 {
+
     /// <summary>
-    /// Description of profiles.
+    /// Profile View Models.
     /// </summary>
-    public class Profile : IHasUserIdentity, IHasDbIdentity
+    public class ProfileViewModels
     {
         /// <summary>
         /// Id.
@@ -17,11 +17,6 @@ namespace ProperNutrition.DAL.Entities
         /// UserId.
         /// </summary>
         public string UserId { get; set; }
-
-        /// <summary>
-        /// Navigation to Application User. 
-        /// </summary>
-        public ApplicationUser User { get; set; }
 
         /// <summary>
         /// FirstName.

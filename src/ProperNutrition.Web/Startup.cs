@@ -28,9 +28,11 @@ namespace ProperNutrition.Web
             // Repositoy pattern services.
             services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
 
+            
             // Managers services.
             services.AddScoped<IAccountManager, AccountManager>();
             services.AddScoped<IIngridientManager, IngridientManager>();
+            services.AddScoped<IProfileManager, ProfileManager>();
 
             // Db context services.
             services.AddDbContext<ProperNutritionContext>(options =>

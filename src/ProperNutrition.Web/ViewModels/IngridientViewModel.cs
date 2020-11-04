@@ -1,12 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace ProperNutrition.Web.ViewModels
 {
     /// <summary>
-    /// Prepairing model. 
+    /// Ingridient View Model. 
     /// </summary>
     public class IngridientViewModel
     {
@@ -49,5 +46,7 @@ namespace ProperNutrition.Web.ViewModels
         /// Date of Ingridient.
         /// </summary>
         public DateTime? IngridientDate { get; set; }
+
+        //ToDo: Add VegMeat properties
     }
 }

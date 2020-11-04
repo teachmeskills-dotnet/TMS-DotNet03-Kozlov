@@ -44,7 +44,6 @@ namespace ProperNutrition.Web.Controllers
                     IngridientDate = ingridientDto.IngridientDate
                 });
             }
-
             return View(ingridientViewModels);
         }
     }

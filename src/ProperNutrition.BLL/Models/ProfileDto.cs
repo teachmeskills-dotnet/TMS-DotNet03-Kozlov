@@ -1,12 +1,11 @@
-﻿using ProperNutrition.Common.Interfaces;
-using System;
+﻿using System;
 
-namespace ProperNutrition.DAL.Entities
+namespace ProperNutrition.BLL.Models
 {
     /// <summary>
-    /// Description of profiles.
+    /// Profile data transfer object.
     /// </summary>
-    public class Profile : IHasUserIdentity, IHasDbIdentity
+    public class ProfileDto
     {
         /// <summary>
         /// Id.
@@ -17,11 +16,6 @@ namespace ProperNutrition.DAL.Entities
         /// UserId.
         /// </summary>
         public string UserId { get; set; }
-
-        /// <summary>
-        /// Navigation to Application User. 
-        /// </summary>
-        public ApplicationUser User { get; set; }
 
         /// <summary>
         /// FirstName.
