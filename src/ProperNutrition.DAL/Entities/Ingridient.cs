@@ -15,7 +15,7 @@ namespace ProperNutrition.DAL.Entities
         /// <summary>
         /// Name of ingridient
         /// </summary>
-        public string NameIngridient { get; set; }
+        public string Name { get; set; }
 
         /// <summary>
         /// Type of ingridient
@@ -25,7 +25,7 @@ namespace ProperNutrition.DAL.Entities
         /// <summary>
         /// Vegan or Meat.
         /// </summary>
-        //public bool VegetarionorMeat { get; set; }
+        public bool IsVeggie { get; set; }
 
         /// <summary>
         /// Description of ingridient
@@ -50,7 +50,7 @@ namespace ProperNutrition.DAL.Entities
         /// <summary>
         /// Date of Ingridient.
         /// </summary>
-        public DateTime? IngridientDate { get; set; }
+        public DateTime? Date { get; set; }
 
         /// <inheritdoc/>
         public string UserId { get; set; }

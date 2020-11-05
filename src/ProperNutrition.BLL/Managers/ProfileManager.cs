@@ -41,10 +41,7 @@ namespace ProperNutrition.BLL.Managers
                     Phone = profile.Phone,
                     Telegram = profile.Telegram,
                     SocialNetwork = profile.SocialNetwork,
-                    ChatId = profile.ChatId,
-                    SecretKey = profile.SecretKey,
-                    Created = profile.Created,
-                    LastEdited = profile.LastEdited
+
                 });
             }
             return profilesDtos;

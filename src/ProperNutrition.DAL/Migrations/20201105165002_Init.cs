@@ -3,10 +3,16 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace ProperNutrition.DAL.Migrations
 {
-    public partial class Initial : Migration
+    public partial class Init : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
+            migrationBuilder.EnsureSchema(
+                name: "food");
+
+            migrationBuilder.EnsureSchema(
+                name: "account");
+
             migrationBuilder.CreateTable(
                 name: "AspNetRoles",
                 columns: table => new
@@ -44,6 +50,24 @@ namespace ProperNutrition.DAL.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_AspNetUsers", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "ReadyMeals",
+                schema: "food",
+                columns: table => new
+                {
+                    Id = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Name = table.Column<string>(maxLength: 100, nullable: false),
+                    ChildReacrion = table.Column<string>(maxLength: 200, nullable: false),
+                    TeastyMeal = table.Column<string>(maxLength: 100, nullable: false),
+                    Comment = table.Column<string>(maxLength: 100, nullable: true),
+                    ReadyTime = table.Column<DateTime>(nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_ReadyMeals", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -152,6 +176,91 @@ namespace ProperNutrition.DAL.Migrations
                         onDelete: ReferentialAction.Cascade);
                 });
 
+            migrationBuilder.CreateTable(
+                name: "Profiles",
+                schema: "account",
+                columns: table => new
+                {
+                    Id = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    UserId = table.Column<string>(nullable: true),
+                    FirstName = table.Column<string>(maxLength: 50, nullable: false),
+                    LastName = table.Column<string>(maxLength: 50, nullable: false),
+                    MiddleName = table.Column<string>(maxLength: 50, nullable: true),
+                    BirthDate = table.Column<DateTime>(type: "date", nullable: false),
+                    Phone = table.Column<string>(maxLength: 20, nullable: true),
+                    Telegram = table.Column<string>(maxLength: 20, nullable: true),
+                    SocialNetwork = table.Column<string>(maxLength: 50, nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Profiles", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_Profiles_AspNetUsers_UserId",
+                        column: x => x.UserId,
+                        principalTable: "AspNetUsers",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Ingridients",
+                schema: "food",
+                columns: table => new
+                {
+                    Id = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Name = table.Column<string>(maxLength: 50, nullable: false),
+                    Category = table.Column<string>(maxLength: 50, nullable: false),
+                    IsVeggie = table.Column<bool>(nullable: false),
+                    Description = table.Column<string>(maxLength: 200, nullable: true),
+                    Colories = table.Column<decimal>(nullable: false),
+                    IsRecomended = table.Column<bool>(nullable: false),
+                    Reaction = table.Column<string>(maxLength: 200, nullable: false),
+                    Date = table.Column<DateTime>(nullable: true),
+                    UserId = table.Column<string>(nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Ingridients", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_Ingridients_AspNetUsers_UserId",
+                        column: x => x.UserId,
+                        principalTable: "AspNetUsers",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "ReadyMealIngridients",
+                schema: "food",
+                columns: table => new
+                {
+                    Id = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Weight = table.Column<decimal>(nullable: false),
+                    ReadyMealId = table.Column<int>(nullable: false),
+                    IngridientId = table.Column<int>(nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_ReadyMealIngridients", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_ReadyMealIngridients_Ingridients_IngridientId",
+                        column: x => x.IngridientId,
+                        principalSchema: "food",
+                        principalTable: "Ingridients",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
+                    table.ForeignKey(
+                        name: "FK_ReadyMealIngridients_ReadyMeals_ReadyMealId",
+                        column: x => x.ReadyMealId,
+                        principalSchema: "food",
+                        principalTable: "ReadyMeals",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
+                });
+
             migrationBuilder.CreateIndex(
                 name: "IX_AspNetRoleClaims_RoleId",
                 table: "AspNetRoleClaims",
@@ -190,6 +299,32 @@ namespace ProperNutrition.DAL.Migrations
                 column: "NormalizedUserName",
                 unique: true,
                 filter: "[NormalizedUserName] IS NOT NULL");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Profiles_UserId",
+                schema: "account",
+                table: "Profiles",
+                column: "UserId",
+                unique: true,
+                filter: "[UserId] IS NOT NULL");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Ingridients_UserId",
+                schema: "food",
+                table: "Ingridients",
+                column: "UserId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_ReadyMealIngridients_IngridientId",
+                schema: "food",
+                table: "ReadyMealIngridients",
+                column: "IngridientId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_ReadyMealIngridients_ReadyMealId",
+                schema: "food",
+                table: "ReadyMealIngridients",
+                column: "ReadyMealId");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
@@ -210,7 +345,23 @@ namespace ProperNutrition.DAL.Migrations
                 name: "AspNetUserTokens");
 
             migrationBuilder.DropTable(
+                name: "Profiles",
+                schema: "account");
+
+            migrationBuilder.DropTable(
+                name: "ReadyMealIngridients",
+                schema: "food");
+
+            migrationBuilder.DropTable(
                 name: "AspNetRoles");
+
+            migrationBuilder.DropTable(
+                name: "Ingridients",
+                schema: "food");
+
+            migrationBuilder.DropTable(
+                name: "ReadyMeals",
+                schema: "food");
 
             migrationBuilder.DropTable(
                 name: "AspNetUsers");

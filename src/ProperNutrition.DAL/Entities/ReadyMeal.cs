@@ -15,12 +15,7 @@ namespace ProperNutrition.DAL.Entities
         /// <summary>
         /// Name of meal. 
         /// </summary>
-        public string NameMeal { get; set; }
-
-        /// <summary>
-        /// Vegan or Meat.
-        /// </summary>
-        public bool VegMeat { get; set; }
+        public string Name { get; set; }
 
         /// <summary>
         /// Reaction of child on ready meat.
@@ -35,7 +30,7 @@ namespace ProperNutrition.DAL.Entities
         /// <summary>
         /// Comments.
         /// </summary>
-        public string Comments { get; set; }
+        public string Comment { get; set; }
 
         /// <summary>
         /// Ready date time.

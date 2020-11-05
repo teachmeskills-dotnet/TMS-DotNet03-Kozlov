@@ -17,12 +17,12 @@ namespace ProperNutrition.Common.Constants
         /// <summary>
         /// Ingridient table.
         /// </summary>
-        public const string Ingridient = nameof(Ingridient);
+        public const string Ingridients = nameof(Ingridients);
 
         // <summary>
         /// ReadyMeal table.
         /// </summary>
-        public const string ReadyMeal = nameof(ReadyMeal);
+        public const string ReadyMeals = nameof(ReadyMeals);
 
         // <summary>
         /// ReadyMeal table.

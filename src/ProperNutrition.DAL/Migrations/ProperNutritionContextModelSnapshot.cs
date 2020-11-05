@@ -15,7 +15,7 @@ namespace ProperNutrition.DAL.Migrations
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "3.1.8")
+                .HasAnnotation("ProductVersion", "3.1.9")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
@@ -222,9 +222,6 @@ namespace ProperNutrition.DAL.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<string>("ApplicationUserId")
-                        .HasColumnType("nvarchar(450)");
-
                     b.Property<string>("Category")
                         .IsRequired()
                         .HasColumnType("nvarchar(50)")
@@ -233,17 +230,20 @@ namespace ProperNutrition.DAL.Migrations
                     b.Property<decimal>("Colories")
                         .HasColumnType("decimal(18,2)");
 
+                    b.Property<DateTime?>("Date")
+                        .HasColumnType("datetime2");
+
                     b.Property<string>("Description")
                         .HasColumnType("nvarchar(200)")
                         .HasMaxLength(200);
 
-                    b.Property<DateTime?>("IngridientDate")
-                        .HasColumnType("datetime2");
-
                     b.Property<bool>("IsRecomended")
                         .HasColumnType("bit");
 
-                    b.Property<string>("NameIngridient")
+                    b.Property<bool>("IsVeggie")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("Name")
                         .IsRequired()
                         .HasColumnType("nvarchar(50)")
                         .HasMaxLength(50);
@@ -254,13 +254,13 @@ namespace ProperNutrition.DAL.Migrations
                         .HasMaxLength(200);
 
                     b.Property<string>("UserId")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("nvarchar(450)");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("ApplicationUserId");
+                    b.HasIndex("UserId");
 
-                    b.ToTable("Ingridient","food");
+                    b.ToTable("Ingridients","food");
                 });
 
             modelBuilder.Entity("ProperNutrition.DAL.Entities.Profile", b =>
@@ -273,20 +273,10 @@ namespace ProperNutrition.DAL.Migrations
                     b.Property<DateTime>("BirthDate")
                         .HasColumnType("date");
 
-                    b.Property<string>("ChatId")
-                        .HasColumnType("nvarchar(200)")
-                        .HasMaxLength(200);
-
-                    b.Property<DateTime>("Created")
-                        .HasColumnType("datetime2");
-
                     b.Property<string>("FirstName")
                         .IsRequired()
                         .HasColumnType("nvarchar(50)")
                         .HasMaxLength(50);
-
-                    b.Property<DateTime>("LastEdited")
-                        .HasColumnType("datetime2");
 
                     b.Property<string>("LastName")
                         .IsRequired()
@@ -300,11 +290,6 @@ namespace ProperNutrition.DAL.Migrations
                     b.Property<string>("Phone")
                         .HasColumnType("nvarchar(20)")
                         .HasMaxLength(20);
-
-                    b.Property<string>("SecretKey")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(100)")
-                        .HasMaxLength(100);
 
                     b.Property<string>("SocialNetwork")
                         .IsRequired()
@@ -339,11 +324,11 @@ namespace ProperNutrition.DAL.Migrations
                         .HasColumnType("nvarchar(200)")
                         .HasMaxLength(200);
 
-                    b.Property<string>("Comments")
+                    b.Property<string>("Comment")
                         .HasColumnType("nvarchar(100)")
                         .HasMaxLength(100);
 
-                    b.Property<string>("NameMeal")
+                    b.Property<string>("Name")
                         .IsRequired()
                         .HasColumnType("nvarchar(100)")
                         .HasMaxLength(100);
@@ -356,12 +341,9 @@ namespace ProperNutrition.DAL.Migrations
                         .HasColumnType("nvarchar(100)")
                         .HasMaxLength(100);
 
-                    b.Property<bool>("VegMeat")
-                        .HasColumnType("bit");
-
                     b.HasKey("Id");
 
-                    b.ToTable("ReadyMeal","food");
+                    b.ToTable("ReadyMeals","food");
                 });
 
             modelBuilder.Entity("ProperNutrition.DAL.Entities.ReadyMealIngridients", b =>
@@ -444,7 +426,8 @@ namespace ProperNutrition.DAL.Migrations
                 {
                     b.HasOne("ProperNutrition.DAL.Entities.ApplicationUser", "ApplicationUser")
                         .WithMany("Ingridients")
-                        .HasForeignKey("ApplicationUserId");
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Restrict);
                 });
 
             modelBuilder.Entity("ProperNutrition.DAL.Entities.Profile", b =>

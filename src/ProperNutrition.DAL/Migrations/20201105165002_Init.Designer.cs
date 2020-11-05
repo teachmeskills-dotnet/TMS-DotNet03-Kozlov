@@ -10,14 +10,14 @@ using ProperNutrition.DAL.Context;
 namespace ProperNutrition.DAL.Migrations
 {
     [DbContext(typeof(ProperNutritionContext))]
-    [Migration("20201013211411_AddIngridients")]
-    partial class AddIngridients
+    [Migration("20201105165002_Init")]
+    partial class Init
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "3.1.8")
+                .HasAnnotation("ProductVersion", "3.1.9")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
@@ -224,9 +224,6 @@ namespace ProperNutrition.DAL.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<string>("ApplicationUserId")
-                        .HasColumnType("nvarchar(450)");
-
                     b.Property<string>("Category")
                         .IsRequired()
                         .HasColumnType("nvarchar(50)")
@@ -235,17 +232,20 @@ namespace ProperNutrition.DAL.Migrations
                     b.Property<decimal>("Colories")
                         .HasColumnType("decimal(18,2)");
 
+                    b.Property<DateTime?>("Date")
+                        .HasColumnType("datetime2");
+
                     b.Property<string>("Description")
                         .HasColumnType("nvarchar(200)")
                         .HasMaxLength(200);
 
-                    b.Property<DateTime?>("IngridientDate")
-                        .HasColumnType("datetime2");
-
                     b.Property<bool>("IsRecomended")
                         .HasColumnType("bit");
 
-                    b.Property<string>("NameIngridient")
+                    b.Property<bool>("IsVeggie")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("Name")
                         .IsRequired()
                         .HasColumnType("nvarchar(50)")
                         .HasMaxLength(50);
@@ -256,13 +256,13 @@ namespace ProperNutrition.DAL.Migrations
                         .HasMaxLength(200);
 
                     b.Property<string>("UserId")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("nvarchar(450)");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("ApplicationUserId");
+                    b.HasIndex("UserId");
 
-                    b.ToTable("Ingridient","food");
+                    b.ToTable("Ingridients","food");
                 });
 
             modelBuilder.Entity("ProperNutrition.DAL.Entities.Profile", b =>
@@ -275,20 +275,10 @@ namespace ProperNutrition.DAL.Migrations
                     b.Property<DateTime>("BirthDate")
                         .HasColumnType("date");
 
-                    b.Property<string>("ChatId")
-                        .HasColumnType("nvarchar(200)")
-                        .HasMaxLength(200);
-
-                    b.Property<DateTime>("Created")
-                        .HasColumnType("datetime2");
-
                     b.Property<string>("FirstName")
                         .IsRequired()
                         .HasColumnType("nvarchar(50)")
                         .HasMaxLength(50);
-
-                    b.Property<DateTime>("LastEdited")
-                        .HasColumnType("datetime2");
 
                     b.Property<string>("LastName")
                         .IsRequired()
@@ -302,11 +292,6 @@ namespace ProperNutrition.DAL.Migrations
                     b.Property<string>("Phone")
                         .HasColumnType("nvarchar(20)")
                         .HasMaxLength(20);
-
-                    b.Property<string>("SecretKey")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(100)")
-                        .HasMaxLength(100);
 
                     b.Property<string>("SocialNetwork")
                         .IsRequired()
@@ -327,6 +312,65 @@ namespace ProperNutrition.DAL.Migrations
                         .HasFilter("[UserId] IS NOT NULL");
 
                     b.ToTable("Profiles","account");
+                });
+
+            modelBuilder.Entity("ProperNutrition.DAL.Entities.ReadyMeal", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("ChildReacrion")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(200)")
+                        .HasMaxLength(200);
+
+                    b.Property<string>("Comment")
+                        .HasColumnType("nvarchar(100)")
+                        .HasMaxLength(100);
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(100)")
+                        .HasMaxLength(100);
+
+                    b.Property<DateTime>("ReadyTime")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("TeastyMeal")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(100)")
+                        .HasMaxLength(100);
+
+                    b.HasKey("Id");
+
+                    b.ToTable("ReadyMeals","food");
+                });
+
+            modelBuilder.Entity("ProperNutrition.DAL.Entities.ReadyMealIngridients", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int>("IngridientId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("ReadyMealId")
+                        .HasColumnType("int");
+
+                    b.Property<decimal>("Weight")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("IngridientId");
+
+                    b.HasIndex("ReadyMealId");
+
+                    b.ToTable("ReadyMealIngridients","food");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
@@ -384,7 +428,8 @@ namespace ProperNutrition.DAL.Migrations
                 {
                     b.HasOne("ProperNutrition.DAL.Entities.ApplicationUser", "ApplicationUser")
                         .WithMany("Ingridients")
-                        .HasForeignKey("ApplicationUserId");
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Restrict);
                 });
 
             modelBuilder.Entity("ProperNutrition.DAL.Entities.Profile", b =>
@@ -393,6 +438,21 @@ namespace ProperNutrition.DAL.Migrations
                         .WithOne("Profile")
                         .HasForeignKey("ProperNutrition.DAL.Entities.Profile", "UserId")
                         .OnDelete(DeleteBehavior.Restrict);
+                });
+
+            modelBuilder.Entity("ProperNutrition.DAL.Entities.ReadyMealIngridients", b =>
+                {
+                    b.HasOne("ProperNutrition.DAL.Entities.Ingridient", "Ingridient")
+                        .WithMany("ReadyMealIngridients")
+                        .HasForeignKey("IngridientId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.HasOne("ProperNutrition.DAL.Entities.ReadyMeal", "ReadyMeal")
+                        .WithMany("ReadyMealIngridients")
+                        .HasForeignKey("ReadyMealId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
                 });
 #pragma warning restore 612, 618
         }

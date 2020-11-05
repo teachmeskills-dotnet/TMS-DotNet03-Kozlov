@@ -58,24 +58,5 @@ namespace ProperNutrition.DAL.Entities
         /// </summary>
         public string SocialNetwork { get; set; }
 
-        /// <summary>
-        /// ChatId.
-        /// </summary>
-        public string ChatId { get; set; }
-
-        /// <summary>
-        /// SecretKey.
-        /// </summary>
-        public string SecretKey { get; set; }
-
-        /// <summary>
-        /// Date time created.
-        /// </summary>
-        public DateTime Created { get; set; }
-
-        /// <summary>
-        /// Date time last edited.
-        /// </summary>
-        public DateTime LastEdited { get; set; }
     }
 }

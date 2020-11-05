@@ -46,13 +46,6 @@ namespace ProperNutrition.DAL.Configuration
                 .IsRequired()
                 .HasMaxLength(ConfigurationConstants.SmallLenghtSimvbol);
 
-            builder.Property(profile => profile.ChatId)
-                .HasMaxLength(ConfigurationConstants.MaxLenghtSimvbol);
-
-            builder.Property(profile => profile.SecretKey)
-                .IsRequired()
-                .HasMaxLength(ConfigurationConstants.MiddLenghtSimvbol);
-
             builder.HasOne(profile => profile.User)
                 .WithOne(identity => identity.Profile)
                 .HasForeignKey<Profile>(profile => profile.UserId)

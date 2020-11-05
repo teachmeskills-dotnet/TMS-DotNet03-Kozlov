@@ -20,15 +20,12 @@ namespace ProperNutrition.DAL.Configuration
         {
             builder = builder ?? throw new ArgumentNullException(nameof(builder));
 
-            builder.ToTable(TablesConstants.ReadyMeal, BranchConstants.Food)
+            builder.ToTable(TablesConstants.ReadyMeals, BranchConstants.Food)
                  .HasKey(readyMeal => readyMeal.Id);
 
-            builder.Property(readyMeal => readyMeal.NameMeal)
+            builder.Property(readyMeal => readyMeal.Name)
                  .IsRequired()
                  .HasMaxLength(ConfigurationConstants.MiddLenghtSimvbol);
-
-            builder.Property(readyMeal => readyMeal.VegMeat)
-                .IsRequired();
 
             builder.Property(readyMeal => readyMeal.ChildReacrion)
                  .IsRequired()
@@ -38,7 +35,7 @@ namespace ProperNutrition.DAL.Configuration
                  .IsRequired()
                  .HasMaxLength(ConfigurationConstants.MiddLenghtSimvbol);
 
-            builder.Property(readyMeal => readyMeal.Comments)
+            builder.Property(readyMeal => readyMeal.Comment)
                  .HasMaxLength(ConfigurationConstants.MiddLenghtSimvbol);
 
             builder.Property(readyMeal => readyMeal.ReadyTime)

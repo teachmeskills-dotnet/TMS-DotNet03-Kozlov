@@ -19,10 +19,10 @@ namespace ProperNutrition.DAL.Configuration
         {
             builder = builder ?? throw new ArgumentNullException(nameof(builder));
 
-            builder.ToTable(TablesConstants.Ingridient, BranchConstants.Food)
+            builder.ToTable(TablesConstants.Ingridients, BranchConstants.Food)
                   .HasKey(ingridient => ingridient.Id);
 
-            builder.Property(ingridient => ingridient.NameIngridient)
+            builder.Property(ingridient => ingridient.Name)
                   .IsRequired()
                   .HasMaxLength(ConfigurationConstants.SmallLenghtSimvbol);
 
@@ -30,8 +30,8 @@ namespace ProperNutrition.DAL.Configuration
                     .IsRequired()
                     .HasMaxLength(ConfigurationConstants.SmallLenghtSimvbol);
 
-            //builder.Property(ingridient => ingridient.VegetarionorMeat)
-                    //.IsRequired();
+            builder.Property(ingridient => ingridient.IsVeggie)
+                    .IsRequired();
 
             builder.Property(ingridient => ingridient.Description)
                     .HasMaxLength(ConfigurationConstants.MaxLenghtSimvbol);
@@ -41,7 +41,9 @@ namespace ProperNutrition.DAL.Configuration
                     .HasMaxLength(ConfigurationConstants.MaxLenghtSimvbol);
 
             builder.HasOne(ingridient => ingridient.ApplicationUser)
-                .WithMany(identity => identity.Ingridients);
+                .WithMany(identity => identity.Ingridients)
+                .HasForeignKey(ingridient => ingridient.UserId)
+                .OnDelete(DeleteBehavior.Restrict);
 
             builder.HasMany(ingridient => ingridient.ReadyMealIngridients)
                 .WithOne(readyMealIngridients => readyMealIngridients.Ingridient)

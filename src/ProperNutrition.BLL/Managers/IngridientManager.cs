@@ -35,14 +35,14 @@ namespace ProperNutrition.BLL.Managers
                 ingridientDtos.Add(new IngridientDto
                 {
                     Id = ingridient.Id,
-                    NameIngridient = ingridient.NameIngridient,
+                    NameIngridient = ingridient.Name,
                     Category = ingridient.Category,
-                    //VegetarionorMeat = ingridient.VegetarionorMeat,
+                    VegetarionorMeat = ingridient.IsVeggie,
                     Description = ingridient.Description,
                     Colories = ingridient.Colories,
                     IsRecomended = ingridient.IsRecomended,
                     Reaction = ingridient.Reaction,
-                    IngridientDate = ingridient.IngridientDate
+                    IngridientDate = ingridient.Date
                 });
             }
 
