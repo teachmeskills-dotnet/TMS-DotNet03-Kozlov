@@ -1,0 +1,33 @@
+﻿@model IEnumerable<ReadyMealViewModels>
+
+@{
+    ViewData["Title"] = "Ready Mealы";
+}
+
+<h1>Your Ready meals</h1>
+
+
+
+<div class="main-blank">
+    @if (Model.Any())
+    {
+        foreach (var readyMeal in Model)
+        {
+            @readyMeal.Id
+            @readyMeal.Name 
+            @readyMeal.ReadyTime
+            @readyMeal.TeastyMeal
+            @readyMeal.ChildReacrion
+            @readyMeal.Comment           
+        }
+    }
+
+    else
+    {
+        <div>Ready meals are empty</div>
+    }
+</div>
+@section Css {
+    <link href="~/css/profile.css" rel="stylesheet" />
+}
+

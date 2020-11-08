@@ -33,6 +33,7 @@ namespace ProperNutrition.Web
             services.AddScoped<IAccountManager, AccountManager>();
             services.AddScoped<IIngridientManager, IngridientManager>();
             services.AddScoped<IProfileManager, ProfileManager>();
+            services.AddScoped<IReadyMealManager, ReadyMealManager>();
 
             // Db context services.
             services.AddDbContext<ProperNutritionContext>(options =>

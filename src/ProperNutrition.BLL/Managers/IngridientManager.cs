@@ -25,7 +25,7 @@ namespace ProperNutrition.BLL.Managers
             var ingridients = await _repositoryIngridient
                 .GetAll()
                 .AsNoTracking()
-                .Where(ingridient => ingridient.UserId == userId)
+                .Where(ingridient => ingridient.UserId == userId) //Delite becouse all people can use all ingridients
                 .ToListAsync();
 
             var ingridientDtos = new List<IngridientDto>();

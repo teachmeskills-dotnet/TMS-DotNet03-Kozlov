@@ -41,7 +41,6 @@ namespace ProperNutrition.BLL.Managers
                     Phone = profile.Phone,
                     Telegram = profile.Telegram,
                     SocialNetwork = profile.SocialNetwork,
-
                 });
             }
             return profilesDtos;

@@ -3,8 +3,6 @@ using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using ProperNutrition.Common.Constants;
 using ProperNutrition.DAL.Entities;
 using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace ProperNutrition.DAL.Configuration
 {
@@ -19,37 +17,37 @@ namespace ProperNutrition.DAL.Configuration
             builder = builder ?? throw new ArgumentNullException(nameof(builder));
 
             builder.ToTable(TablesConstants.Profiles, BranchConstants.Account)
-                .HasKey(profile => profile.Id);
+                   .HasKey(profile => profile.Id);
 
             builder.Property(profile => profile.FirstName)
-                .IsRequired()
-                .HasMaxLength(ConfigurationConstants.SmallLenghtSimvbol);
-            
+                   .IsRequired()
+                   .HasMaxLength(ConfigurationConstants.SmallLenghtSimvbol);
+
             builder.Property(profile => profile.LastName)
-                .IsRequired()
-                .HasMaxLength(ConfigurationConstants.SmallLenghtSimvbol);
+                   .IsRequired()
+                   .HasMaxLength(ConfigurationConstants.SmallLenghtSimvbol);
 
             builder.Property(profile => profile.MiddleName)
-                .HasMaxLength(ConfigurationConstants.SmallLenghtSimvbol);
+                   .HasMaxLength(ConfigurationConstants.SmallLenghtSimvbol);
 
             builder.Property(profile => profile.BirthDate)
-                .IsRequired()
-                .HasColumnType(ConfigurationConstants.DateFormat);
-            
+                   .IsRequired()
+                   .HasColumnType(ConfigurationConstants.DateFormat);
+
             builder.Property(profile => profile.Phone)
-                .HasMaxLength(ConfigurationConstants.ShotLenghtSimvbol);
+                   .HasMaxLength(ConfigurationConstants.ShotLenghtSimvbol);
 
             builder.Property(profile => profile.Telegram)
-                .HasMaxLength(ConfigurationConstants.ShotLenghtSimvbol);
+                   .HasMaxLength(ConfigurationConstants.ShotLenghtSimvbol);
 
             builder.Property(profile => profile.SocialNetwork)
-                .IsRequired()
-                .HasMaxLength(ConfigurationConstants.SmallLenghtSimvbol);
+                   .IsRequired()
+                   .HasMaxLength(ConfigurationConstants.SmallLenghtSimvbol);
 
             builder.HasOne(profile => profile.User)
-                .WithOne(identity => identity.Profile)
-                .HasForeignKey<Profile>(profile => profile.UserId)
-                .OnDelete(DeleteBehavior.Restrict);
+                   .WithOne(identity => identity.Profile)
+                   .HasForeignKey<Profile>(profile => profile.UserId)
+                   .OnDelete(DeleteBehavior.Restrict);
 
         }
     }
