@@ -10,10 +10,24 @@ namespace ProperNutrition.BLL.Interfaces
     public interface IIngridientManager
     {
         /// <summary>
-        /// Get ingridient by Id.
+        /// Create ingridient async by User Idintifier.
+        /// </summary>
+        /// <param name="UserId">User idetifier.</param>
+        /// <param name="ingridientDto">Ingridient data transfer object.</param>
+        Task CreateAsync(string UserId, IngridientDto ingridientDto);
+
+        /// <summary>
+        /// Get ingridient by User Idintifier.
         /// </summary>
         /// <param name="Userid">User idetifier.</param>
-        /// <returns>Ingridient.</returns>
+        /// <returns>List of Ingridient data transfer object.</returns>
         public Task<IEnumerable<IngridientDto>> GetIngridientsByUserIdAsync(string Userid);
+
+        /// <summary>
+        /// Change Ingridient Status.
+        /// </summary>
+        /// <param name="UserId">User idetifier.</param>
+        /// <param name="id">Idetifier.</param>
+        Task ChangeIngridientStatusAsync(string UserId, int id);
     }
 }

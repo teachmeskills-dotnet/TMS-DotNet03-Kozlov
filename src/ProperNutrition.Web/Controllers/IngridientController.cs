@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.CodeAnalysis.CSharp.Syntax;
 using ProperNutrition.BLL.Interfaces;
 using ProperNutrition.Common.Interfaces;
 using ProperNutrition.Web.ViewModels;
@@ -35,16 +36,30 @@ namespace ProperNutrition.Web.Controllers
                 ingridientViewModels.Add(new IngridientViewModel
                 {
                     Id = ingridientDto.Id,
-                    NameIngridient = ingridientDto.NameIngridient,
+                    Name = ingridientDto.Name,
                     Category = ingridientDto.Category,
+                    IsVeggie = ingridientDto.IsVeggie,
                     Description = ingridientDto.Description,
                     Colories = ingridientDto.Colories,
                     IsRecomended = ingridientDto.IsRecomended,
                     Reaction = ingridientDto.Reaction,
-                    IngridientDate = ingridientDto.IngridientDate
+                    Date = ingridientDto.Date
                 });
             }
             return View(ingridientViewModels);
+        }
+
+        [HttpGet]
+        public IActionResult Create()
+        {
+            var signInViewModel = new SignInViewModels
+            {
+                ReturnUrl = returnUrl
+            };
+
+            ViewBag.Ingridient = new SelectList
+
+            return View(signInViewModel);
         }
     }
 }

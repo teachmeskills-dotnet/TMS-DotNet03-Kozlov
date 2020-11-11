@@ -1,55 +1,47 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.Linq;
+using System.Threading.Tasks;
 
-namespace ProperNutrition.BLL.Models
+namespace ProperNutrition.Web.ViewModels
 {
-    /// <summary>
-    /// Ingridient data transfer object.
-    /// </summary>
-    public class IngridientDto
+    public class IngridientActionViewModel
     {
-        /// <summary>
-        /// Ingridient identity.
-        /// </summary>
-        public int Id { get; set; }
-
         /// <summary>
         /// Name of ingridient.
         /// </summary>
+        [Required]
         public string Name { get; set; }
 
         /// <summary>
         /// Category of ingridient.
         /// </summary>
+        [Required]
         public string Category { get; set; }
 
         /// <summary>
         /// Vegan or Meat.
         /// </summary>
-         public bool IsVeggie { get; set; }
+        [Required]
+        public bool IsVeggie { get; set; }
 
         /// <summary>
         /// Description of ingridient.
         /// </summary>
+        [Required]
         public string Description { get; set; }
-
-        /// <summary>
-        /// Number of calories.
-        /// </summary>
-        public decimal Colories { get; set; }
 
         /// <summary>
         /// Recomend.
         /// </summary>
+        ///[Required]
         public bool IsRecomended { get; set; }
 
         /// <summary>
         /// Reaction.
         /// </summary>
+        [Required]
         public string Reaction { get; set; }
-
-        /// <summary>
-        /// Date of Ingridient.
-        /// </summary>
-        public DateTime? Date { get; set; }
     }
 }

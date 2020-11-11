@@ -7,36 +7,31 @@ namespace ProperNutrition.Common.Enums
     /// <summary>
     /// Enums of ChildReaction.
     /// </summary>
-    public enum ChildReaction
+    public enum Reaction
     {
+        /// <summary>
+        /// Unknown.
+        /// </summary>
+        Unknown = 0,
+
         /// <summary>
         /// No reaction.
         /// </summary>
-        NoReaction = 0,
+        NoReaction = 1,
         
         /// <summary>
         /// Low redness of skin.
         /// </summary>
-        LowRedness = 1,
+        LowRedness = 2,
 
         /// <summary>
         /// Medium redness of skin.
         /// </summary>
-        MediumRedness = 2,
+        MediumRedness = 3,
 
         /// <summary>
         /// High redness of skin.
         /// </summary>
-        HighRedness = 3,
-
-        /// <summary>
-        /// Lack of Air.
-        /// </summary>
-        LackAir = 4,
-
-        /// <summary>
-        /// Convulsions.
-        /// </summary>
-        Convulsions = 5
+        HighRedness = 4,
     }
 }

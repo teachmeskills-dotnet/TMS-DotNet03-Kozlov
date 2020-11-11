@@ -15,12 +15,17 @@ namespace ProperNutrition.Web.ViewModels
         /// <summary>
         /// Name of ingridient.
         /// </summary>
-        public string NameIngridient { get; set; }
+        public string Name { get; set; }
 
         /// <summary>
         /// Category of ingridient.
         /// </summary>
         public string Category { get; set; }
+
+        /// <summary>
+        /// Vegan or Meat.
+        /// </summary>
+        public bool IsVeggie { get; set; }
 
         /// <summary>
         /// Description of ingridient.
@@ -45,8 +50,6 @@ namespace ProperNutrition.Web.ViewModels
         /// <summary>
         /// Date of Ingridient.
         /// </summary>
-        public DateTime? IngridientDate { get; set; }
-
-        //ToDo: Add VegMeat properties
+        public DateTime? Date { get; set; }
     }
 }

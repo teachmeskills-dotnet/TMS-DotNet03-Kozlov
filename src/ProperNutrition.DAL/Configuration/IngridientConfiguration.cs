@@ -34,8 +34,7 @@ namespace ProperNutrition.DAL.Configuration
                    .HasMaxLength(ConfigurationConstants.MaxLenghtSimvbol);
 
             builder.Property(ingridient => ingridient.Reaction)
-                   .IsRequired()
-                   .HasMaxLength(ConfigurationConstants.MaxLenghtSimvbol);
+                   .IsRequired();
 
             builder.HasOne(ingridient => ingridient.ApplicationUser)
                    .WithMany(identity => identity.Ingridients)
@@ -47,7 +46,7 @@ namespace ProperNutrition.DAL.Configuration
                    .HasForeignKey(readyMealIngridients => readyMealIngridients.IngridientId)
                    .OnDelete(DeleteBehavior.Restrict);
 
-            //TODO: Are decimal entities has configuration
+            //TODO: Are decimal entities has configuration?
         }
     }
 }

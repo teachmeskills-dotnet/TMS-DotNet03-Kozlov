@@ -1,0 +1,38 @@
+﻿@model IngridientActionViewModel
+
+@{
+    ViewData["Title"] = "Create ingridient page";
+}
+<h1>Create new ingridient</h1>
+
+<form method="post" asp-controller="Ingridient" asp-action="Create">
+
+    <div asp-validation-summary="ModelOnly"></div>
+    <div>
+        <input class="input" asp-for="Name" placeholder="Name" type="text" />
+        <span asp-validation-for="Name"></span>
+    </div>
+    <div>
+        <input class="input" asp-for="Category" placeholder="Category" type="text" />
+        <span asp-validation-for="Category"></span>
+    </div>
+    <div>
+        <input class="input" asp-for="IsVeggie" placeholder="IsVeggie" type="text" />
+        <span asp-validation-for="IsVeggie"></span>
+    </div>
+    <div>
+        <input class="input" asp-for="Description" placeholder="Description" type="text" />
+        <span asp-validation-for="Description"></span>
+    </div>
+    <div>
+        <input class="input" asp-for="IsRecomended" placeholder="IsRecomended" type="text" />
+        <span asp-validation-for="IsRecomended"></span>
+    </div>
+    <div>
+        <input class="input" asp-for="Reaction" placeholder="Reaction" type="text" />
+        <span asp-validation-for="Reaction"></span>
+    </div>
+    <div>
+        <input class="button" type="submit" value="Confirm" />
+    </div>
+</form>

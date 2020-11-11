@@ -1,4 +1,5 @@
-﻿using ProperNutrition.Common.Interfaces;
+﻿using ProperNutrition.Common.Enums;
+using ProperNutrition.Common.Interfaces;
 using System;
 using System.Collections.Generic;
 
@@ -11,6 +12,9 @@ namespace ProperNutrition.DAL.Entities
     {
         /// <inheritdoc/>
         public int Id { get; set; }
+
+        /// <inheritdoc/>
+        public string UserId { get; set; }
 
         /// <summary>
         /// Name of ingridient
@@ -45,15 +49,12 @@ namespace ProperNutrition.DAL.Entities
         /// <summary>
         /// Reaction.
         /// </summary>
-        public string Reaction { get; set; }
+        public Reaction Reaction { get; set; }
 
         /// <summary>
         /// Date of Ingridient.
         /// </summary>
         public DateTime? Date { get; set; }
-
-        /// <inheritdoc/>
-        public string UserId { get; set; }
 
         public ApplicationUser ApplicationUser { get; set; }
 

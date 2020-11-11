@@ -20,6 +20,26 @@ namespace ProperNutrition.BLL.Managers
             _repositoryIngridient = repositoryIngridient ?? throw new ArgumentNullException(nameof(repositoryIngridient));
         }
 
+        public async Task CreateAsync(string UserId, IngridientDto ingridientDto)
+        {
+            var ingridient = new Ingridient
+            {
+                Id = ingridientDto.Id,
+                Name = ingridientDto.Name,
+                Category = ingridientDto.Category,
+                IsVeggie = ingridientDto.IsVeggie,
+                Description = ingridientDto.Description,
+                Colories = ingridientDto.Colories,
+                IsRecomended = ingridientDto.IsRecomended,
+                Reaction = ingridientDto.Reaction,
+                Date = ingridientDto.Date
+            };
+            //Create new model
+            await _repositoryIngridient.CreateAsync(ingridient);
+            //Save new model in DataBase
+            await _repositoryIngridient.SaveChangesAsync();
+        }
+
         public async Task<IEnumerable<IngridientDto>> GetIngridientsByUserIdAsync(string userId)
         {
             var ingridients = await _repositoryIngridient
@@ -35,14 +55,14 @@ namespace ProperNutrition.BLL.Managers
                 ingridientDtos.Add(new IngridientDto
                 {
                     Id = ingridient.Id,
-                    NameIngridient = ingridient.Name,
+                    Name = ingridient.Name,
                     Category = ingridient.Category,
-                    VegetarionorMeat = ingridient.IsVeggie,
+                    IsVeggie = ingridient.IsVeggie,
                     Description = ingridient.Description,
                     Colories = ingridient.Colories,
                     IsRecomended = ingridient.IsRecomended,
                     Reaction = ingridient.Reaction,
-                    IngridientDate = ingridient.Date
+                    Date = ingridient.Date
                 });
             }
 
