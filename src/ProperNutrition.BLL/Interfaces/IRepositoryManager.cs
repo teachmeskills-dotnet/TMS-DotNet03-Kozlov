@@ -5,14 +5,26 @@ using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ProperNutrition.Common.Interfaces
+namespace ProperNutrition.BLL.Interfaces
 {
     /// <summary>
-    /// Generic repository provide all base needed methods (CRUD)
+    /// Generic repository provide all base needed methods (CRUD).
     /// </summary>
     /// <typeparam name="T"></typeparam>
-    public interface IRepository<T> where T : class
+    public interface IRepositoryManager<T> where T : class
     {
+        /// <summary>
+        /// Create new entity async.
+        /// </summary>
+        /// <param name="entity">Entity object</param>
+        Task CreateAsync(T entity);
+
+        /// <summary>
+        /// Create new entities async.
+        /// </summary>
+        /// <param name="entities">Entity collection.</param>
+        Task CreateRangeAsync(IEnumerable<T> entities);
+
         /// <summary>
         /// Get all queries.
         /// </summary>
@@ -27,16 +39,11 @@ namespace ProperNutrition.Common.Interfaces
         Task<T> GetEntityAsync(Expression<Func<T, bool>> predicate);
 
         /// <summary>
-        /// Add new entity async.
+        /// Get entity async by predicate (without tracking).
         /// </summary>
-        /// <param name="entity">Entity object</param>
-        Task CreateAsync(T entity);
-
-        /// <summary>
-        /// Add new entities async.
-        /// </summary>
-        /// <param name="entities">Entity collection.</param>
-        Task AddRangeAsync(IEnumerable<T> entities);
+        /// <param name="predicate">LINQ predicate.</param>
+        /// <returns>T entity.</returns>
+        Task<T> GetEntityWithoutTrackingAsync(Expression<Func<T, bool>> predicate);
 
         /// <summary>
         /// Update entity

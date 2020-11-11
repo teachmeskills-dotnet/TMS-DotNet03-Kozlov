@@ -1,7 +1,5 @@
 ﻿using ProperNutrition.BLL.Models;
-using System;
 using System.Collections.Generic;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace ProperNutrition.BLL.Interfaces
@@ -17,6 +15,5 @@ namespace ProperNutrition.BLL.Interfaces
         /// <param name="Userid">User idetifier.</param>
         /// <returns>Profiles.</returns>
         public Task<IEnumerable<ProfileDto>> GetProfilesByUserIdAsync(string Userid);
-        
     }
 }

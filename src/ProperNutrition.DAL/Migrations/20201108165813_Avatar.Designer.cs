@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using ProperNutrition.DAL.Context;
 
 namespace ProperNutrition.DAL.Migrations
 {
     [DbContext(typeof(ProperNutritionContext))]
-    partial class ProperNutritionContextModelSnapshot : ModelSnapshot
+    [Migration("20201108165813_Avatar")]
+    partial class Avatar
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

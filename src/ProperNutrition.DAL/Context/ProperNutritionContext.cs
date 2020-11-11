@@ -16,7 +16,7 @@ namespace ProperNutrition.DAL.Context
         /// </summary>
         /// <param name="options">Dbase context options.</param>
         public ProperNutritionContext(DbContextOptions<ProperNutritionContext> options)
-       : base(options)
+        : base(options)
         {
         }
 

@@ -72,5 +72,10 @@ namespace ProperNutrition.Web.ViewModels
         /// Date time last edited.
         /// </summary>
         public DateTime LastEdited { get; set; }
+
+        /// <summary>
+        /// Avatar picture.
+        /// </summary>
+        public byte[] Avatar { get; set; }
     }
 }

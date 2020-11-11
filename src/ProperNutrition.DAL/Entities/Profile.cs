@@ -58,5 +58,9 @@ namespace ProperNutrition.DAL.Entities
         /// </summary>
         public string SocialNetwork { get; set; }
 
+        /// <summary>
+        /// Avatar picture.
+        /// </summary>
+        public byte[] Avatar { get; set; }
     }
 }

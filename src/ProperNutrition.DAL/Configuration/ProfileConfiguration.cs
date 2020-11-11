@@ -44,6 +44,8 @@ namespace ProperNutrition.DAL.Configuration
                    .IsRequired()
                    .HasMaxLength(ConfigurationConstants.SmallLenghtSimvbol);
 
+            builder.Property(profile => profile.Avatar);
+               
             builder.HasOne(profile => profile.User)
                    .WithOne(identity => identity.Profile)
                    .HasForeignKey<Profile>(profile => profile.UserId)

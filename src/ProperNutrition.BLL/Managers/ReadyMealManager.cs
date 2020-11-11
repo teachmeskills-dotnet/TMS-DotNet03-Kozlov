@@ -25,6 +25,7 @@ namespace ProperNutrition.BLL.Managers
              var readymeals = await _repositoryReadyMeal
                 .GetAll()
                 .AsNoTracking()
+                //where
                 .ToListAsync();
 
             var readymealDtos = new List<ReadyMealDto>();
