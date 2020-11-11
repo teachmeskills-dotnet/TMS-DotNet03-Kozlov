@@ -1,13 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace ProperNutrition.Common.Enums
+﻿namespace ProperNutrition.Common.Enums
 {
     /// <summary>
     /// Enums of ChildReaction.
     /// </summary>
-    public enum Reaction
+    public enum ReactionType
     {
         /// <summary>
         /// Unknown.
@@ -18,20 +14,20 @@ namespace ProperNutrition.Common.Enums
         /// No reaction.
         /// </summary>
         NoReaction = 1,
-        
+
         /// <summary>
         /// Low redness of skin.
         /// </summary>
-        LowRedness = 2,
+        Low = 2,
 
         /// <summary>
         /// Medium redness of skin.
         /// </summary>
-        MediumRedness = 3,
+        Medium = 3,
 
         /// <summary>
         /// High redness of skin.
         /// </summary>
-        HighRedness = 4,
+        High = 4,
     }
 }

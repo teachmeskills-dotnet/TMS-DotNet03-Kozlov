@@ -1,17 +1,15 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using ProperNutrition.BLL.Interfaces;
-using ProperNutrition.Common.Interfaces;
 using ProperNutrition.DAL.Context;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace ProperNutrition.BLL.Repository
 {
-    /// <inheritdoc cref="IRepository<T>"/>
+    /// <inheritdoc cref="IRepositoryManager<T>"/>
     public class RepositoryManager<T> : IRepositoryManager<T> where T : class
     {
         private readonly DbSet<T> _dbSet;

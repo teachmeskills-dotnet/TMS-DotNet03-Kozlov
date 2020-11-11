@@ -26,9 +26,9 @@ namespace ProperNutrition.Web
         public void ConfigureServices(IServiceCollection services)
         {
             // Repositoy pattern services.
-            services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
+            services.AddScoped(typeof(IRepositoryManager<>), typeof(RepositoryManager<>));
 
-            
+
             // Managers services.
             services.AddScoped<IAccountManager, AccountManager>();
             services.AddScoped<IIngridientManager, IngridientManager>();

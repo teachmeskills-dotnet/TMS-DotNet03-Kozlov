@@ -1,6 +1,8 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
+using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using ProperNutrition.Common.Constants;
+using ProperNutrition.Common.Enums;
 using ProperNutrition.DAL.Entities;
 using System;
 
@@ -33,8 +35,8 @@ namespace ProperNutrition.DAL.Configuration
             builder.Property(ingridient => ingridient.Description)
                    .HasMaxLength(ConfigurationConstants.MaxLenghtSimvbol);
 
-            builder.Property(ingridient => ingridient.Reaction)
-                   .IsRequired();
+            builder.Property(ingridient => ingridient.ReactionType)
+                    .HasConversion(new EnumToNumberConverter<ReactionType, int>());
 
             builder.HasOne(ingridient => ingridient.ApplicationUser)
                    .WithMany(identity => identity.Ingridients)
@@ -45,8 +47,6 @@ namespace ProperNutrition.DAL.Configuration
                    .WithOne(readyMealIngridients => readyMealIngridients.Ingridient)
                    .HasForeignKey(readyMealIngridients => readyMealIngridients.IngridientId)
                    .OnDelete(DeleteBehavior.Restrict);
-
-            //TODO: Are decimal entities has configuration?
         }
     }
 }

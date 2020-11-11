@@ -13,9 +13,9 @@ namespace ProperNutrition.BLL.Managers
     /// <inheritdoc cref="IReadyMealManager">
     public class ReadyMealManager : IReadyMealManager
     {
-        private readonly IRepository<ReadyMeal> _repositoryReadyMeal;
+        private readonly IRepositoryManager<ReadyMeal> _repositoryReadyMeal;
 
-        public ReadyMealManager(IRepository<ReadyMeal> repositoryReadyMeal)
+        public ReadyMealManager(IRepositoryManager<ReadyMeal> repositoryReadyMeal)
         {
             _repositoryReadyMeal = repositoryReadyMeal ?? throw new ArgumentNullException(nameof(repositoryReadyMeal));
         }

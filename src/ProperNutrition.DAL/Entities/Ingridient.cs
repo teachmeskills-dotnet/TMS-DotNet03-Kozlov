@@ -49,7 +49,7 @@ namespace ProperNutrition.DAL.Entities
         /// <summary>
         /// Reaction.
         /// </summary>
-        public Reaction Reaction { get; set; }
+        public ReactionType ReactionType { get; set; }
 
         /// <summary>
         /// Date of Ingridient.

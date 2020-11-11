@@ -43,8 +43,6 @@ namespace ProperNutrition.DAL.Configuration
             builder.Property(profile => profile.SocialNetwork)
                    .IsRequired()
                    .HasMaxLength(ConfigurationConstants.SmallLenghtSimvbol);
-
-            builder.Property(profile => profile.Avatar);
                
             builder.HasOne(profile => profile.User)
                    .WithOne(identity => identity.Profile)

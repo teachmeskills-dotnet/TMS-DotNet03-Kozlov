@@ -29,8 +29,8 @@
         <span asp-validation-for="IsRecomended"></span>
     </div>
     <div>
-        <input class="input" asp-for="Reaction" placeholder="Reaction" type="text" />
-        <span asp-validation-for="Reaction"></span>
+        <input class="input" asp-for="ReactionType" placeholder="ReactionType" type="text"  asp-items="ViewBag.ReactionType" />
+        <span asp-validation-for="ReactionType"></span>
     </div>
     <div>
         <input class="button" type="submit" value="Confirm" />

@@ -1,8 +1,11 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.CodeAnalysis.CSharp.Syntax;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using ProperNutrition.BLL.Interfaces;
+using ProperNutrition.Common.Enums;
+using ProperNutrition.Common.Extensions;
 using ProperNutrition.Common.Interfaces;
+using ProperNutrition.Web.Models;
 using ProperNutrition.Web.ViewModels;
 using System;
 using System.Collections.Generic;
@@ -42,7 +45,7 @@ namespace ProperNutrition.Web.Controllers
                     Description = ingridientDto.Description,
                     Colories = ingridientDto.Colories,
                     IsRecomended = ingridientDto.IsRecomended,
-                    Reaction = ingridientDto.Reaction,
+                    ReactionType = ingridientDto.ReactionType,
                     Date = ingridientDto.Date
                 });
             }
@@ -52,14 +55,16 @@ namespace ProperNutrition.Web.Controllers
         [HttpGet]
         public IActionResult Create()
         {
-            var signInViewModel = new SignInViewModels
-            {
-                ReturnUrl = returnUrl
-            };
+            IEnumerable<ReactionTypeModel> reactionType = new List<ReactionTypeModel>
+        {
+            new ReactionTypeModel{Id = 1, Type = ReactionType.NoReaction.ToLocal()},
+            new ReactionTypeModel{Id = 2, Type = ReactionType.Low.ToLocal()},
+            new ReactionTypeModel{Id = 3, Type = ReactionType.Medium.ToLocal()},
+            new ReactionTypeModel{Id = 4, Type = ReactionType.High.ToLocal()}
+        };
+            ViewBag.ReactionType = new SelectList(reactionType, "Id", "Type");
 
-            ViewBag.Ingridient = new SelectList
-
-            return View(signInViewModel);
+            return View();
         }
     }
 }

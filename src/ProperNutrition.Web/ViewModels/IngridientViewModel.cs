@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ProperNutrition.Common.Enums;
+using System;
 
 namespace ProperNutrition.Web.ViewModels
 {
@@ -45,7 +46,7 @@ namespace ProperNutrition.Web.ViewModels
         /// <summary>
         /// Reaction.
         /// </summary>
-        public string Reaction { get; set; }
+        public ReactionType ReactionType { get; set; }
 
         /// <summary>
         /// Date of Ingridient.

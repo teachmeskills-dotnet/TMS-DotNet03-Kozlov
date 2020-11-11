@@ -1,7 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using ProperNutrition.BLL.Interfaces;
 using ProperNutrition.BLL.Models;
-using ProperNutrition.Common.Interfaces;
 using ProperNutrition.DAL.Entities;
 using System;
 using System.Collections.Generic;
@@ -13,11 +12,16 @@ namespace ProperNutrition.BLL.Managers
     /// <inheritdoc cref="IIngridientManager">
     public class IngridientManager : IIngridientManager
     {
-        private readonly IRepository<Ingridient> _repositoryIngridient;
+        private readonly IRepositoryManager<Ingridient> _repositoryIngridient;
 
-        public IngridientManager(IRepository<Ingridient> repositoryIngridient)
+        public IngridientManager(IRepositoryManager<Ingridient> repositoryIngridient)
         {
             _repositoryIngridient = repositoryIngridient ?? throw new ArgumentNullException(nameof(repositoryIngridient));
+        }
+
+        public Task ChangeIngridientStatusAsync(string UserId, int id)
+        {
+            throw new NotImplementedException();
         }
 
         public async Task CreateAsync(string UserId, IngridientDto ingridientDto)
@@ -31,7 +35,7 @@ namespace ProperNutrition.BLL.Managers
                 Description = ingridientDto.Description,
                 Colories = ingridientDto.Colories,
                 IsRecomended = ingridientDto.IsRecomended,
-                Reaction = ingridientDto.Reaction,
+                ReactionType = ingridientDto.ReactionType,
                 Date = ingridientDto.Date
             };
             //Create new model
@@ -61,7 +65,7 @@ namespace ProperNutrition.BLL.Managers
                     Description = ingridient.Description,
                     Colories = ingridient.Colories,
                     IsRecomended = ingridient.IsRecomended,
-                    Reaction = ingridient.Reaction,
+                    ReactionType = ingridient.ReactionType,
                     Date = ingridient.Date
                 });
             }

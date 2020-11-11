@@ -13,9 +13,9 @@ namespace ProperNutrition.BLL.Managers
     /// <inheritdoc cref="IProfileManager">
     public class ProfileManager : IProfileManager
     {
-        private readonly IRepository<Profile> _repositoryProfile;
+        private readonly IRepositoryManager<Profile> _repositoryProfile;
 
-        public ProfileManager(IRepository<Profile> repositoryProfile)
+        public ProfileManager(IRepositoryManager<Profile> repositoryProfile)
         {
             _repositoryProfile = repositoryProfile ?? throw new ArgumentNullException(nameof(repositoryProfile));
         }
