@@ -19,16 +19,26 @@ namespace ProperNutrition.BLL.Managers
             _repositoryIngridient = repositoryIngridient ?? throw new ArgumentNullException(nameof(repositoryIngridient));
         }
 
-        public Task ChangeIngridientStatusAsync(string UserId, int id)
+        public async Task ChangeIngridientStatusAsync(string userId, int id)
         {
-            throw new NotImplementedException();
+            var ingridient = await _repositoryIngridient
+                .GetEntityAsync(ingridient =>
+                    ingridient.Id == id && ingridient.UserId == userId);
+
+
+            //ingridient.Completed = true;
+            //ingridient.Closed = DateTime.Now;
+
+            _repositoryIngridient.Update(ingridient);
+            await _repositoryIngridient.SaveChangesAsync();
         }
 
-        public async Task CreateAsync(string UserId, IngridientDto ingridientDto)
+        public async Task CreateAsync(IngridientDto ingridientDto)
         {
             var ingridient = new Ingridient
             {
                 Id = ingridientDto.Id,
+                UserId = ingridientDto.UserId,
                 Name = ingridientDto.Name,
                 Category = ingridientDto.Category,
                 IsVeggie = ingridientDto.IsVeggie,
@@ -44,15 +54,47 @@ namespace ProperNutrition.BLL.Managers
             await _repositoryIngridient.SaveChangesAsync();
         }
 
-        public async Task<IEnumerable<IngridientDto>> GetIngridientsByUserIdAsync(string userId)
+        public async Task<IngridientDto> GetIngridientAsync(int id, string userId)
         {
-            var ingridients = await _repositoryIngridient
+            var ingridient = await _repositoryIngridient
+                .GetEntityWithoutTrackingAsync(ingridient =>
+                    ingridient.Id == id && ingridient.UserId == userId);
+
+            //if (Ingridient is null)
+            //{
+            //    throw new KeyNotFoundException(ErrorResource.                 TodoNotFound);
+            //}
+
+            var ingridientDto = new IngridientDto
+            {
+               Id = ingridient.Id,
+               UserId = ingridient.UserId,
+               Name = ingridient.Name,
+               Category = ingridient.Category,
+               IsVeggie = ingridient.IsVeggie,
+               Description = ingridient.Description,
+               Colories = ingridient.Colories,
+               IsRecomended = ingridient.IsRecomended,
+               ReactionType = ingridient.ReactionType,
+               Date = ingridient.Date
+            };
+            return ingridientDto;
+        }
+
+
+        public async Task<IEnumerable<IngridientDto>> GetIngridientsAsync (string userId)
+        {
+            var ingridientDtos = new List<IngridientDto>();
+            var ingridients =  await _repositoryIngridient
                 .GetAll()
                 .AsNoTracking()
                 .Where(ingridient => ingridient.UserId == userId) //Delite becouse all people can use all ingridients
                 .ToListAsync();
 
-            var ingridientDtos = new List<IngridientDto>();
+            if (!ingridients.Any())
+            {
+                return ingridientDtos;
+            }
 
             foreach (var ingridient in ingridients)
             {

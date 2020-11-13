@@ -13,9 +13,6 @@ namespace ProperNutrition.DAL.Entities
         /// <inheritdoc/>
         public int Id { get; set; }
 
-        /// <inheritdoc/>
-        public string UserId { get; set; }
-
         /// <summary>
         /// Name of ingridient
         /// </summary>
@@ -55,6 +52,9 @@ namespace ProperNutrition.DAL.Entities
         /// Date of Ingridient.
         /// </summary>
         public DateTime? Date { get; set; }
+
+        /// <inheritdoc/>
+        public string UserId { get; set; }
 
         public ApplicationUser ApplicationUser { get; set; }
 

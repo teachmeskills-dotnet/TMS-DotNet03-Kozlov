@@ -36,6 +36,5 @@ namespace ProperNutrition.DAL.Entities
         /// Navigation to Ingridient. 
         /// </summary>
         public Ingridient Ingridient { get; set; }
-              
     }
 }

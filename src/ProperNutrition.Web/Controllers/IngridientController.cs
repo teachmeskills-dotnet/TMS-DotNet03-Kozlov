@@ -31,7 +31,7 @@ namespace ProperNutrition.Web.Controllers
         public async Task<IActionResult> Index()
         {
             var userId = await _accountManager.GetUserIdByNameAsync(User.Identity.Name);
-            var ingridientDtos = await _ingridientManager.GetIngridientsByUserIdAsync(userId);
+            var ingridientDtos = await _ingridientManager.GetIngridientsAsync(userId);
 
             var ingridientViewModels = new List<IngridientViewModel>();
             foreach (var ingridientDto in ingridientDtos)

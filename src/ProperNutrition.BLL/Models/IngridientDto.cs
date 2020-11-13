@@ -14,6 +14,11 @@ namespace ProperNutrition.BLL.Models
         public int Id { get; set; }
 
         /// <summary>
+        /// User identifier.
+        /// </summary>
+        public string UserId { get; set; }
+
+        /// <summary>
         /// Name of ingridient.
         /// </summary>
         public string Name { get; set; }

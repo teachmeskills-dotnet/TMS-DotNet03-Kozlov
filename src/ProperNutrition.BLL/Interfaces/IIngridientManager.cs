@@ -14,14 +14,14 @@ namespace ProperNutrition.BLL.Interfaces
         /// </summary>
         /// <param name="UserId">User idetifier.</param>
         /// <param name="ingridientDto">Ingridient data transfer object.</param>
-        Task CreateAsync(string UserId, IngridientDto ingridientDto);
+        Task CreateAsync(IngridientDto ingridientDto);
 
         /// <summary>
         /// Get ingridient by User Idintifier.
         /// </summary>
         /// <param name="Userid">User idetifier.</param>
         /// <returns>List of Ingridient data transfer object.</returns>
-        public Task<IEnumerable<IngridientDto>> GetIngridientsByUserIdAsync(string Userid);
+        public Task<IEnumerable<IngridientDto>> GetIngridientsAsync (string Userid);
 
         /// <summary>
         /// Change Ingridient Status.
