@@ -8,11 +8,14 @@
     @RenderSection("css", false)
 
 </head>
-<body>
+<body>  
     <header>
         <div class="wrapper">
             <div class="header header__indent-bottom">
-                <a class="logo" asp-controller="Home" asp-action="Index">Proper Nutrition app.</a>
+
+
+                <a class="logo" asp-controller="Home" asp-action="Index"><img class="logo" src="~/images/logo.png" alt="Proper Nutrition app." /></a>
+
 
                 @if (User.Identity.IsAuthenticated)
                 {
