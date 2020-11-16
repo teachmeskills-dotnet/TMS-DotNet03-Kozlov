@@ -10,14 +10,14 @@ using ProperNutrition.DAL.Context;
 namespace ProperNutrition.DAL.Migrations
 {
     [DbContext(typeof(ProperNutritionContext))]
-    [Migration("20201113195626_Inint")]
-    partial class Inint
+    [Migration("20201116173632_Init")]
+    partial class Init
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "3.1.10")
+                .HasAnnotation("ProductVersion", "3.1.9")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
@@ -270,9 +270,6 @@ namespace ProperNutrition.DAL.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<byte[]>("Avatar")
-                        .HasColumnType("varbinary(max)");
-
                     b.Property<DateTime>("BirthDate")
                         .HasColumnType("date");
 
@@ -293,6 +290,9 @@ namespace ProperNutrition.DAL.Migrations
                     b.Property<string>("Phone")
                         .HasColumnType("nvarchar(20)")
                         .HasMaxLength(20);
+
+                    b.Property<byte[]>("ProfilePicture")
+                        .HasColumnType("varbinary(max)");
 
                     b.Property<string>("SocialNetwork")
                         .IsRequired()
@@ -336,6 +336,9 @@ namespace ProperNutrition.DAL.Migrations
                         .HasColumnType("nvarchar(100)")
                         .HasMaxLength(100);
 
+                    b.Property<byte[]>("Picture")
+                        .HasColumnType("varbinary(max)");
+
                     b.Property<DateTime>("ReadyTime")
                         .HasColumnType("datetime2");
 
@@ -344,7 +347,12 @@ namespace ProperNutrition.DAL.Migrations
                         .HasColumnType("nvarchar(100)")
                         .HasMaxLength(100);
 
+                    b.Property<string>("UserId")
+                        .HasColumnType("nvarchar(450)");
+
                     b.HasKey("Id");
+
+                    b.HasIndex("UserId");
 
                     b.ToTable("ReadyMeals","food");
                 });
@@ -438,6 +446,14 @@ namespace ProperNutrition.DAL.Migrations
                     b.HasOne("ProperNutrition.DAL.Entities.ApplicationUser", "User")
                         .WithOne("Profile")
                         .HasForeignKey("ProperNutrition.DAL.Entities.Profile", "UserId")
+                        .OnDelete(DeleteBehavior.Restrict);
+                });
+
+            modelBuilder.Entity("ProperNutrition.DAL.Entities.ReadyMeal", b =>
+                {
+                    b.HasOne("ProperNutrition.DAL.Entities.ApplicationUser", "ApplicationUser")
+                        .WithMany("ReadyMeals")
+                        .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Restrict);
                 });
 

@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace ProperNutrition.DAL.Migrations
 {
-    public partial class Inint : Migration
+    public partial class Init : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -50,24 +50,6 @@ namespace ProperNutrition.DAL.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_AspNetUsers", x => x.Id);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "ReadyMeals",
-                schema: "food",
-                columns: table => new
-                {
-                    Id = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    Name = table.Column<string>(maxLength: 100, nullable: false),
-                    ChildReacrion = table.Column<string>(maxLength: 200, nullable: false),
-                    TeastyMeal = table.Column<string>(maxLength: 100, nullable: false),
-                    Comment = table.Column<string>(maxLength: 100, nullable: true),
-                    ReadyTime = table.Column<DateTime>(nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_ReadyMeals", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -191,7 +173,7 @@ namespace ProperNutrition.DAL.Migrations
                     Phone = table.Column<string>(maxLength: 20, nullable: true),
                     Telegram = table.Column<string>(maxLength: 20, nullable: true),
                     SocialNetwork = table.Column<string>(maxLength: 50, nullable: false),
-                    Avatar = table.Column<byte[]>(nullable: true)
+                    ProfilePicture = table.Column<byte[]>(nullable: true)
                 },
                 constraints: table =>
                 {
@@ -226,6 +208,32 @@ namespace ProperNutrition.DAL.Migrations
                     table.PrimaryKey("PK_Ingridients", x => x.Id);
                     table.ForeignKey(
                         name: "FK_Ingridients_AspNetUsers_UserId",
+                        column: x => x.UserId,
+                        principalTable: "AspNetUsers",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "ReadyMeals",
+                schema: "food",
+                columns: table => new
+                {
+                    Id = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Name = table.Column<string>(maxLength: 100, nullable: false),
+                    ChildReacrion = table.Column<string>(maxLength: 200, nullable: false),
+                    TeastyMeal = table.Column<string>(maxLength: 100, nullable: false),
+                    Comment = table.Column<string>(maxLength: 100, nullable: true),
+                    ReadyTime = table.Column<DateTime>(nullable: false),
+                    Picture = table.Column<byte[]>(nullable: true),
+                    UserId = table.Column<string>(nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_ReadyMeals", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_ReadyMeals_AspNetUsers_UserId",
                         column: x => x.UserId,
                         principalTable: "AspNetUsers",
                         principalColumn: "Id",
@@ -326,6 +334,12 @@ namespace ProperNutrition.DAL.Migrations
                 schema: "food",
                 table: "ReadyMealIngridients",
                 column: "ReadyMealId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_ReadyMeals_UserId",
+                schema: "food",
+                table: "ReadyMeals",
+                column: "UserId");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)

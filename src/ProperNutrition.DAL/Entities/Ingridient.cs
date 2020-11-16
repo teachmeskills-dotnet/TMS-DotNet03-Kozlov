@@ -56,6 +56,7 @@ namespace ProperNutrition.DAL.Entities
         /// <inheritdoc/>
         public string UserId { get; set; }
 
+        /// <inheritdoc/>
         public ApplicationUser ApplicationUser { get; set; }
 
         /// <summary>

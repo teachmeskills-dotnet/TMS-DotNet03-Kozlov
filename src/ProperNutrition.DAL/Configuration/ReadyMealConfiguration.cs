@@ -46,6 +46,10 @@ namespace ProperNutrition.DAL.Configuration
                 .HasForeignKey(readyMealIngridients => readyMealIngridients.ReadyMealId)
                 .OnDelete(DeleteBehavior.Restrict);
 
+            builder.HasOne(readyMeal => readyMeal.ApplicationUser)
+                   .WithMany(identity => identity.ReadyMeals)
+                   .HasForeignKey(readyMeal => readyMeal.UserId)
+                   .OnDelete(DeleteBehavior.Restrict);
         }
     }
 }

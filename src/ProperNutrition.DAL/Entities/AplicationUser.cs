@@ -17,5 +17,10 @@ namespace ProperNutrition.DAL.Entities
         /// Navigatio to Ingridient.
         /// </summary>
         public ICollection<Ingridient> Ingridients { get; set; }
+
+        /// <summary>
+        /// Navigatio to Ingridient.
+        /// </summary>
+        public ICollection<ReadyMeal> ReadyMeals { get; set; }
     }
 }
