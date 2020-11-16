@@ -114,6 +114,7 @@ header {
 .logo {
     font-weight: bold;
     text-decoration: none;
+    width: 180px;
 }
 
 .welcome {
@@ -141,7 +142,7 @@ header {
 
 .wrapper {
     margin: 0 auto;
-    width: 1920px;
+    width: 1200px;
 }
 
 

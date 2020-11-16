@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace ProperNutrition.DAL.Migrations
 {
-    public partial class InitialCreate : Migration
+    public partial class Inint : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -17,10 +17,10 @@ namespace ProperNutrition.DAL.Migrations
                 name: "AspNetRoles",
                 columns: table => new
                 {
-                    Id = table.Column<string>(type: "nvarchar(450)", nullable: false),
-                    Name = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: true),
-                    NormalizedName = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: true),
-                    ConcurrencyStamp = table.Column<string>(type: "nvarchar(max)", nullable: true)
+                    Id = table.Column<string>(nullable: false),
+                    Name = table.Column<string>(maxLength: 256, nullable: true),
+                    NormalizedName = table.Column<string>(maxLength: 256, nullable: true),
+                    ConcurrencyStamp = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
                 {
@@ -31,21 +31,21 @@ namespace ProperNutrition.DAL.Migrations
                 name: "AspNetUsers",
                 columns: table => new
                 {
-                    Id = table.Column<string>(type: "nvarchar(450)", nullable: false),
-                    UserName = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: true),
-                    NormalizedUserName = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: true),
-                    Email = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: true),
-                    NormalizedEmail = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: true),
-                    EmailConfirmed = table.Column<bool>(type: "bit", nullable: false),
-                    PasswordHash = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    SecurityStamp = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    ConcurrencyStamp = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    PhoneNumber = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    PhoneNumberConfirmed = table.Column<bool>(type: "bit", nullable: false),
-                    TwoFactorEnabled = table.Column<bool>(type: "bit", nullable: false),
-                    LockoutEnd = table.Column<DateTimeOffset>(type: "datetimeoffset", nullable: true),
-                    LockoutEnabled = table.Column<bool>(type: "bit", nullable: false),
-                    AccessFailedCount = table.Column<int>(type: "int", nullable: false)
+                    Id = table.Column<string>(nullable: false),
+                    UserName = table.Column<string>(maxLength: 256, nullable: true),
+                    NormalizedUserName = table.Column<string>(maxLength: 256, nullable: true),
+                    Email = table.Column<string>(maxLength: 256, nullable: true),
+                    NormalizedEmail = table.Column<string>(maxLength: 256, nullable: true),
+                    EmailConfirmed = table.Column<bool>(nullable: false),
+                    PasswordHash = table.Column<string>(nullable: true),
+                    SecurityStamp = table.Column<string>(nullable: true),
+                    ConcurrencyStamp = table.Column<string>(nullable: true),
+                    PhoneNumber = table.Column<string>(nullable: true),
+                    PhoneNumberConfirmed = table.Column<bool>(nullable: false),
+                    TwoFactorEnabled = table.Column<bool>(nullable: false),
+                    LockoutEnd = table.Column<DateTimeOffset>(nullable: true),
+                    LockoutEnabled = table.Column<bool>(nullable: false),
+                    AccessFailedCount = table.Column<int>(nullable: false)
                 },
                 constraints: table =>
                 {
@@ -57,13 +57,13 @@ namespace ProperNutrition.DAL.Migrations
                 schema: "food",
                 columns: table => new
                 {
-                    Id = table.Column<int>(type: "int", nullable: false)
+                    Id = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    Name = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: false),
-                    ChildReacrion = table.Column<string>(type: "nvarchar(200)", maxLength: 200, nullable: false),
-                    TeastyMeal = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: false),
-                    Comment = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: true),
-                    ReadyTime = table.Column<DateTime>(type: "datetime2", nullable: false)
+                    Name = table.Column<string>(maxLength: 100, nullable: false),
+                    ChildReacrion = table.Column<string>(maxLength: 200, nullable: false),
+                    TeastyMeal = table.Column<string>(maxLength: 100, nullable: false),
+                    Comment = table.Column<string>(maxLength: 100, nullable: true),
+                    ReadyTime = table.Column<DateTime>(nullable: false)
                 },
                 constraints: table =>
                 {
@@ -74,11 +74,11 @@ namespace ProperNutrition.DAL.Migrations
                 name: "AspNetRoleClaims",
                 columns: table => new
                 {
-                    Id = table.Column<int>(type: "int", nullable: false)
+                    Id = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    RoleId = table.Column<string>(type: "nvarchar(450)", nullable: false),
-                    ClaimType = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    ClaimValue = table.Column<string>(type: "nvarchar(max)", nullable: true)
+                    RoleId = table.Column<string>(nullable: false),
+                    ClaimType = table.Column<string>(nullable: true),
+                    ClaimValue = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
                 {
@@ -95,11 +95,11 @@ namespace ProperNutrition.DAL.Migrations
                 name: "AspNetUserClaims",
                 columns: table => new
                 {
-                    Id = table.Column<int>(type: "int", nullable: false)
+                    Id = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    UserId = table.Column<string>(type: "nvarchar(450)", nullable: false),
-                    ClaimType = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    ClaimValue = table.Column<string>(type: "nvarchar(max)", nullable: true)
+                    UserId = table.Column<string>(nullable: false),
+                    ClaimType = table.Column<string>(nullable: true),
+                    ClaimValue = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
                 {
@@ -116,10 +116,10 @@ namespace ProperNutrition.DAL.Migrations
                 name: "AspNetUserLogins",
                 columns: table => new
                 {
-                    LoginProvider = table.Column<string>(type: "nvarchar(450)", nullable: false),
-                    ProviderKey = table.Column<string>(type: "nvarchar(450)", nullable: false),
-                    ProviderDisplayName = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    UserId = table.Column<string>(type: "nvarchar(450)", nullable: false)
+                    LoginProvider = table.Column<string>(nullable: false),
+                    ProviderKey = table.Column<string>(nullable: false),
+                    ProviderDisplayName = table.Column<string>(nullable: true),
+                    UserId = table.Column<string>(nullable: false)
                 },
                 constraints: table =>
                 {
@@ -136,8 +136,8 @@ namespace ProperNutrition.DAL.Migrations
                 name: "AspNetUserRoles",
                 columns: table => new
                 {
-                    UserId = table.Column<string>(type: "nvarchar(450)", nullable: false),
-                    RoleId = table.Column<string>(type: "nvarchar(450)", nullable: false)
+                    UserId = table.Column<string>(nullable: false),
+                    RoleId = table.Column<string>(nullable: false)
                 },
                 constraints: table =>
                 {
@@ -160,10 +160,10 @@ namespace ProperNutrition.DAL.Migrations
                 name: "AspNetUserTokens",
                 columns: table => new
                 {
-                    UserId = table.Column<string>(type: "nvarchar(450)", nullable: false),
-                    LoginProvider = table.Column<string>(type: "nvarchar(450)", nullable: false),
-                    Name = table.Column<string>(type: "nvarchar(450)", nullable: false),
-                    Value = table.Column<string>(type: "nvarchar(max)", nullable: true)
+                    UserId = table.Column<string>(nullable: false),
+                    LoginProvider = table.Column<string>(nullable: false),
+                    Name = table.Column<string>(nullable: false),
+                    Value = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
                 {
@@ -177,49 +177,21 @@ namespace ProperNutrition.DAL.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Ingridients",
-                schema: "food",
-                columns: table => new
-                {
-                    Id = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    Name = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
-                    Category = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
-                    IsVeggie = table.Column<bool>(type: "bit", nullable: false),
-                    Description = table.Column<string>(type: "nvarchar(200)", maxLength: 200, nullable: true),
-                    Colories = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
-                    IsRecomended = table.Column<bool>(type: "bit", nullable: false),
-                    ReactionType = table.Column<int>(type: "int", nullable: false),
-                    Date = table.Column<DateTime>(type: "datetime2", nullable: true),
-                    UserId = table.Column<string>(type: "nvarchar(450)", nullable: true)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Ingridients", x => x.Id);
-                    table.ForeignKey(
-                        name: "FK_Ingridients_AspNetUsers_UserId",
-                        column: x => x.UserId,
-                        principalTable: "AspNetUsers",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
-                });
-
-            migrationBuilder.CreateTable(
                 name: "Profiles",
                 schema: "account",
                 columns: table => new
                 {
-                    Id = table.Column<int>(type: "int", nullable: false)
+                    Id = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    UserId = table.Column<string>(type: "nvarchar(450)", nullable: true),
-                    FirstName = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
-                    LastName = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
-                    MiddleName = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: true),
+                    UserId = table.Column<string>(nullable: true),
+                    FirstName = table.Column<string>(maxLength: 50, nullable: false),
+                    LastName = table.Column<string>(maxLength: 50, nullable: false),
+                    MiddleName = table.Column<string>(maxLength: 50, nullable: true),
                     BirthDate = table.Column<DateTime>(type: "date", nullable: false),
-                    Phone = table.Column<string>(type: "nvarchar(20)", maxLength: 20, nullable: true),
-                    Telegram = table.Column<string>(type: "nvarchar(20)", maxLength: 20, nullable: true),
-                    SocialNetwork = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
-                    Avatar = table.Column<byte[]>(type: "varbinary(max)", nullable: true)
+                    Phone = table.Column<string>(maxLength: 20, nullable: true),
+                    Telegram = table.Column<string>(maxLength: 20, nullable: true),
+                    SocialNetwork = table.Column<string>(maxLength: 50, nullable: false),
+                    Avatar = table.Column<byte[]>(nullable: true)
                 },
                 constraints: table =>
                 {
@@ -233,15 +205,43 @@ namespace ProperNutrition.DAL.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "Ingridients",
+                schema: "food",
+                columns: table => new
+                {
+                    Id = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Name = table.Column<string>(maxLength: 50, nullable: false),
+                    Category = table.Column<string>(maxLength: 50, nullable: false),
+                    IsVeggie = table.Column<bool>(nullable: false),
+                    Description = table.Column<string>(maxLength: 200, nullable: true),
+                    Colories = table.Column<decimal>(nullable: false),
+                    IsRecomended = table.Column<bool>(nullable: false),
+                    ReactionType = table.Column<int>(nullable: false),
+                    Date = table.Column<DateTime>(nullable: true),
+                    UserId = table.Column<string>(nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Ingridients", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_Ingridients_AspNetUsers_UserId",
+                        column: x => x.UserId,
+                        principalTable: "AspNetUsers",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "ReadyMealIngridients",
                 schema: "food",
                 columns: table => new
                 {
-                    Id = table.Column<int>(type: "int", nullable: false)
+                    Id = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    Weight = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
-                    ReadyMealId = table.Column<int>(type: "int", nullable: false),
-                    IngridientId = table.Column<int>(type: "int", nullable: false)
+                    Weight = table.Column<decimal>(nullable: false),
+                    ReadyMealId = table.Column<int>(nullable: false),
+                    IngridientId = table.Column<int>(nullable: false)
                 },
                 constraints: table =>
                 {
@@ -302,18 +302,18 @@ namespace ProperNutrition.DAL.Migrations
                 filter: "[NormalizedUserName] IS NOT NULL");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Ingridients_UserId",
-                schema: "food",
-                table: "Ingridients",
-                column: "UserId");
-
-            migrationBuilder.CreateIndex(
                 name: "IX_Profiles_UserId",
                 schema: "account",
                 table: "Profiles",
                 column: "UserId",
                 unique: true,
                 filter: "[UserId] IS NOT NULL");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Ingridients_UserId",
+                schema: "food",
+                table: "Ingridients",
+                column: "UserId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_ReadyMealIngridients_IngridientId",
