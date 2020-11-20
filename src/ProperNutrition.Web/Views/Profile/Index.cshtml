@@ -1,5 +1,6 @@
 ﻿@model IEnumerable<ProfileViewModels>
 
+
 @{
     ViewData["Title"] = "Profile";
 }
@@ -9,7 +10,7 @@
     @if (Model.Any())
     {
         foreach (var profile in Model)
-        {   
+        {
             <pre>
 <span class="FirstName">@profile.FirstName</span>
 

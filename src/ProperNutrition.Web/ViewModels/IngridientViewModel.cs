@@ -46,7 +46,7 @@ namespace ProperNutrition.Web.ViewModels
         /// <summary>
         /// Reaction.
         /// </summary>
-        public ReactionType ReactionType { get; set; }
+        public string ReactionType { get; set; }
 
         /// <summary>
         /// Date of Ingridient.

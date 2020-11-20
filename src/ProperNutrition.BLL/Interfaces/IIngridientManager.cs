@@ -23,6 +23,8 @@ namespace ProperNutrition.BLL.Interfaces
         /// <returns>List of Ingridient data transfer object.</returns>
         public Task<IEnumerable<IngridientDto>> GetIngridientsAsync (string Userid);
 
+
+
         /// <summary>
         /// Change Ingridient Status.
         /// </summary>

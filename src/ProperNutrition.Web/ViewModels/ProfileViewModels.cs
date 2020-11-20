@@ -76,6 +76,6 @@ namespace ProperNutrition.Web.ViewModels
         /// <summary>
         /// Avatar picture.
         /// </summary>
-        public byte[] Avatar { get; set; }
+        public byte[] ProfilePicture { get; set; }
     }
 }

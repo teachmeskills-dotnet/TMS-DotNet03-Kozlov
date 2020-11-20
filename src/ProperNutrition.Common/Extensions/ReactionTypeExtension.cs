@@ -2,7 +2,7 @@
 
 namespace ProperNutrition.Common.Extensions
 {
-    public static class ReactionExtension
+    public static class ReactionTypeExtension
     {
         /// <summary>
         /// Convert enum to string.
@@ -41,7 +41,7 @@ namespace ProperNutrition.Common.Extensions
         /// </summary>
         /// <param name="reactionType">Reaction type (enum).</param>
         /// <returns>CSS style.</returns>
-        public static string ValidatePriorityType(this ReactionType reactionType)
+        public static string ValidateReactionType(this ReactionType reactionType)
         {
             return reactionType switch
             {

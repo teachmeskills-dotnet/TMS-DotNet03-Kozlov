@@ -44,7 +44,7 @@ namespace ProperNutrition.Web.Controllers
                     ChatId = profileDto.ChatId,
                     SecretKey = profileDto.SecretKey,
                     Created = profileDto.Created,
-                    Avatar = profileDto.Avatar,
+                    ProfilePicture = profileDto.ProfilePicture,
                 });
             }
             return View(profileViewModels);

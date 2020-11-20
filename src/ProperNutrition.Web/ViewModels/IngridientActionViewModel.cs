@@ -33,15 +33,9 @@ namespace ProperNutrition.Web.ViewModels
         public string Description { get; set; }
 
         /// <summary>
-        /// Recomend.
-        /// </summary>
-        ///[Required]
-        public bool IsRecomended { get; set; }
-
-        /// <summary>
         /// Reaction.
         /// </summary>
         [Required]
-        public int ReactionType { get; set; }
+        public int Reaction { get; set; }
     }
 }

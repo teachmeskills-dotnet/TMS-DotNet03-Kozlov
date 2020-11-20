@@ -44,3 +44,15 @@ ingridient__description {
 .recomended {
     background-color: palegoldenrod;
 }
+
+.todo__low {
+    border-top: 10px solid #F45E6D;
+}
+
+.todo__medium {
+    border-top: 10px solid #FFE761;
+}
+
+.todo__high {
+    border-top: 10px solid #F45E6D;
+}

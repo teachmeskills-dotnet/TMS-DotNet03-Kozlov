@@ -37,6 +37,8 @@ namespace ProperNutrition.Web.Controllers
                 };
 
                 var result = await _accountManager.SignUpAsync(model.Email, model.Applicationusername, model.Password);
+
+
                 if (result.Succeeded)
                 {
                     // установка куки
