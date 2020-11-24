@@ -5,7 +5,7 @@
 }
 
 
-<h1>Ingridient</h1>
+<h1>    Ingridient</h1>
 @if (Model.Any())
 {
     foreach (var ingridient in Model)
@@ -23,10 +23,13 @@
         </div>
     }
 }
+
 else
 {
-    <div> Empty ingridients</div>
+    <div class="text">Empty ingridients</div>
 }
-@section Css {
-    <link href="~/css/ingridient.css" rel="stylesheet" />
+<a class="button" asp-controller="Ingridient" asp-action="Create">Create</a>
+
+@section css {
+    <link href="~/css/ingridient.css" rel="stylesheet" asp-append-version="true" />
 }

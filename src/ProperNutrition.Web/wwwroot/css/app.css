@@ -25,6 +25,9 @@
     line-height: 17px;
     text-transform: uppercase;
     color: #9f56e5;
+    margin: 8px;
+    margin-top: 8px;
+    text-decoration: none;
 }
 
 .button:hover {
@@ -98,7 +101,6 @@ header {
 
 
 .link {
-    
     font-style: normal;
     font-weight: 500;
     font-size: 16px;
@@ -124,6 +126,8 @@ header {
     font-size: 35px;
 }
 
+
+
 .welcome__name {
     margin-left: 45px;
     color: #acf657;
@@ -133,11 +137,11 @@ header {
 }
 
 .welcome__margin {
-    margin-left: 90px;
     color: #7ac245;
     font-style: normal;
     font-weight: bold;
     font-size: 30px;
+    margin: 8px 90px;
 }
 
 .wrapper {

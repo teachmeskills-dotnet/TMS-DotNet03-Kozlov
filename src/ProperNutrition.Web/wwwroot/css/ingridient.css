@@ -1,10 +1,45 @@
 ﻿.button__link {
-    
     text-decoration: none;
 }
 
 .indent__margin-bottom {
     margin-bottom: 8px;
+    margin-top: 8px;
+}
+
+.ingridient__select {
+    width: 229px;
+    background-color: rgba(255, 255, 255, 0.5);
+    padding: 8px 16px;
+    border: 1px solid #eaf5f9;
+    box-sizing: border-box;
+    border-radius: 5px;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    color: #7ac245;
+    line-height: 16px;
+    border-color: #b8e0e8;
+    border-bottom-color: #9f56e5;
+    margin-bottom: 5px;
+}
+
+.input__ingridient__description {
+    height: 100px;
+    background-color: rgba(255, 255, 255, 0.5);
+    padding: 8px 16px;
+    border: 1px solid #eaf5f9;
+    border-radius: 5px;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    color: #7ac245;
+    line-height: 16px;
+    word-wrap: break-word;
+    word-break: break-all;
+    border-color: #b8e0e8;
+    border-bottom-color: #9f56e5;
+    margin-bottom: 5px;
 }
 
 .ingridient {
@@ -41,8 +76,35 @@ ingridient__description {
     cursor: pointer;
 }
 
+.input__ingridient {
+    padding: 8px 16px;
+    border: 1px solid #eaf5f9;
+    box-sizing: border-box;
+    border-radius: 5px;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 16px;
+    color: #bbe3ea;
+    border-color: #b8e0e8;
+    border-bottom-color: #9f56e5;
+    margin-bottom: 5px;
+}
+
+h1 {
+    margin-bottom: 8px;
+}
+
 .recomended {
     background-color: palegoldenrod;
+}
+
+.select {
+    margin-left: 50px;
+}
+
+.text {
+    margin: 8px;
 }
 
 .todo__low {

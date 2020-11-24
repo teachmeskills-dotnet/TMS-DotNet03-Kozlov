@@ -8,31 +8,38 @@
 <form method="post" asp-controller="Ingridient" asp-action="Create">
 
     <div asp-validation-summary="ModelOnly"></div>
-    <div>
-        <input class="input" asp-for="Name" placeholder="Name" type="text" />
+    <div class="indent__margin-bottom">
+        <input class="input__ingridient" asp-for="Name" placeholder="Name" type="text" />
         <span asp-validation-for="Name"></span>
     </div>
-    <div>
-        <input class="input" asp-for="Category" placeholder="Category" type="text" />
+    <div class="indent__margin-bottom">
+        <input class="input__ingridient" asp-for="Category" placeholder="Category" type="text" />
         <span asp-validation-for="Category"></span>
     </div>
-    <div>
-        <input class="input" asp-for="IsVeggie" placeholder="IsVeggie" type="text" />
+    <div class="indent__margin-bottom">
+        <input class="input__ingridient" asp-for="IsVeggie" placeholder="IsVeggie" type="text" />
         <span asp-validation-for="IsVeggie"></span>
     </div>
-    <div>
-        <input class="input" asp-for="Description" placeholder="Description" type="text" />
+    <div class="indent__margin-bottom">
+        <input class="input__ingridient__description" asp-for="Description" placeholder="Description" type="text" />
         <span asp-validation-for="Description"></span>
     </div>
     @*<div>
-        <input class="input" asp-for="IsRecomended" placeholder="IsRecomended" type="text" />
-        <span asp-validation-for="IsRecomended"></span>
-    </div>*@
-    <div>
-        <input class="input" asp-for="Reaction" placeholder="Reaction" type="text"  asp-items="ViewBag.ReactionTypes" />
+            <input class="input" asp-for="IsRecomended" placeholder="IsRecomended" type="text" />
+            <span asp-validation-for="IsRecomended"></span>
+        </div>*@
+
+    <div class="ingridient__select">
+        Reaction
+        <select class="select" id="reaction" asp-for="Reaction" asp-items="ViewBag.ReactionTypes"></select>
         <span asp-validation-for="Reaction"></span>
     </div>
-    <div>
+
+    <div class="indent__margin-bottom">
         <input class="button" type="submit" value="Confirm" />
     </div>
 </form>
+
+@section css {
+    <link href="~/css/ingridient.css" rel="stylesheet" asp-append-version="true" />
+}
