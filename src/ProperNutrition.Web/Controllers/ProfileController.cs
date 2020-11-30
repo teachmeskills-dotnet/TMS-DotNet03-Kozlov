@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using ProperNutrition.BLL.Interfaces;
+using ProperNutrition.BLL.Models;
 using ProperNutrition.Common.Interfaces;
 using ProperNutrition.Web.ViewModels;
 using System;
@@ -26,7 +27,7 @@ namespace ProperNutrition.Web.Controllers
         public async Task<IActionResult> Index()
         {
             var userId = await _accountManager.GetUserIdByNameAsync(User.Identity.Name);
-            var profileDtos = await _profileManager.GetProfilesByUserIdAsync(userId);
+            var profileDtos = await _profileManager.GetProfileAsync(userId);
 
             var profileViewModels = new List<ProfileViewModels>();
             foreach (var profileDto in profileDtos)
@@ -35,19 +36,48 @@ namespace ProperNutrition.Web.Controllers
                 {
                     Id = profileDto.Id,
                     FirstName = profileDto.FirstName,
-                    LastName = profileDto.LastName,
                     MiddleName = profileDto.MiddleName,
+                    LastName = profileDto.LastName,
                     BirthDate = profileDto.BirthDate,
                     Phone = profileDto.Phone,
                     Telegram = profileDto.Telegram,
                     SocialNetwork = profileDto.SocialNetwork,
-                    ChatId = profileDto.ChatId,
-                    SecretKey = profileDto.SecretKey,
-                    Created = profileDto.Created,
-                    ProfilePicture = profileDto.ProfilePicture,
+                    //ProfilePicture = profileDto.ProfilePicture,
                 });
             }
             return View(profileViewModels);
+        }
+
+        [HttpGet]
+        public IActionResult Create()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Create(ProfileActionViewModel model)
+        {
+            if (ModelState.IsValid)
+            {
+                var userId = await _accountManager.GetUserIdByNameAsync(User.Identity.Name);
+                var profileDto = new ProfileDto
+                {
+                    UserId = userId,
+                    FirstName = model.FirstName,
+                    MiddleName = model.MiddleName,
+                    LastName = model.LastName,
+                    BirthDate = model.BirthDate,
+                    Phone = model.Phone,
+                    Telegram = model.Telegram,
+                    SocialNetwork = model.SocialNetwork,
+                };
+
+                await _profileManager.CreateProfileAsync(profileDto);
+
+                return RedirectToAction("Index", "Profile");
+            }
+            return View(model);
         }
     }
 }

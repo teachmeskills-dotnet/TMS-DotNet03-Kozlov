@@ -1,28 +1,20 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.Linq;
+using System.Threading.Tasks;
 
 namespace ProperNutrition.Web.ViewModels
 {
-
-    /// <summary>
-    /// Profile View Models.
-    /// </summary>
-    public class ProfileViewModels
+    public class ProfileActionViewModel
     {
-        /// <summary>
-        /// Id.
-        /// </summary>
-        public int Id { get; set; }
-
-        /// <summary>
-        /// UserId.
-        /// </summary>
-        public string UserId { get; set; }
-
+        [Required]
         /// <summary>
         /// FirstName.
         /// </summary>
         public string FirstName { get; set; }
 
+        [Required]
         /// <summary>
         /// LastName.
         /// </summary>
@@ -33,6 +25,7 @@ namespace ProperNutrition.Web.ViewModels
         /// </summary>
         public string MiddleName { get; set; }
 
+        [Required]
         /// <summary>
         /// BirthDate.
         /// </summary>
@@ -53,29 +46,12 @@ namespace ProperNutrition.Web.ViewModels
         /// </summary>
         public string SocialNetwork { get; set; }
 
-        ///// <summary>
-        ///// ChatId.
-        ///// </summary>
-        //public string ChatId { get; set; }
-
-        ///// <summary>
-        ///// SecretKey.
-        ///// </summary>
-        //public string SecretKey { get; set; }
-
-        /// <summary>
-        /// Date time created.
-        /// </summary>
-        public DateTime Created { get; set; }
-
-        /// <summary>
-        /// Date time last edited.
-        /// </summary>
-        public DateTime LastEdited { get; set; }
-
         /// <summary>
         /// Avatar picture.
         /// </summary>
         public byte[] ProfilePicture { get; set; }
+
+
+
     }
 }

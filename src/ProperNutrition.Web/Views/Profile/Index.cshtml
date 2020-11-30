@@ -11,6 +11,7 @@
     {
         foreach (var profile in Model)
         {
+            
             <pre>
 <span class="FirstName">@profile.FirstName</span>
 
@@ -21,12 +22,13 @@
 <span class="SocialNetwork">@profile.Phone
 @profile.Telegram
 @profile.SocialNetwork
-@profile.ChatId
 </span>
 <span class="Date">@profile.Created
 @profile.LastEdited
 </span>
       </pre>
+
+
         }
     }
 
@@ -34,6 +36,9 @@
     {
         <div> Profile is empty</div>
     }
+
+    <a class="button" asp-controller="Profile" asp-action="Create">Create</a>
+
 </div>
 @section Css {
     <link href="~/css/profile.css" rel="stylesheet" />

@@ -8,7 +8,7 @@
 }
 
 .ingridient__select {
-    width: 229px;
+    width: 230px;
     background-color: rgba(255, 255, 255, 0.5);
     padding: 8px 16px;
     border: 1px solid #eaf5f9;
@@ -58,6 +58,7 @@
 }
 
 ingridient__description {
+    background-color: rgba(255, 255, 255, 0.5);
     font-style: normal;
     font-size: 12px;
     line-height: 20px;
@@ -69,7 +70,7 @@ ingridient__description {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: #fafdc4;
+    background-color: rgba(255, 255, 255, 0.5);
 }
 
 .ingridient__progress {
@@ -89,6 +90,9 @@ ingridient__description {
     border-color: #b8e0e8;
     border-bottom-color: #9f56e5;
     margin-bottom: 5px;
+    border-color: #b8e0e8;
+    border-bottom-color: #9f56e5;
+    background-color: rgba(255, 255, 255, 0.5);
 }
 
 h1 {
@@ -100,21 +104,21 @@ h1 {
 }
 
 .select {
-    margin-left: 50px;
+    margin-left: 30px;
 }
 
 .text {
     margin: 8px;
 }
 
-.todo__low {
+.reaction__low {
     border-top: 10px solid #F45E6D;
 }
 
-.todo__medium {
+.reaction__medium {
     border-top: 10px solid #FFE761;
 }
 
-.todo__high {
+.reaction__high {
     border-top: 10px solid #F45E6D;
 }

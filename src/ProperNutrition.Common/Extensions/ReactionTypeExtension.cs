@@ -20,6 +20,7 @@ namespace ProperNutrition.Common.Extensions
                 _ => "Unknown",
             };
         }
+
         /// <summary>
         /// Convert int to ReactionType.
         /// </summary>
@@ -36,6 +37,7 @@ namespace ProperNutrition.Common.Extensions
                 _ => ReactionType.Unknown,
             };
         }
+
         /// <summary>
         /// Validate ReactionType to CSS style.
         /// </summary>
@@ -45,10 +47,10 @@ namespace ProperNutrition.Common.Extensions
         {
             return reactionType switch
             {
-                ReactionType.NoReaction => string.Empty,
-                ReactionType.Low => "todo__low",
-                ReactionType.Medium => "todo__medium",
-                ReactionType.High => "todo__high",
+                ReactionType.NoReaction => "no__reaction",
+                ReactionType.Low => "reaction__low",
+                ReactionType.Medium => "reaction__medium",
+                ReactionType.High => "reaction__high",
                 _ => string.Empty,
             };
         }

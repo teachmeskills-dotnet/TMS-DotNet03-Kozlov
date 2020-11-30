@@ -19,20 +19,6 @@ namespace ProperNutrition.BLL.Managers
             _repositoryIngridient = repositoryIngridient ?? throw new ArgumentNullException(nameof(repositoryIngridient));
         }
 
-        public async Task ChangeIngridientStatusAsync(string userId, int id)
-        {
-            var ingridient = await _repositoryIngridient
-                .GetEntityAsync(ingridient =>
-                    ingridient.Id == id && ingridient.UserId == userId);
-
-
-            //ingridient.Completed = true;
-            //ingridient.Closed = DateTime.Now;
-
-            _repositoryIngridient.Update(ingridient);
-            await _repositoryIngridient.SaveChangesAsync();
-        }
-
         public async Task CreateAsync(IngridientDto ingridientDto)
         {
             var ingridient = new Ingridient
@@ -60,11 +46,6 @@ namespace ProperNutrition.BLL.Managers
                 .GetEntityWithoutTrackingAsync(ingridient =>
                     ingridient.Id == id && ingridient.UserId == userId);
 
-            //if (Ingridient is null)
-            //{
-            //    throw new KeyNotFoundException(ErrorResource.                 TodoNotFound);
-            //}
-
             var ingridientDto = new IngridientDto
             {
                Id = ingridient.Id,
@@ -80,7 +61,6 @@ namespace ProperNutrition.BLL.Managers
             };
             return ingridientDto;
         }
-
 
         public async Task<IEnumerable<IngridientDto>> GetIngridientsAsync (string userId)
         {
@@ -114,6 +94,16 @@ namespace ProperNutrition.BLL.Managers
 
             return ingridientDtos;
 
+        }
+
+        public async Task ChangeIngridientStatusAsync(string userId, int id)
+        {
+            var ingridient = await _repositoryIngridient
+                .GetEntityAsync(ingridient =>
+                    ingridient.Id == id && ingridient.UserId == userId);
+
+            _repositoryIngridient.Update(ingridient);
+            await _repositoryIngridient.SaveChangesAsync();
         }
     }
 }

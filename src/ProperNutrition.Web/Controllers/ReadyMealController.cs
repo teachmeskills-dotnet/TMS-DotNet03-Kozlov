@@ -17,8 +17,7 @@ namespace ProperNutrition.Web.Controllers
 
         public ReadyMealController(
             IAccountManager accountManager,
-            IReadyMealManager readyMealManager
-            )
+            IReadyMealManager readyMealManager)
         {
             _accountManager = accountManager ?? throw new ArgumentNullException(nameof(accountManager));
             _readyMealManager = readyMealManager ?? throw new ArgumentNullException(nameof(readyMealManager));

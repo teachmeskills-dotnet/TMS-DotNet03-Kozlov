@@ -1,0 +1,57 @@
+﻿@model ProfileActionViewModel
+
+@{
+    ViewData["Title"] = "Create profile page";
+}
+<h1>Create new ingridient</h1>
+
+<form method="post" asp-controller="Profile" asp-action="Create">
+
+    <div asp-validation-summary="ModelOnly"></div>
+
+    <div class="indent__margin-bottom">
+        <input class="input__ingridient" asp-for="FirstName" placeholder="FirstName" type="text" />
+        <span asp-validation-for="FirstName"></span>
+    </div>
+
+    <div class="indent__margin-bottom">
+        <input class="input__ingridient" asp-for="MiddleName" placeholder="MiddleName" type="text" />
+        <span asp-validation-for="MiddleName"></span>
+    </div>
+
+    <div class="indent__margin-bottom">
+        <input class="input__ingridient" asp-for="LastName" placeholder="LastName" type="text" />
+        <span asp-validation-for="LastName"></span>
+    </div>
+
+    <div class="indent__margin-bottom">
+        <input class="input__ingridient" asp-for="BirthDate" placeholder="BirthDate" type="date" />
+        <span asp-validation-for="BirthDate"></span>
+    </div>
+
+    <div class="indent__margin-bottom">
+        <input class="input__ingridient" asp-for="Phone" placeholder="Phone" type="text" />
+        <span asp-validation-for="Phone"></span>
+    </div>
+
+    <div class="indent__margin-bottom">
+        <input class="input__ingridient" asp-for="Telegram" placeholder="Telegram" type="text" />
+        <span asp-validation-for="Telegram"></span>
+    </div>
+
+    <div class="indent__margin-bottom">
+        <input class="input__ingridient" asp-for="SocialNetwork" placeholder="SocialNetwork" type="text" />
+        <span asp-validation-for="SocialNetwork"></span>
+    </div>
+    <div>
+        <input class="input__ingridient" asp-for="ProfilePicture" placeholder="ProfilePicture" type="image" />
+        <span asp-validation-for="ProfilePicture"></span>
+    </div>
+    <div class="indent__margin-bottom">
+        <input class="button" type="submit" value="Confirm" />
+    </div>
+</form>
+
+@section css {
+    <link href="~/css/ingridient.css" rel="stylesheet" asp-append-version="true" />
+}

@@ -8,22 +8,27 @@
 <form method="post" asp-controller="Ingridient" asp-action="Create">
 
     <div asp-validation-summary="ModelOnly"></div>
+
     <div class="indent__margin-bottom">
         <input class="input__ingridient" asp-for="Name" placeholder="Name" type="text" />
         <span asp-validation-for="Name"></span>
     </div>
+
     <div class="indent__margin-bottom">
         <input class="input__ingridient" asp-for="Category" placeholder="Category" type="text" />
         <span asp-validation-for="Category"></span>
     </div>
+
     <div class="indent__margin-bottom">
         <input class="input__ingridient" asp-for="IsVeggie" placeholder="IsVeggie" type="text" />
         <span asp-validation-for="IsVeggie"></span>
     </div>
+
     <div class="indent__margin-bottom">
         <input class="input__ingridient__description" asp-for="Description" placeholder="Description" type="text" />
         <span asp-validation-for="Description"></span>
     </div>
+
     @*<div>
             <input class="input" asp-for="IsRecomended" placeholder="IsRecomended" type="text" />
             <span asp-validation-for="IsRecomended"></span>
