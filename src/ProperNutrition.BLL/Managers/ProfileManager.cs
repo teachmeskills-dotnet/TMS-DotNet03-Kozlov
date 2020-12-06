@@ -40,7 +40,7 @@ namespace ProperNutrition.BLL.Managers
             await _repositoryProfile.SaveChangesAsync();
         }
 
-        public async Task<ProfileDto> GetTodoAsync(int id, string userId)
+        public async Task<ProfileDto> GetProfileAsync(int id, string userId)
         {
             var profile = await _repositoryProfile
                 .GetEntityWithoutTrackingAsync(profile =>
@@ -91,9 +91,65 @@ namespace ProperNutrition.BLL.Managers
             return profilesDtos;
         }
 
-        public Task UpdateProfileAsync(ProfileDto profileDto)
+        public async Task UpdateProfileAsync(ProfileDto profileDto)
         {
-            throw new NotImplementedException();
+            if (profileDto != null)
+            {
+                var userProfile = await _repositoryProfile.GetEntityAsync(pr => pr.UserId == profileDto.UserId);
+
+                static bool ValidateToUpdate(Profile userProfile, ProfileDto profileDto)
+                {
+                    bool updated = false;
+
+                    if (userProfile.FirstName != profileDto.FirstName && profileDto.FirstName != null)
+                    {
+                        userProfile.FirstName = profileDto.FirstName;
+                        updated = true;
+                    }
+
+                    if (userProfile.LastName != profileDto.LastName && profileDto.LastName != null)
+                    {
+                        userProfile.LastName = profileDto.LastName;
+                        updated = true;
+                    }
+
+                     if (userProfile.BirthDate != profileDto.BirthDate && profileDto.BirthDate != null)
+                    {
+                        userProfile.BirthDate = profileDto.BirthDate;
+                        updated = true;
+                    }
+
+                    if (userProfile.Telegram != profileDto.Telegram && profileDto.Telegram != null)
+                    {
+                        userProfile.Telegram = profileDto.Telegram;
+                        updated = true;
+                    }
+
+                    if (userProfile.SocialNetwork != profileDto.SocialNetwork && profileDto.SocialNetwork != null)
+                    {
+                        userProfile.SocialNetwork = profileDto.SocialNetwork;
+                        updated = true;
+                    }
+
+                    if (userProfile.ProfilePicture != profileDto.ProfilePicture && profileDto.ProfilePicture != null)
+                    {
+                        userProfile.ProfilePicture = profileDto.ProfilePicture;
+                        updated = true;
+                    }
+
+                    return updated;
+                }
+
+                var result = ValidateToUpdate(userProfile, profileDto);
+                if (result)
+                {
+                    await _repositoryProfile.SaveChangesAsync();
+                }
+            }
+            else
+            {
+                throw new ArgumentNullException();
+            }
         }
     }
 }

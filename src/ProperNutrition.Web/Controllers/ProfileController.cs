@@ -6,6 +6,7 @@ using ProperNutrition.Common.Interfaces;
 using ProperNutrition.Web.ViewModels;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Threading.Tasks;
 
 namespace ProperNutrition.Web.Controllers
@@ -47,6 +48,7 @@ namespace ProperNutrition.Web.Controllers
             }
             return View(profileViewModels);
         }
+#region Create
 
         [HttpGet]
         public IActionResult Create()
@@ -79,5 +81,54 @@ namespace ProperNutrition.Web.Controllers
             }
             return View(model);
         }
+        #endregion Create
+
+
+
+
+        //[HttpPost]
+        //public async Task<IActionResult> SetAvatar(ProfileViewModels model)
+        //{
+        //    if (model != null)
+        //    {
+        //        if (model.ProfilePicture != null)
+        //        {
+        //            byte[] imageData = null;
+        //            using (var binaryReader = new BinaryReader(model.ProfilePicture.OpenReadStream()))
+        //            {
+        //                imageData = binaryReader.ReadBytes((int)model.ProfilePicture.Length);
+        //            }
+
+
+        //            var userProfile = await _accountManager.GetUserIdByNameAsync(User.Identity.Name);
+
+        //            var profileDtos = await _profileManager.GetProfileAsync(userProfile);
+
+        //            var profileViewModels = new List<ProfileViewModels>();
+
+        //            foreach (var profileDto in profileDtos)
+        //            {
+        //                profileViewModels.Add(new ProfileViewModels
+        //                {
+        //                    Id = profileDto.Id,
+        //                    FirstName = profileDto.FirstName,
+        //                    MiddleName = profileDto.MiddleName,
+        //                    LastName = profileDto.LastName,
+        //                    BirthDate = profileDto.BirthDate,
+        //                    Phone = profileDto.Phone,
+        //                    Telegram = profileDto.Telegram,
+        //                    SocialNetwork = profileDto.SocialNetwork,
+        //                    ProfilePicture = profileDto.ProfilePicture,
+        //                });
+        //            }
+
+
+        //            userProfile.ProfilePicture = imageData;
+
+        //            await _profileManager.UpdateProfileAsync(profileDto);
+        //        }
+        //        return RedirectToAction("Index");
+        //    }
+        //}
     }
 }
