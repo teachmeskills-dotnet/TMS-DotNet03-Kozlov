@@ -20,19 +20,42 @@ namespace ProperNutrition.BLL.Managers
             _repositoryReadyMeal = repositoryReadyMeal ?? throw new ArgumentNullException(nameof(repositoryReadyMeal));
         }
 
-        public async Task<IEnumerable<ReadyMealDto>> GetReadyMealByIdAsync(string name)
+        public async Task<ReadyMealDto> GetReadyMealAsync (int id, string userId)
         {
-             var readymeals = await _repositoryReadyMeal
+            var readyMeal = await _repositoryReadyMeal
+                .GetEntityWithoutTrackingAsync(readyMeal =>
+                    readyMeal.Id == id && readyMeal.UserId == userId);
+
+            var readyMealDto = new ReadyMealDto
+            {              
+                Id = readyMeal.Id,
+                Name = readyMeal.Name,
+                ChildReacrion = readyMeal.ChildReacrion,
+                TeastyMeal = readyMeal.TeastyMeal,
+                Comment = readyMeal.Comment,
+                ReadyTime = readyMeal.ReadyTime,
+                Picture = readyMeal.Picture,
+            };
+            return readyMealDto;
+        }
+
+        public async Task<IEnumerable<ReadyMealDto>> GetReadyMealAsync(string userId)
+        {
+            var readyMealDto = new List<ReadyMealDto>();
+            var readymeals = await _repositoryReadyMeal
                 .GetAll()
                 .AsNoTracking()
-                //where
+                .Where(readymeal => readymeal.UserId == userId) //Delite becouse all people can use all ingridients
                 .ToListAsync();
 
-            var readymealDtos = new List<ReadyMealDto>();
+            if (!readymeals.Any())
+            {
+                return readyMealDto;
+            }
 
             foreach (var readymeal in readymeals)
             {
-                readymealDtos.Add(new ReadyMealDto
+                readyMealDto.Add(new ReadyMealDto
                 { 
                     Id = readymeal.Id,
                     Name = readymeal.Name,
@@ -40,10 +63,30 @@ namespace ProperNutrition.BLL.Managers
                     TeastyMeal = readymeal.TeastyMeal,
                     Comment = readymeal.Comment,
                     ReadyTime = readymeal.ReadyTime,
-                    //Photo = readymeal.Photo,
+                    Picture = readymeal.Picture,
                 });
             }
-            return readymealDtos;
+            return readyMealDto;
+        }
+
+
+        public async Task CreateReadyMealAsync(ReadyMealDto readyMealDto)
+        {
+            var readymeal = new ReadyMeal
+            {
+                    Id = readyMealDto.Id,
+                    UserId = readyMealDto.UserId,
+                    Name = readyMealDto.Name,
+                    ChildReacrion = readyMealDto.ChildReacrion,
+                    TeastyMeal = readyMealDto.TeastyMeal,
+                    Comment = readyMealDto.Comment,
+                    ReadyTime = readyMealDto.ReadyTime,
+                    Picture = readyMealDto.Picture,
+            };
+            //Create new model
+            await _repositoryReadyMeal.CreateAsync(readymeal);
+            //Save new model in DataBase
+            await _repositoryReadyMeal.SaveChangesAsync();
         }
     }
 }

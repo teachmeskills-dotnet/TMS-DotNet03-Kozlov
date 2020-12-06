@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using ProperNutrition.BLL.Interfaces;
+using ProperNutrition.BLL.Models;
 using ProperNutrition.Common.Interfaces;
 using ProperNutrition.Web.ViewModels;
 using System;
@@ -26,7 +27,7 @@ namespace ProperNutrition.Web.Controllers
         public async Task<IActionResult> Index()
         {
             var userId = await _accountManager.GetUserIdByNameAsync(User.Identity.Name);
-            var readymealDtos = await _readyMealManager.GetReadyMealByIdAsync(userId);
+            var readymealDtos = await _readyMealManager.GetReadyMealAsync(userId);
 
             var readymealViewModels = new List<ReadyMealViewModels>();
             foreach (var readymealDto in readymealDtos)
@@ -38,10 +39,42 @@ namespace ProperNutrition.Web.Controllers
                     ChildReacrion = readymealDto.ChildReacrion,
                     TeastyMeal = readymealDto.TeastyMeal,
                     Comment = readymealDto.Comment,
-                    ReadyTime = readymealDto.ReadyTime,
+                    ReadyTime = readymealDto.ReadyTime,   //TODO: Change type in int
+                    Picture = readymealDto.Picture,
                 });
             }
             return View(readymealViewModels);
+        }
+
+        [HttpGet]
+        public IActionResult Create()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Create(ReadyMealActionViewModel model)
+        {
+            if (ModelState.IsValid)
+            {
+                var userId = await _accountManager.GetUserIdByNameAsync(User.Identity.Name);
+                var readyMealDto = new ReadyMealDto
+                {
+                    UserId = userId,
+                    Name = model.Name,
+                    ChildReacrion = model.ChildReacrion,
+                    TeastyMeal = model.TeastyMeal,
+                    Comment = model.Comment,
+                    Picture = model.Picture,
+                    ReadyTime = model.ReadyTime
+                };
+
+                await _readyMealManager.CreateReadyMealAsync(readyMealDto);
+
+                return RedirectToAction("Index", "ReadyMeal");
+            }
+            return View(model);
         }
     }
 }

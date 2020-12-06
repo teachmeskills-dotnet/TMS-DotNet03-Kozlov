@@ -43,7 +43,7 @@ namespace ProperNutrition.Web.Controllers
                     Phone = profileDto.Phone,
                     Telegram = profileDto.Telegram,
                     SocialNetwork = profileDto.SocialNetwork,
-                    //ProfilePicture = profileDto.ProfilePicture,
+                    ProfilePicture = profileDto.ProfilePicture,
                 });
             }
             return View(profileViewModels);
@@ -83,9 +83,6 @@ namespace ProperNutrition.Web.Controllers
         }
         #endregion Create
 
-
-
-
         //[HttpPost]
         //public async Task<IActionResult> SetAvatar(ProfileViewModels model)
         //{
@@ -94,18 +91,16 @@ namespace ProperNutrition.Web.Controllers
         //        if (model.ProfilePicture != null)
         //        {
         //            byte[] imageData = null;
+
         //            using (var binaryReader = new BinaryReader(model.ProfilePicture.OpenReadStream()))
         //            {
         //                imageData = binaryReader.ReadBytes((int)model.ProfilePicture.Length);
         //            }
 
-
-        //            var userProfile = await _accountManager.GetUserIdByNameAsync(User.Identity.Name);
-
-        //            var profileDtos = await _profileManager.GetProfileAsync(userProfile);
+        //            var userId = await _accountManager.GetUserIdByNameAsync(User.Identity.Name);
+        //            var profileDtos = await _profileManager.GetProfileAsync(userId);
 
         //            var profileViewModels = new List<ProfileViewModels>();
-
         //            foreach (var profileDto in profileDtos)
         //            {
         //                profileViewModels.Add(new ProfileViewModels
@@ -123,12 +118,12 @@ namespace ProperNutrition.Web.Controllers
         //            }
 
 
-        //            userProfile.ProfilePicture = imageData;
-
-        //            await _profileManager.UpdateProfileAsync(profileDto);
+        //            profileDtos.ProfilePicture = imageData;
+        //            await _profileManager.UpdateProfileAsync(profileDtos);
         //        }
         //        return RedirectToAction("Index");
         //    }
+        //    throw new ArgumentNullException();
         //}
     }
 }

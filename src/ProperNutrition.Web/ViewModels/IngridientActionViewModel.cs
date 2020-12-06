@@ -33,5 +33,6 @@ namespace ProperNutrition.Web.ViewModels
         /// </summary>
         [Required]
         public int Reaction { get; set; }
+
     }
 }

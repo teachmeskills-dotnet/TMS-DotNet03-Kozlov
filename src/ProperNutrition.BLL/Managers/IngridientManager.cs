@@ -48,24 +48,24 @@ namespace ProperNutrition.BLL.Managers
 
             var ingridientDto = new IngridientDto
             {
-               Id = ingridient.Id,
-               UserId = ingridient.UserId,
-               Name = ingridient.Name,
-               Category = ingridient.Category,
-               IsVeggie = ingridient.IsVeggie,
-               Description = ingridient.Description,
-               Colories = ingridient.Colories,
-               IsRecomended = ingridient.IsRecomended,
-               ReactionType = ingridient.ReactionType,
-               Date = ingridient.Date
+                Id = ingridient.Id,
+                UserId = ingridient.UserId,
+                Name = ingridient.Name,
+                Category = ingridient.Category,
+                IsVeggie = ingridient.IsVeggie,
+                Description = ingridient.Description,
+                Colories = ingridient.Colories,
+                IsRecomended = ingridient.IsRecomended,
+                ReactionType = ingridient.ReactionType,
+                Date = ingridient.Date
             };
             return ingridientDto;
         }
 
-        public async Task<IEnumerable<IngridientDto>> GetIngridientsAsync (string userId)
+        public async Task<IEnumerable<IngridientDto>> GetIngridientsAsync(string userId)
         {
             var ingridientDtos = new List<IngridientDto>();
-            var ingridients =  await _repositoryIngridient
+            var ingridients = await _repositoryIngridient
                 .GetAll()
                 .AsNoTracking()
                 .Where(ingridient => ingridient.UserId == userId) //Delite becouse all people can use all ingridients
@@ -93,7 +93,6 @@ namespace ProperNutrition.BLL.Managers
             }
 
             return ingridientDtos;
-
         }
 
         public async Task ChangeIngridientStatusAsync(string userId, int id)

@@ -1,27 +1,23 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Text;
+using System.ComponentModel.DataAnnotations;
+using System.Linq;
+using System.Threading.Tasks;
 
-namespace ProperNutrition.BLL.Models
+namespace ProperNutrition.Web.ViewModels
 {
-    /// <summary>
-    /// ReadyMeal data transfer object.
-    /// </summary>
-    public class ReadyMealDto
+    public class ReadyMealActionViewModel
     {
-        /// <summary>
-        /// Id.
-        /// </summary>
-        public int Id { get; set; }
-
         /// <summary>
         /// Name of meal. 
         /// </summary>
+        [Required]
         public string Name { get; set; }
 
         /// <summary>
         /// Reaction of child on ready meat.
         /// </summary>
+        [Required]
         public string ChildReacrion { get; set; }
 
         /// <summary>
@@ -39,12 +35,10 @@ namespace ProperNutrition.BLL.Models
         /// </summary>
         public byte[] Picture { get; set; }
 
-        /// <inheritdoc/>
-        public string UserId { get; set; }
-
         /// <summary>
         /// Ready date time.
         /// </summary>
+        [Required]
         public DateTime ReadyTime { get; set; }
     }
 }

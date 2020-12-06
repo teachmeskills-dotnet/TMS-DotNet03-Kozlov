@@ -11,11 +11,19 @@ namespace ProperNutrition.BLL.Interfaces
     /// </summary>
     public interface IReadyMealManager
     {
-        // <summary>
-        /// Get ReadyMeal by Id.
+        /// <summary>
+        /// Create ReadyMeal async.
         /// </summary>
-        /// <param name="Id">Idetifier.</param>
-        /// <returns>ReadyMeal.</returns>
-        public Task<IEnumerable<ReadyMealDto>> GetReadyMealByIdAsync(string Name);
+        /// <param name="readyMealDto">ReadyMeal data transfer object.</param>
+        /// <returns>ReadyMeal data transfer object.</returns>
+        Task CreateReadyMealAsync(ReadyMealDto readyMealDto);
+
+        /// <summary>
+        /// Get ReadyMeal by User Idintifier.
+        /// </summary>
+        /// <param name="Userid"></param>
+        /// <returns>List of ReadyMeal data transfer object.</returns>
+        public Task<IEnumerable<ReadyMealDto>> GetReadyMealAsync(string Userid);
+
     }
 }

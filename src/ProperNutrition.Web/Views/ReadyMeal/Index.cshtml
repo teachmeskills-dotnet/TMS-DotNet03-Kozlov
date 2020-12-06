@@ -1,7 +1,7 @@
 ﻿@model IEnumerable<ReadyMealViewModels>
 
 @{
-    ViewData["Title"] = "Ready Mealы";
+    ViewData["Title"] = "Ready Meals";
 }
 
 <h1>Your Ready meals</h1>
@@ -13,12 +13,13 @@
     {
         foreach (var readyMeal in Model)
         {
-            @readyMeal.Id
-            @readyMeal.Name 
+
+            @readyMeal.Name
             @readyMeal.ReadyTime
             @readyMeal.TeastyMeal
             @readyMeal.ChildReacrion
-            @readyMeal.Comment           
+            @readyMeal.Comment
+            @readyMeal.Picture
         }
     }
 
@@ -26,6 +27,8 @@
     {
         <div>Ready meals are empty</div>
     }
+    <a class="button" asp-controller="ReadyMeal" asp-action="Create">Create</a>
+
 </div>
 @section Css {
     <link href="~/css/profile.css" rel="stylesheet" />

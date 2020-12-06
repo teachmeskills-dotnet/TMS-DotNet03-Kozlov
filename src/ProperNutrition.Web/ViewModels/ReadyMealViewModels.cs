@@ -1,7 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace ProperNutrition.Web.ViewModels
 {
@@ -31,6 +28,11 @@ namespace ProperNutrition.Web.ViewModels
         /// Comments.
         /// </summary>
         public string Comment { get; set; }
+
+        /// <summary>
+        /// Avatar picture.
+        /// </summary>
+        public byte[] Picture { get; set; }
 
         /// <summary>
         /// Ready date time.

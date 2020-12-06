@@ -113,11 +113,24 @@ namespace ProperNutrition.BLL.Managers
                         updated = true;
                     }
 
-                     if (userProfile.BirthDate != profileDto.BirthDate && profileDto.BirthDate != null)
+                    if (userProfile.MiddleName != profileDto.MiddleName && profileDto.MiddleName != null)
+                    {
+                        userProfile.MiddleName = profileDto.MiddleName;
+                        updated = true;
+                    }
+
+                    if (userProfile.BirthDate != profileDto.BirthDate && profileDto.BirthDate != null)
                     {
                         userProfile.BirthDate = profileDto.BirthDate;
                         updated = true;
                     }
+
+                    if (userProfile.Phone != profileDto.Phone && profileDto.Phone != null)
+                    {
+                        userProfile.Phone = profileDto.Phone;
+                        updated = true;
+                    }
+
 
                     if (userProfile.Telegram != profileDto.Telegram && profileDto.Telegram != null)
                     {

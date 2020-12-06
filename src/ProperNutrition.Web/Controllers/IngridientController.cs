@@ -74,6 +74,7 @@ namespace ProperNutrition.Web.Controllers
                     IsVeggie = model.IsVeggie,
                     Description = model.Description,
                     ReactionType = ReactionTypeExtension.ToReactionType(model.Reaction)
+                    //Date = model.DateTime,
                 };
 
                 await _ingridientManager.CreateAsync(ingridientDto);
