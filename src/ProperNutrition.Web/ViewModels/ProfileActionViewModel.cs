@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.AspNetCore.Http;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -50,5 +51,10 @@ namespace ProperNutrition.Web.ViewModels
         /// Avatar picture.
         /// </summary>
         public byte[] ProfilePicture { get; set; }
+
+        /// <summary>
+        /// Avatar.
+        /// </summary>
+        public IFormFile Avatar { get; set; } 
     }
 }

@@ -11,7 +11,7 @@
     {
         foreach (var profile in Model)
         {
-            
+
             <pre>
 <span class="FirstName">@profile.FirstName</span>
 
@@ -27,7 +27,7 @@
 @profile.LastEdited
 </span>
       </pre>
-
+            @profile.ProfilePicture
 
         }
     }
@@ -38,7 +38,7 @@
         <a class="button" asp-controller="Profile" asp-action="Create">Create</a>
     }
 
-    
+
 
 </div>
 @section Css {

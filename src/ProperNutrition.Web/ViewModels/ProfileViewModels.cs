@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.AspNetCore.Http;
+using System;
 
 namespace ProperNutrition.Web.ViewModels
 {
@@ -53,16 +54,6 @@ namespace ProperNutrition.Web.ViewModels
         /// </summary>
         public string SocialNetwork { get; set; }
 
-        ///// <summary>
-        ///// ChatId.
-        ///// </summary>
-        //public string ChatId { get; set; }
-
-        ///// <summary>
-        ///// SecretKey.
-        ///// </summary>
-        //public string SecretKey { get; set; }
-
         /// <summary>
         /// Date time created.
         /// </summary>
@@ -77,5 +68,10 @@ namespace ProperNutrition.Web.ViewModels
         /// Avatar picture.
         /// </summary>
         public byte[] ProfilePicture { get; set; }
+
+        /// <summary>
+        /// Avatar.
+        /// </summary>
+        public IFormFile Avatar { get; set; }
     }
 }

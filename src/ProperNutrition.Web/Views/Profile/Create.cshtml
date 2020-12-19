@@ -5,7 +5,7 @@
 }
 <h1>Create new Ingridient</h1>
 
-<form method="post" asp-controller="Profile" asp-action="Create">
+<form method="post" asp-controller="Profile" asp-action="Create" enctype="multipart/form-data">
 
     <div asp-validation-summary="ModelOnly"></div>
 
@@ -45,14 +45,16 @@
     </div>
 
     <div>
-        <input class="input__ingridient" asp-for="ProfilePicture" placeholder="ProfilePicture" type="image" />
-        <span asp-validation-for="ProfilePicture"></span>
-    </div>
+             <input class="input__ingridient" asp-for="ProfilePicture" placeholder="ProfilePicture" type="file" />
+             <span asp-validation-for="ProfilePicture"></span>
+        </div>
+
 
     <div class="indent__margin-bottom">
         <input class="button" type="submit" value="Confirm" />
     </div>
 </form>
+
 
 @section css {
     <link href="~/css/ingridient.css" rel="stylesheet" asp-append-version="true" />

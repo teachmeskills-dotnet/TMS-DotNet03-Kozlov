@@ -1,8 +1,11 @@
 ﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using ProperNutrition.BLL.Interfaces;
 using ProperNutrition.BLL.Models;
 using ProperNutrition.Common.Interfaces;
+using ProperNutrition.DAL.Context;
+using ProperNutrition.DAL.Entities;
 using ProperNutrition.Web.ViewModels;
 using System;
 using System.Collections.Generic;
@@ -16,13 +19,18 @@ namespace ProperNutrition.Web.Controllers
     {
         private readonly IAccountManager _accountManager;
         private readonly IProfileManager _profileManager;
+        private readonly ProperNutritionContext _context;
+
+        
 
         public ProfileController(
             IAccountManager accountManager,
-            IProfileManager profileManager)
+            IProfileManager profileManager,
+            ProperNutritionContext context)
         {
-            _accountManager = accountManager ?? throw new ArgumentNullException(nameof(accountManager)); ;
-            _profileManager = profileManager ?? throw new ArgumentNullException(nameof(profileManager)); ;
+            _accountManager = accountManager ?? throw new ArgumentNullException(nameof(accountManager));
+            _profileManager = profileManager ?? throw new ArgumentNullException(nameof(profileManager));
+            _context = context ?? throw new ArgumentNullException(nameof(context));
         }
 
         public async Task<IActionResult> Index()
@@ -88,13 +96,13 @@ namespace ProperNutrition.Web.Controllers
         //{
         //    if (model != null)
         //    {
-        //        if (model.ProfilePicture != null)
+        //        if (model.Avatar != null)
         //        {
-        //            byte[] imageData = null;
+        //            byte[] imageLoad = null;
 
-        //            using (var binaryReader = new BinaryReader(model.ProfilePicture.OpenReadStream()))
+        //            using (var binaryReader = new BinaryReader(model.Avatar.OpenReadStream()))
         //            {
-        //                imageData = binaryReader.ReadBytes((int)model.ProfilePicture.Length);
+        //                imageLoad = binaryReader.ReadBytes((int)model.Avatar.Length);
         //            }
 
         //            var userId = await _accountManager.GetUserIdByNameAsync(User.Identity.Name);
@@ -117,9 +125,13 @@ namespace ProperNutrition.Web.Controllers
         //                });
         //            }
 
+        //            _mapper.Map<ProfileViewModel, ProfileDto>(model, userProfile);
+        //            userProfile.Image = imageData;
+        //            await _profileManager.UpdateProfileAsync(userProfile);
 
-        //            profileDtos.ProfilePicture = imageData;
-        //            await _profileManager.UpdateProfileAsync(profileDtos);
+        //            profileDtos.Ima = image;
+
+        //            await _profileManager.UpdateProfileAsync(profileViewModels);
         //        }
         //        return RedirectToAction("Index");
         //    }

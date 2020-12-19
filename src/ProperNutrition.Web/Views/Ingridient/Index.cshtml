@@ -1,11 +1,12 @@
 ﻿@model IEnumerable<IngridientViewModel>
 
 @{
-    ViewData["Title"] = "Ingridient";
+    ViewData["Title"] = string.Format(PageTitleResource.StringFormat, PageTitleResource.IngridientIndex, PageTitleResource.SiteName);
 }
 
+<h1>Ingridient</h1>
 
-<h1>    Ingridient</h1>
+
 @if (Model.Any())
 {
     foreach (var ingridient in Model)
@@ -13,22 +14,29 @@
         <div class="ingridient" title="@ingridient.Description">
             <div class="ingridient__wrapper">
 
-                <span class="ingridient__nameIngridient">@ingridient.Name</span>
-                <span class="ingridient__description">@ingridient.Description, @ingridient.Category, @ingridient.Colories, @ingridient.ReactionType</span>
-                <div class="ingridient__progress">
-                    <img src="/images/in-progress.svg" alt="Alternate Text" />
-
-                </div>
+                <a class="todo__text @ingridient.ReactionType" asp-controller="Ingridient" asp-action="Detail" asp-route-id="@ingridient.Id">
+                    <span class="ingridient__nameIngridient">@ingridient.Name</span>
+                </a>
+                <a class="todo__progress" asp-controller="Ingridient" asp-action="Edit" asp-route-id="@ingridient.Id">
+                    <img src="~/images/edit.svg" height="18" alt="Edit">
+                </a>
+                <a class="todo__progress" asp-controller="Ingridient" asp-action="Delete" asp-route-id="@ingridient.Id">
+                    <img src="~/images/del.svg" height="18" alt="Completed">
+                </a>
             </div>
         </div>
     }
 }
 
+
 else
 {
     <div class="text">Empty ingridients</div>
 }
+
 <a class="button" asp-controller="Ingridient" asp-action="Create">Create</a>
+<a class="button" asp-controller="Home" asp-action="Index">Back</a>
+
 
 @section css {
     <link href="~/css/ingridient.css" rel="stylesheet" asp-append-version="true" />

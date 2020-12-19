@@ -5,6 +5,16 @@ namespace ProperNutrition.Web.ViewModels
     public class IngridientActionViewModel
     {
         /// <summary>
+        /// Ingridient identity.
+        /// </summary>
+        public int Id { get; set; }
+
+        /// <summary>
+        /// User identifier.
+        /// </summary>
+        public string UserId { get; set; }
+
+        /// <summary>
         /// Name of ingridient.
         /// </summary>
         [Required]
@@ -34,5 +44,9 @@ namespace ProperNutrition.Web.ViewModels
         [Required]
         public int Reaction { get; set; }
 
+        /// <summary>
+        /// Number of calories.
+        /// </summary>
+        public decimal Colories { get; set; }
     }
 }

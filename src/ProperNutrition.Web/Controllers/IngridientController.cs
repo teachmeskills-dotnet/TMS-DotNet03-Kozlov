@@ -63,6 +63,8 @@ namespace ProperNutrition.Web.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create(IngridientActionViewModel model)
         {
+            model = model ?? throw new ArgumentNullException(nameof(model));
+
             if (ModelState.IsValid)
             {
                 var userId = await _accountManager.GetUserIdByNameAsync(User.Identity.Name);
@@ -73,7 +75,8 @@ namespace ProperNutrition.Web.Controllers
                     Category = model.Category,
                     IsVeggie = model.IsVeggie,
                     Description = model.Description,
-                    ReactionType = ReactionTypeExtension.ToReactionType(model.Reaction)
+                    ReactionType = ReactionTypeExtension.ToReactionType(model.Reaction),
+                    Colories = model.Colories,
                     //Date = model.DateTime,
                 };
 
@@ -83,6 +86,83 @@ namespace ProperNutrition.Web.Controllers
             }
             GenerateReactionTypeList();
             return View(model);
+        }
+
+        public async Task<IActionResult> Detail(int id)
+        {
+            var userId = await _accountManager.GetUserIdByNameAsync(User.Identity.Name);
+            var ingridientDto = await _ingridientManager.GetIngridientAsync(id, userId);
+
+            var ingridientViewModel = new IngridientViewModel
+            {
+                Id = ingridientDto.Id,
+                Name = ingridientDto.Name,
+                Category = ingridientDto.Category,
+                IsVeggie = ingridientDto.IsVeggie,
+                Description = ingridientDto.Description,
+                ReactionType = ingridientDto.ReactionType.ToLocal(),
+                Colories = ingridientDto.Colories,
+            };
+            return View(ingridientViewModel);
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> EditAsync(int id)
+        {
+            var userId = await _accountManager.GetUserIdByNameAsync(User.Identity.Name);
+            var ingridientDto = await _ingridientManager.GetIngridientAsync(id, userId);
+
+            var ingridientActionViewModel = new IngridientActionViewModel
+            {
+                Id = ingridientDto.Id,
+                UserId = ingridientDto.UserId,
+                Name = ingridientDto.Name,
+                Category = ingridientDto.Category,
+                IsVeggie = ingridientDto.IsVeggie,
+                Description = ingridientDto.Description,
+                Reaction = (int)ingridientDto.ReactionType,
+                Colories = ingridientDto.Colories,
+            };
+
+            GenerateReactionTypeList();
+            return View(ingridientActionViewModel);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Edit(IngridientActionViewModel model)
+        {
+
+            if (ModelState.IsValid)
+            {
+                var userId = await _accountManager.GetUserIdByNameAsync(User.Identity.Name);
+                var ingridientDto = new IngridientDto
+                {
+                    Id = model.Id,
+                    UserId = userId,
+                    Name = model.Name,
+                    Category = model.Category,
+                    IsVeggie = model.IsVeggie,
+                    Description = model.Description,
+                    ReactionType = ReactionTypeExtension.ToReactionType(model.Reaction),
+                    Colories = model.Colories,
+                    //Date = model.DateTime,
+                };
+
+                await _ingridientManager.UpdateAsync(ingridientDto);
+                return RedirectToAction("Index", "Ingridient");
+            }
+
+            GenerateReactionTypeList();
+            return View(model);
+        }
+
+        public async Task<IActionResult> Delete(int id)
+        {
+            var userId = await _accountManager.GetUserIdByNameAsync(User.Identity.Name);
+            await _ingridientManager.DeleteAsync(id, userId);
+
+            return RedirectToAction("Index", "Ingridient");
         }
 
         [NonAction]
