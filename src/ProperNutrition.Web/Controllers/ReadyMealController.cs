@@ -82,7 +82,7 @@ namespace ProperNutrition.Web.Controllers
             var userId = await _accountManager.GetUserIdByNameAsync(User.Identity.Name);
             var readyMealDto = await _readyMealManager.GetReadyMealAsync(id, userId);
 
-            var readyMealViewModel = new ReadyMealViewModels 
+            var readyMealViewModel = new ReadyMealViewModels
             {
                 Id = readyMealDto.Id,
                 Name = readyMealDto.Name,

@@ -1,11 +1,8 @@
-﻿using Microsoft.Data.SqlClient;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using ProperNutrition.Common.Constants;
 using ProperNutrition.DAL.Entities;
 using System;
-using System.Collections.Generic;
-using System.Text;
 
 
 namespace ProperNutrition.DAL.Configuration

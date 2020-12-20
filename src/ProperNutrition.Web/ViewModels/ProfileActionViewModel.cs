@@ -1,9 +1,6 @@
 ﻿using Microsoft.AspNetCore.Http;
 using System;
-using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace ProperNutrition.Web.ViewModels
 {
@@ -55,6 +52,6 @@ namespace ProperNutrition.Web.ViewModels
         /// <summary>
         /// Avatar.
         /// </summary>
-        public IFormFile Avatar { get; set; } 
+        public IFormFile Avatar { get; set; }
     }
 }

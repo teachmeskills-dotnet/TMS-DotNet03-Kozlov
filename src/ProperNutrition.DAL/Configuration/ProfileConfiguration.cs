@@ -43,7 +43,7 @@ namespace ProperNutrition.DAL.Configuration
             builder.Property(profile => profile.SocialNetwork)
                    .IsRequired()
                    .HasMaxLength(ConfigurationConstants.SmallLenghtSimvbol);
-               
+
             builder.HasOne(profile => profile.User)
                    .WithOne(identity => identity.Profile)
                    .HasForeignKey<Profile>(profile => profile.UserId)

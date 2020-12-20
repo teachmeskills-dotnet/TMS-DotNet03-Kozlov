@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace ProperNutrition.Common.Constants
+﻿namespace ProperNutrition.Common.Constants
 {
     public static class ConfigurationConstants
     {
@@ -30,6 +26,5 @@ namespace ProperNutrition.Common.Constants
         /// Shot lenght of simbol.
         /// </summary>
         public const int ShotLenghtSimvbol = 20;
-
     }
 }

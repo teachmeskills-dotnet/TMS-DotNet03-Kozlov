@@ -138,12 +138,10 @@ h1 {
     margin: 8px;
 }
 
-
-
-
 .no__reaction {
     border-left: 10px solid #fceade;
 }
+
 
 .reaction__low {
     border-left: 10px solid #FFDAB9;
@@ -156,5 +154,4 @@ h1 {
 .reaction__high {
     border-left: 10px solid #DC143C;
 }
-
 

@@ -1,15 +1,12 @@
 ﻿using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using ProperNutrition.BLL.Interfaces;
 using ProperNutrition.BLL.Models;
 using ProperNutrition.Common.Interfaces;
 using ProperNutrition.DAL.Context;
-using ProperNutrition.DAL.Entities;
 using ProperNutrition.Web.ViewModels;
 using System;
 using System.Collections.Generic;
-using System.IO;
 using System.Threading.Tasks;
 
 namespace ProperNutrition.Web.Controllers
@@ -21,7 +18,7 @@ namespace ProperNutrition.Web.Controllers
         private readonly IProfileManager _profileManager;
         private readonly ProperNutritionContext _context;
 
-        
+
 
         public ProfileController(
             IAccountManager accountManager,
@@ -56,7 +53,7 @@ namespace ProperNutrition.Web.Controllers
             }
             return View(profileViewModels);
         }
-#region Create
+        #region Create
 
         [HttpGet]
         public IActionResult Create()

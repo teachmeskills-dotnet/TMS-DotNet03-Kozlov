@@ -24,7 +24,6 @@ namespace ProperNutrition.BLL.Managers
                 Email = email,
                 UserName = applicationUserName,
             };
-            // добавляем пользователя
             return await _userManager.CreateAsync(applicationUser, password);
         }
 

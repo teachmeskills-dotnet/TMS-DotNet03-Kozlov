@@ -45,10 +45,10 @@ namespace ProperNutrition.Web.Controllers
                     await _signInManager.SignInAsync(applicationUser, false);
                     return RedirectToAction("Index", "Home");
                 }
-                    foreach (var error in result.Errors)
-                    {
-                        ModelState.AddModelError(string.Empty, error.Description);
-                    }
+                foreach (var error in result.Errors)
+                {
+                    ModelState.AddModelError(string.Empty, error.Description);
+                }
             }
             return View(model);
         }
@@ -77,9 +77,9 @@ namespace ProperNutrition.Web.Controllers
                     {
                         return Redirect(model.ReturnUrl);
                     }
-                        return RedirectToAction("Index", "Home");
+                    return RedirectToAction("Index", "Home");
                 }
-                    ModelState.AddModelError(string.Empty, "Incorrect login and (or) password");
+                ModelState.AddModelError(string.Empty, "Incorrect login and (or) password");
             }
             return View(model);
         }

@@ -1,4 +1,4 @@
-﻿    namespace ProperNutrition.Common.Interfaces
+﻿namespace ProperNutrition.Common.Interfaces
 {
     /// <summary>
     /// Interfase for implement User identity

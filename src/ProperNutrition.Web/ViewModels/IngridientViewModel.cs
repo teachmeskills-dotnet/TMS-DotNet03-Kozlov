@@ -1,5 +1,4 @@
-﻿using ProperNutrition.Common.Enums;
-using System;
+﻿using System;
 
 namespace ProperNutrition.Web.ViewModels
 {
