@@ -123,7 +123,6 @@ namespace ProperNutrition.Web.Controllers
                 Reaction = (int)ingridientDto.ReactionType,
                 Colories = ingridientDto.Colories,
             };
-
             GenerateReactionTypeList();
             return View(ingridientActionViewModel);
         }
@@ -148,7 +147,6 @@ namespace ProperNutrition.Web.Controllers
                     Colories = model.Colories,
                     //Date = model.DateTime,
                 };
-
                 await _ingridientManager.UpdateAsync(ingridientDto);
                 return RedirectToAction("Index", "Ingridient");
             }

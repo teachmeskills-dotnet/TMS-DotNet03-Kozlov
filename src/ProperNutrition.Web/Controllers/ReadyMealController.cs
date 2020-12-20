@@ -76,5 +76,76 @@ namespace ProperNutrition.Web.Controllers
             }
             return View(model);
         }
+
+        public async Task<IActionResult> Detail(int id)
+        {
+            var userId = await _accountManager.GetUserIdByNameAsync(User.Identity.Name);
+            var readyMealDto = await _readyMealManager.GetReadyMealAsync(id, userId);
+
+            var readyMealViewModel = new ReadyMealViewModels 
+            {
+                Id = readyMealDto.Id,
+                Name = readyMealDto.Name,
+                ChildReacrion = readyMealDto.ChildReacrion,
+                TeastyMeal = readyMealDto.TeastyMeal,
+                Comment = readyMealDto.Comment,
+                Picture = readyMealDto.Picture,
+                ReadyTime = readyMealDto.ReadyTime
+            };
+            return View(readyMealViewModel);
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> EditAsync(int id)
+        {
+            var userId = await _accountManager.GetUserIdByNameAsync(User.Identity.Name);
+            var readyMealDto = await _readyMealManager.GetReadyMealAsync(id, userId);
+
+            var readyMealActionViewModel = new ReadyMealActionViewModel
+            {
+                Id = readyMealDto.Id,
+                UserId = readyMealDto.UserId,
+                Name = readyMealDto.Name,
+                ChildReacrion = readyMealDto.ChildReacrion,
+                TeastyMeal = readyMealDto.TeastyMeal,
+                Comment = readyMealDto.Comment,
+                Picture = readyMealDto.Picture,
+                ReadyTime = readyMealDto.ReadyTime
+            };
+            return View(readyMealActionViewModel);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Edit(ReadyMealActionViewModel model)
+        {
+
+            if (ModelState.IsValid)
+            {
+                var userId = await _accountManager.GetUserIdByNameAsync(User.Identity.Name);
+                var readyMealDto = new ReadyMealDto
+                {
+                    Id = model.Id,
+                    UserId = userId,
+                    Name = model.Name,
+                    ChildReacrion = model.ChildReacrion,
+                    TeastyMeal = model.TeastyMeal,
+                    Comment = model.Comment,
+                    Picture = model.Picture,
+                    ReadyTime = model.ReadyTime
+                };
+                await _readyMealManager.UpdateAsync(readyMealDto);
+                return RedirectToAction("Index", "ReadyMeal");
+            }
+            return View(model);
+        }
+
+        public async Task<IActionResult> Delete(int id)
+        {
+            var userId = await _accountManager.GetUserIdByNameAsync(User.Identity.Name);
+            await _readyMealManager.DeleteAsync(id, userId);
+
+            return RedirectToAction("Index", "ReadyMeal");
+        }
     }
 }
