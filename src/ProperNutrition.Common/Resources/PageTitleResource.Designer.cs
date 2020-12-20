@@ -124,6 +124,42 @@ namespace ProperNutrition.Common.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Create.
+        /// </summary>
+        public static string ReadymealCreate {
+            get {
+                return ResourceManager.GetString("ReadymealCreate", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Detail.
+        /// </summary>
+        public static string ReadymealDetail {
+            get {
+                return ResourceManager.GetString("ReadymealDetail", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Edit.
+        /// </summary>
+        public static string ReadymealEdit {
+            get {
+                return ResourceManager.GetString("ReadymealEdit", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ReadyMeal.
+        /// </summary>
+        public static string ReadymealIndex {
+            get {
+                return ResourceManager.GetString("ReadymealIndex", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Proper Nutrion App.
         /// </summary>
         public static string SiteName {

@@ -56,8 +56,29 @@ body {
     background-size: 80%;
 }
 
-header {
-    
+footer {
+    display: flex;
+    justify-content: center;
+    padding: 5px;
+    color: #3a9c3d;
+    position: absolute;
+    bottom: 0;
+    margin-left: 80px;
+    font-size: 10px;
+}
+
+.footer div {
+     margin-right: 17px;  Смещаем фон, чтобы не накладывался на скролбар 
+}
+
+hr {
+    margin: -30px auto 30px;
+    padding: 0;
+    height: 50px;
+    border: none;
+    border-bottom: 1px solid #3b9c3f;
+    box-shadow: 0 20px 20px -20px #333;
+    width: 75%;
 }
 
 .header {
@@ -86,19 +107,18 @@ header {
     margin-bottom: 5px;
 }
 
-::-webkit-input-placeholder { /* WebKit browsers */
+::-webkit-input-placeholder {
     color: #7ac14b;
 }
-:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+:-moz-placeholder {
     color: #7ac14b;
 }
-::-moz-placeholder { /* Mozilla Firefox 19+ */
+::-moz-placeholder {
     color: #7ac14b;
 }
-:-ms-input-placeholder { /* Internet Explorer 10+ */
+:-ms-input-placeholder {
     color: #7ac14b;
 }
-
 
 .link {
     font-style: normal;
@@ -112,7 +132,6 @@ header {
     text-decoration: underline;
 }
 
-
 .logo {
     font-weight: bold;
     text-decoration: none;
@@ -124,9 +143,8 @@ header {
     font-style: normal;
     font-weight: bold;
     font-size: 35px;
+    margin: 10px;
 }
-
-
 
 .welcome__name {
     margin-left: 45px;
@@ -141,17 +159,20 @@ header {
     font-style: normal;
     font-weight: bold;
     font-size: 30px;
-    margin: 8px 90px;
+    margin: 10px 90px;
 }
 
 .wrapper {
     margin: 0 auto;
+    height: 46px;
     width: 1200px;
 }
 
 del {
     height: 5px;
 }
+
+
 
 
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap');

@@ -1,12 +1,12 @@
 ﻿@model ReadyMealActionViewModel
 
 @{
-    ViewData["Title"] = string.Format(PageTitleResource.StringFormat, PageTitleResource.ReadymealCreate, PageTitleResource.SiteName);
+    ViewData["Title"] = string.Format(PageTitleResource.StringFormat, PageTitleResource.ReadymealEdit, PageTitleResource.SiteName);
 }
-<h1>Create new Meal</h1>
 
-<form method="post" asp-controller="ReadyMeal" asp-action="Create">
+<h1>Edit Ready Meal</h1>
 
+<form method="post" asp-controller="ReadyMeal" asp-action="Edit">
     <div asp-validation-summary="ModelOnly"></div>
 
     <div class="indent__margin-bottom">
@@ -25,7 +25,7 @@
     </div>
 
     <div class="indent__margin-bottom">
-        <input class="input__ingridient__description" asp-for="Comment" placeholder="Comment" type="text" />
+        <input class="input__ingridient__description" asp-for="Comment" placeholder="Description" type="text" />
         <span asp-validation-for="Comment"></span>
     </div>
 
@@ -34,13 +34,8 @@
         <span asp-validation-for="ReadyTime"></span>
     </div>
 
-    <div>
-        <input class="input__ingridient" asp-for="Picture" placeholder="Picture" type="image" />
-        <span asp-validation-for="Picture"></span>
-    </div>
-
     <div class="indent__margin-bottom">
-        <input class="button" type="submit" value="Confirm" />
+        <input class="button" type="submit" value="Edit" asp-controller="ReadyMeal" asp-action="Edit" asp-route-id="@Model.Id" />
         <a class="button" asp-controller="ReadyMeal" asp-action="Index">Back</a>
     </div>
 </form>

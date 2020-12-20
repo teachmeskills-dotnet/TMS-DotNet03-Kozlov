@@ -1,31 +1,41 @@
 ﻿h1 {
 margin-bottom: 5px;
 }
-.FirstName {
+
+.firstName {
     font-weight: bold;
     font-style: inherit;
     font-size: 25px;
     line-height: 20px;
-    color: #568fc6;
+    color: red;
+    margin-bottom: 5px;
 }
 
-.MiddleName {
+.middleName {
     font-weight: bold;
     font-style: inherit;
     font-size: 25px;
     line-height: 20px;
-    color: #568fc6;
+    margin-bottom: 5px;
 }
 
-.Date {
-    font-weight: bold;
+.date {
+
     font-style: inherit;
-    font-size: 20px;
+    font-size: 16px;
     line-height: 20px;
     color: #568fc6;
 }
 
-.SocialNetwork {
+.date__acction {
+
+    font-style: inherit;
+    font-size: 14px;
+    line-height: 20px;
+    color: #568fc6;
+}
+
+.socialNetwork {
     font-weight: bold;
     font-style: inherit;
     font-size: 20px;
@@ -36,7 +46,7 @@ margin-bottom: 5px;
 .main-blank {
     padding: 5px 5px 5px 5px;
     width: 350px;
-    height: 350px;
+    height: auto;
     background: rgba(250, 253, 196, 0.3);
     border-radius: 5px;
 }
@@ -44,37 +54,6 @@ margin-bottom: 5px;
 
 .button__link {
     text-decoration: none;
-}
-
-.indent__margin-bottom {
-    margin-bottom: 8px;
-}
-
-.ingridient {
-    width: 350px;
-    border-radius: 5px;
-    cursor: help;
-}
-
-
-
-ingridient__description {
-    font-style: normal;
-    font-size: 12px;
-    line-height: 20px;
-    color: rgb(98, 206, 206);
-}
-
-.ingridient__wrapper {
-    margin-bottom: 6px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: #fafdc4;
-}
-
-.ingridient__progress {
-    cursor: pointer;
 }
 
 .recomended {

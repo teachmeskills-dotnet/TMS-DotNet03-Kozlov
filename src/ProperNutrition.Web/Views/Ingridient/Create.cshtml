@@ -1,8 +1,9 @@
 ﻿@model IngridientActionViewModel
 
 @{
-    ViewData["Title"] = "Create ingridient page";
+    ViewData["Title"] = string.Format(PageTitleResource.StringFormat, PageTitleResource.IngridientCreate, PageTitleResource.SiteName);
 }
+
 <h1>Create new ingridient</h1>
 
 <form method="post" asp-controller="Ingridient" asp-action="Create">

@@ -138,6 +138,18 @@
   <data name="IngridientIndex" xml:space="preserve">
     <value>Ingridients</value>
   </data>
+  <data name="ReadymealCreate" xml:space="preserve">
+    <value>Create</value>
+  </data>
+  <data name="ReadymealDetail" xml:space="preserve">
+    <value>Detail</value>
+  </data>
+  <data name="ReadymealEdit" xml:space="preserve">
+    <value>Edit</value>
+  </data>
+  <data name="ReadymealIndex" xml:space="preserve">
+    <value>ReadyMeal</value>
+  </data>
   <data name="SiteName" xml:space="preserve">
     <value>Proper Nutrion App</value>
   </data>

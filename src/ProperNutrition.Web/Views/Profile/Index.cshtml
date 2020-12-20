@@ -1,46 +1,58 @@
 ﻿@model IEnumerable<ProfileViewModels>
 
-
 @{
     ViewData["Title"] = "Profile";
 }
 
 <h1>Your profile</h1>
+
 <div class="main-blank">
-    @if (Model.Any())
-    {
-        foreach (var profile in Model)
-        {
+  @if (Model.Any())
+  {
+      foreach (var profile in Model)
+      {
+          <div class="firstName">
+              <div class="firstName">
+                <span>@profile.LastName</span>
+              </div>
+          </div>
 
-            <pre>
-<span class="FirstName">@profile.FirstName</span>
+          <div>
+              <span class="middleName">@profile.FirstName @profile.MiddleName </span>
+          </div>
 
-<span class="MiddleName">@profile.MiddleName@profile.LastName</span>
+          <div class="Date">
+              <span>@profile.BirthDate</span>
+          </div>
 
-<span class="Date">@profile.BirthDate</span>
-
-<span class="SocialNetwork">@profile.Phone
-@profile.Telegram
-@profile.SocialNetwork
-</span>
-<span class="Date">@profile.Created
-@profile.LastEdited
-</span>
-      </pre>
+          <div class="SocialNetwork">
+              <span>
+                  @profile.Phone
+              </span>
+          </div>
+          <div>
+              <span>
+                  @profile.Telegram
+                  @profile.SocialNetwork
+              </span>
+          </div>
+          <div class="date__acction">
+              <span >
+                  @profile.Created
+                  @profile.LastEdited
+              </span>
+          </div>
             @profile.ProfilePicture
-
         }
     }
-
     else
     {
         <div> Profile is empty</div>
         <a class="button" asp-controller="Profile" asp-action="Create">Create</a>
     }
-
-
-
 </div>
-@section Css {
-    <link href="~/css/profile.css" rel="stylesheet" />
+    <a class="button" asp-controller="Home" asp-action="Index">Back</a>
+
+@section css {
+    <link href="~/css/profile.css" rel="stylesheet" asp-append-version="true" />
 }
