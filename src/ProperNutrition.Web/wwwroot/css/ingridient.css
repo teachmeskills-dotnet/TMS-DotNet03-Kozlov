@@ -1,4 +1,6 @@
-﻿.button__link {
+﻿
+
+.button__link {
     text-decoration: none;
 }
 
@@ -49,15 +51,17 @@
 }
 
 .ingridient__nameIngridient {
-    margin-bottom: 6px;
+    color: red;
+    margin-left: 6px;
     font-weight: bold;
     font-style: inherit;
     font-size: 16px;
     line-height: 20px;
-    color: rgb(98, 206, 206);
+    
+    text-decoration: none;
 }
 
-ingridient__description {
+.ingridient__description {
     background-color: rgba(255, 255, 255, 0.5);
     font-style: normal;
     font-size: 12px;
@@ -68,9 +72,15 @@ ingridient__description {
 .ingridient__wrapper {
     margin-bottom: 6px;
     display: flex;
-    justify-content: space-between;
     align-items: center;
-    background-color: rgba(255, 255, 255, 0.5);
+    background-color: rgba(251, 254, 196, 0.5);
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+.action__picture {
+    float: right;
+    margin: 5px;
 }
 
 .ingridient__progress {
@@ -111,90 +121,22 @@ h1 {
     margin: 8px;
 }
 
-﻿.todo {
-    padding: 20px 20px;
-    background: #FFFFFF;
-    border-radius: 5px;
-    border-top: 10px solid #EBEFF5;
-}
 
-.todo__indent-bottom {
-    margin-bottom: 8px;
-}
-
-.todo__wrapper {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.todo__text {
-    font-style: normal;
-    font-weight: bold;
-    font-size: 16px;
-    line-height: 20px;
-    color: #252A31;
-    text-decoration: none;
-}
-
-.todo__text-completed {
-    color: #a2b6c2;
-    text-decoration: line-through;
-}
-
-.todo__medium {
-    border-top: 10px solid #FFE761;
-}
-
-.todo__high {
-    border-top: 10px solid #F45E6D;
-}
-
-.todo__image {
-    cursor: pointer;
-}
-
-
-.todo__task-completed {
-    border-top: 10px solid #61DEA4;
-}
-
-.todo__detail {
-    font-style: normal;
-    font-weight: 500;
-    font-size: 28px;
-    line-height: 42px;
-    color: #252A31;
-}
-
-.todo__actions {
-    width: 70px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.todo__description {
-    display: flex;
-    align-items: center;
-}
-
-.todo__status {
-    height: 28px;
-}
 
 .no__reaction {
-    border-top: 10px solid #fceade;
+    border-left: 10px solid #fceade;
 }
 
 .reaction__low {
-    border-top: 10px solid #FFDAB9;
+    border-left: 10px solid #FFDAB9;
 }
 
 .reaction__medium {
-    border-top: 10px solid #FF6347;
+    border-left: 10px solid #FF6347;
 }
 
 .reaction__high {
     border-top: 10px solid #DC143C;
 }
+
+

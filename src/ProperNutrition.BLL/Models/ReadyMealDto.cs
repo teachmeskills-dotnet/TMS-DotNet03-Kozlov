@@ -14,6 +14,9 @@ namespace ProperNutrition.BLL.Models
         /// </summary>
         public int Id { get; set; }
 
+        /// <inheritdoc/>
+        public string UserId { get; set; }
+
         /// <summary>
         /// Name of meal. 
         /// </summary>
@@ -38,9 +41,6 @@ namespace ProperNutrition.BLL.Models
         /// Avatar picture.
         /// </summary>
         public byte[] Picture { get; set; }
-
-        /// <inheritdoc/>
-        public string UserId { get; set; }
 
         /// <summary>
         /// Ready date time.

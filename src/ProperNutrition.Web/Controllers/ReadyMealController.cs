@@ -27,7 +27,7 @@ namespace ProperNutrition.Web.Controllers
         public async Task<IActionResult> Index()
         {
             var userId = await _accountManager.GetUserIdByNameAsync(User.Identity.Name);
-            var readymealDtos = await _readyMealManager.GetReadyMealAsync(userId);
+            var readymealDtos = await _readyMealManager.GetReadyMealsAsync(userId);
 
             var readymealViewModels = new List<ReadyMealViewModels>();
             foreach (var readymealDto in readymealDtos)
@@ -70,7 +70,7 @@ namespace ProperNutrition.Web.Controllers
                     ReadyTime = model.ReadyTime
                 };
 
-                await _readyMealManager.CreateReadyMealAsync(readyMealDto);
+                await _readyMealManager.CreateAsync(readyMealDto);
 
                 return RedirectToAction("Index", "ReadyMeal");
             }

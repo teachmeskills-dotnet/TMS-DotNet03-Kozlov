@@ -9,6 +9,16 @@ namespace ProperNutrition.Web.ViewModels
     public class ReadyMealActionViewModel
     {
         /// <summary>
+        /// Ingridient identity.
+        /// </summary>
+        public int Id { get; set; }
+
+        /// <summary>
+        /// User identifier.
+        /// </summary>
+        public string UserId { get; set; }
+
+        /// <summary>
         /// Name of meal. 
         /// </summary>
         [Required]

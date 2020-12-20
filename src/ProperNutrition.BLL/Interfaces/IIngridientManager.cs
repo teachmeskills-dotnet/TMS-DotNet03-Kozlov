@@ -30,7 +30,6 @@ namespace ProperNutrition.BLL.Interfaces
         /// <returns>List of Ingridients data transfer objects.</returns>
         Task<IEnumerable<IngridientDto>> GetIngridientsAsync(string userId);
 
-
         /// <summary>
         /// Delete ingridient by identifier.
         /// </summary>

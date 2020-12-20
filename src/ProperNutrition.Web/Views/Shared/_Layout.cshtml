@@ -8,7 +8,7 @@
     @RenderSection("css", false)
 
 </head>
-<body>  
+<body>
     <header>
         <div class="wrapper">
             <div class="header header__indent-bottom">
@@ -38,10 +38,12 @@
             </div>
         </div>
     </header>
-    
+
     <div class="wrapper">
         @RenderBody()
     </div>
+
+    @RenderSection("js", false)
 
 </body>
 </html>

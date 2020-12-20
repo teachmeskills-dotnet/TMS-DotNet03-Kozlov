@@ -79,6 +79,24 @@ namespace ProperNutrition.Common.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to ReadyMeal not found..
+        /// </summary>
+        public static string ReadyMealNotFound {
+            get {
+                return ResourceManager.GetString("ReadyMealNotFound", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ReadyMeal&apos;s not found..
+        /// </summary>
+        public static string ReadyMealsNotFound {
+            get {
+                return ResourceManager.GetString("ReadyMealsNotFound", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Specified user not found..
         /// </summary>
         public static string UserNotFound {

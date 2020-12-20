@@ -40,9 +40,7 @@ namespace ProperNutrition.BLL.Managers
                 ReactionType = ingridientDto.ReactionType,
                 Date = ingridientDto.Date
             };
-            //Create new model
             await _repositoryIngridient.CreateAsync(ingridient);
-            //Save new model in DataBase
             await _repositoryIngridient.SaveChangesAsync();
         }
 
@@ -79,7 +77,7 @@ namespace ProperNutrition.BLL.Managers
             var ingridients = await _repositoryIngridient
                 .GetAll()
                 .AsNoTracking()
-                .Where(ingridient => ingridient.UserId == userId) //Delite becouse all people can use all ingridients
+                .Where(ingridient => ingridient.UserId == userId)
                 .ToListAsync();
 
             if (!ingridients.Any())

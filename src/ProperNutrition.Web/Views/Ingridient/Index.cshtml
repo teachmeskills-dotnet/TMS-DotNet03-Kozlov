@@ -6,23 +6,31 @@
 
 <h1>Ingridient</h1>
 
-
 @if (Model.Any())
 {
     foreach (var ingridient in Model)
     {
         <div class="ingridient" title="@ingridient.Description">
-            <div class="ingridient__wrapper">
+            <div class="ingridient__wrapper @ingridient.ReactionType">
+                
+                <div class="ingridient ingridient__nameIngridient">
+                    <a class="ingridient__nameIngridient" asp-controller="Ingridient" asp-action="Detail" asp-route-id="@ingridient.Id">
+                        <span>@ingridient.Name</span>
+                    </a>
+                </div>
 
-                <a class="todo__text @ingridient.ReactionType" asp-controller="Ingridient" asp-action="Detail" asp-route-id="@ingridient.Id">
-                    <span class="ingridient__nameIngridient">@ingridient.Name</span>
-                </a>
-                <a class="todo__progress" asp-controller="Ingridient" asp-action="Edit" asp-route-id="@ingridient.Id">
-                    <img src="~/images/edit.svg" height="18" alt="Edit">
-                </a>
-                <a class="todo__progress" asp-controller="Ingridient" asp-action="Delete" asp-route-id="@ingridient.Id">
-                    <img src="~/images/del.svg" height="18" alt="Completed">
-                </a>
+                <div class="action__picture">
+                    <a asp-controller="Ingridient" asp-action="Edit" asp-route-id="@ingridient.Id">
+                        <img  src="~/images/edit.svg" width="25" alt="Edit" />
+                    </a>
+                </div>
+
+                <div class="action__picture">
+                    <a asp-controller="Ingridient" asp-action="Delete" asp-route-id="@ingridient.Id">
+                        <img  src="~/images/del.svg" width="25" alt="Delete" />
+                    </a>
+                </div>
+
             </div>
         </div>
     }
@@ -37,7 +45,10 @@ else
 <a class="button" asp-controller="Ingridient" asp-action="Create">Create</a>
 <a class="button" asp-controller="Home" asp-action="Index">Back</a>
 
-
 @section css {
     <link href="~/css/ingridient.css" rel="stylesheet" asp-append-version="true" />
+}
+
+@section js {
+    <script src="~/js/clickondel.js" asp-append-version="true"></script>
 }

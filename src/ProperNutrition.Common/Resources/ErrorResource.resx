@@ -123,6 +123,12 @@
   <data name="IngridientsNotFound" xml:space="preserve">
     <value>Ingridient's not found.</value>
   </data>
+  <data name="ReadyMealNotFound" xml:space="preserve">
+    <value>ReadyMeal not found.</value>
+  </data>
+  <data name="ReadyMealsNotFound" xml:space="preserve">
+    <value>ReadyMeal's not found.</value>
+  </data>
   <data name="UserNotFound" xml:space="preserve">
     <value>Specified user not found.</value>
   </data>
