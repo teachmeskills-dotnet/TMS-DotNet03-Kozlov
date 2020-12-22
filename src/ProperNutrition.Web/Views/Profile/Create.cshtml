@@ -1,0 +1,60 @@
+﻿@model ProfileActionViewModel
+
+@{
+    ViewData["Title"] = "Create my profile page";
+}
+<h1>Create new Ingridient</h1>
+
+<form method="post" asp-controller="Profile" asp-action="Create" enctype="multipart/form-data">
+
+    <div asp-validation-summary="ModelOnly"></div>
+
+    <div class="indent__margin-bottom">
+        <input class="input__ingridient" asp-for="FirstName" placeholder="First Name" type="text" />
+        <span asp-validation-for="FirstName"></span>
+    </div>
+
+    <div class="indent__margin-bottom">
+        <input class="input__ingridient" asp-for="MiddleName" placeholder="Middle Name" type="text" />
+        <span asp-validation-for="MiddleName"></span>
+    </div>
+
+    <div class="indent__margin-bottom">
+        <input class="input__ingridient" asp-for="LastName" placeholder="Last Name" type="text" />
+        <span asp-validation-for="LastName"></span>
+    </div>
+
+    <div class="indent__margin-bottom">
+        <input class="input__ingridient" asp-for="BirthDate" placeholder="BirthDate" type="date" />
+        <span asp-validation-for="BirthDate"></span>
+    </div>
+
+    <div class="indent__margin-bottom">
+        <input class="input__ingridient" asp-for="Phone" placeholder="Phone" type="text" />
+        <span asp-validation-for="Phone"></span>
+    </div>
+
+    <div class="indent__margin-bottom">
+        <input class="input__ingridient" asp-for="Telegram" placeholder="Telegram" type="text" />
+        <span asp-validation-for="Telegram"></span>
+    </div>
+
+    <div class="indent__margin-bottom">
+        <input class="input__ingridient" asp-for="SocialNetwork" placeholder="Social Network" type="text" />
+        <span asp-validation-for="SocialNetwork"></span>
+    </div>
+
+    <div>
+             <input class="input__ingridient" asp-for="ProfilePicture" placeholder="Profile Picture" type="file" />
+             <span asp-validation-for="ProfilePicture"></span>
+        </div>
+
+    <div class="indent__margin-bottom">
+        <input class="button" type="submit" value="Confirm" />
+        <a class="button" asp-controller="Profile" asp-action="Index">Back</a>
+    </div>
+</form>
+
+@section css {
+    <link href="~/css/ingridient.css" rel="stylesheet" asp-append-version="true" />
+}

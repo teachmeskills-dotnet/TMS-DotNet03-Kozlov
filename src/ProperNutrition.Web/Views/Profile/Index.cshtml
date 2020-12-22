@@ -1,0 +1,58 @@
+﻿@model IEnumerable<ProfileViewModels>
+
+@{
+    ViewData["Title"] = "Profile";
+}
+
+<h1>Your profile</h1>
+
+<div class="main-blank">
+  @if (Model.Any())
+  {
+      foreach (var profile in Model)
+      {
+          <div class="firstName">
+              <div class="firstName">
+                <span>@profile.LastName</span>
+              </div>
+          </div>
+
+          <div>
+              <span class="middleName">@profile.FirstName @profile.MiddleName </span>
+          </div>
+
+          <div class="Date">
+              <span>@profile.BirthDate</span>
+          </div>
+
+          <div class="SocialNetwork">
+              <span>
+                  @profile.Phone
+              </span>
+          </div>
+          <div>
+              <span>
+                  @profile.Telegram
+                  @profile.SocialNetwork
+              </span>
+          </div>
+          <div class="date__acction">
+              <span>
+                  @profile.Created
+                  @profile.LastEdited
+              </span>
+          </div>
+            @profile.ProfilePicture
+        }
+    }
+    else
+    {
+        <div> Profile is empty</div>
+        <a class="button" asp-controller="Profile" asp-action="Create">Create</a>
+    }
+</div>
+    <a class="button" asp-controller="Home" asp-action="Index">Back</a>
+
+@section css {
+    <link href="~/css/profile.css" rel="stylesheet" asp-append-version="true" />
+}

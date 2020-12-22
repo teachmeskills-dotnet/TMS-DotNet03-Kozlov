@@ -1,0 +1,51 @@
+﻿@model IngridientActionViewModel
+
+@{
+    ViewData["Title"] = string.Format(PageTitleResource.StringFormat, PageTitleResource.IngridientEdit, PageTitleResource.SiteName);
+}
+
+<h1>Edit ingridient</h1>
+
+<form method="post" asp-controller="Ingridient" asp-action="Edit">
+    <div asp-validation-summary="ModelOnly"></div>
+
+    <div class="indent__margin-bottom">
+        <input class="input__ingridient" asp-for="Name" placeholder="Name" type="text" />
+        <span asp-validation-for="Name"></span>
+    </div>
+
+    <div class="indent__margin-bottom">
+        <input class="input__ingridient" asp-for="Category" placeholder="Category" type="text" />
+        <span asp-validation-for="Category"></span>
+    </div>
+
+    <div class="indent__margin-bottom">
+        <input class="input__ingridient" asp-for="IsVeggie" placeholder="IsVeggie" type="text" />
+        <span asp-validation-for="IsVeggie"></span>
+    </div>
+
+    <div class="indent__margin-bottom">
+        <input class="input__ingridient__description" asp-for="Description" placeholder="Description" type="text" />
+        <span asp-validation-for="Description"></span>
+    </div>
+
+    <div class="ingridient__select">
+        Reaction
+        <select class="select" id="reaction" asp-for="Reaction" asp-items="ViewBag.ReactionTypes"></select>
+        <span asp-validation-for="Reaction"></span>
+    </div>
+
+    <div class="indent__margin-bottom">
+        <input class="input__ingridient" asp-for="Colories" placeholder="Colories" type="text" />
+        <span asp-validation-for="Colories"></span>
+    </div>
+
+    <div class="indent__margin-bottom">
+        <input class="button" type="submit" value="Edit" asp-controller="Ingridient" asp-action="Edit" asp-route-id="@Model.Id" />
+        <a class="button" asp-controller="Ingridient" asp-action="Index">Back</a>
+    </div>
+</form>
+
+@section css {
+    <link href="~/css/ingridient.css" rel="stylesheet" asp-append-version="true" />
+}

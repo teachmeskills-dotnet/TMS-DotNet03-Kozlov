@@ -1,0 +1,19 @@
+﻿@{
+    ViewData["Title"] = "Index page";
+}
+
+<div class="welcome">Welcome!</div>
+
+@if (User.Identity.IsAuthenticated)
+{
+    <div class="welcome__name" 8px"> @User.Identity.Name</div>
+    <div class="welcome__margin">to Proper Nutrition application!</div>
+
+    <a class="button" asp-controller="Ingridient" asp-action="Index">My ingridients</a>
+    <a class="button" asp-controller="ReadyMeal" asp-action="Index">My ready meals</a>
+}
+
+@section css {
+    <link href="~/css/ingridient.css" rel="stylesheet" asp-append-version="true" />
+    <link href="~/css/app.css" rel="stylesheet" asp-append-version="true" />
+}

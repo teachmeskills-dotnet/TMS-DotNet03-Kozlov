@@ -1,0 +1,58 @@
+﻿h1 {
+    margin-bottom: 5px;
+}
+
+.firstName {
+    font-weight: bold;
+    font-style: inherit;
+    font-size: 25px;
+    line-height: 20px;
+    color: red;
+    margin-bottom: 5px;
+}
+
+.middleName {
+    font-weight: bold;
+    font-style: inherit;
+    font-size: 25px;
+    line-height: 20px;
+    margin-bottom: 5px;
+}
+
+.date {
+    font-style: inherit;
+    font-size: 16px;
+    line-height: 20px;
+    color: #568fc6;
+}
+
+.date__acction {
+    font-style: inherit;
+    font-size: 14px;
+    line-height: 20px;
+    color: #568fc6;
+}
+
+.socialNetwork {
+    font-weight: bold;
+    font-style: inherit;
+    font-size: 20px;
+    line-height: 20px;
+    color: #568fc6;
+}
+
+.main-blank {
+    padding: 5px 5px 5px 5px;
+    width: 350px;
+    height: auto;
+    background: rgba(250, 253, 196, 0.3);
+    border-radius: 5px;
+}
+
+.button__link {
+    text-decoration: none;
+}
+
+.recomended {
+    background-color: palegoldenrod;
+}

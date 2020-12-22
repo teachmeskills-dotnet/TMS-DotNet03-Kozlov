@@ -1,33 +1,77 @@
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Hosting;
+using ProperNutrition.BLL.Interfaces;
+using ProperNutrition.BLL.Managers;
+using ProperNutrition.BLL.Repository;
+using ProperNutrition.Common.Interfaces;
+using ProperNutrition.DAL.Context;
+using ProperNutrition.DAL.Entities;
+using Serilog;
 
 namespace ProperNutrition.Web
 {
     public class Startup
     {
+        public IConfiguration Configuration { get; }
+
+        public Startup(IConfiguration configuration)
+        {
+            Configuration = configuration ?? throw new System.ArgumentNullException(nameof(configuration));
+        }
 
         public void ConfigureServices(IServiceCollection services)
         {
+            // Repositoy pattern services.
+            services.AddScoped(typeof(IRepositoryManager<>), typeof(RepositoryManager<>));
+
+            // Managers services.
+            services.AddScoped<IAccountManager, AccountManager>();
+            services.AddScoped<IIngridientManager, IngridientManager>();
+            services.AddScoped<IProfileManager, ProfileManager>();
+            services.AddScoped<IReadyMealManager, ReadyMealManager>();
+
+            // Db context services.
+            services.AddDbContext<ProperNutritionContext>(options =>
+                options.UseSqlServer(Configuration.GetConnectionString("ProperNutritionConnection")));
+
+            //Identity add services.
+            services.AddIdentity<ApplicationUser, IdentityRole>()
+                .AddEntityFrameworkStores<ProperNutritionContext>();
+
+            //AddControllersWithViews Microsoft services.
+            services.AddControllersWithViews()
+                    .AddRazorRuntimeCompilation(); //RuntimeCompilation
+
+            services.ConfigureApplicationCookie(config =>
+            {
+                config.Cookie.Name = "TeachMeSkills.Cookie";
+                config.LoginPath = "/Account/SignIn";
+            });
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
-            if (env.IsDevelopment())
-            {
-                app.UseDeveloperExceptionPage();
-            }
+            app.UseDeveloperExceptionPage();
+
+            app.UseSerilogRequestLogging();
+
+            app.UseHttpsRedirection();
+            app.UseStaticFiles();
 
             app.UseRouting();
 
+            app.UseAuthentication();
+            app.UseAuthorization();
+
             app.UseEndpoints(endpoints =>
             {
-                endpoints.MapGet("/", async context =>
-                {
-                    await context.Response.WriteAsync("Hello World!");
-                });
+                endpoints.MapControllerRoute(
+                    name: "default",
+                    pattern: "{controller=Home}/{action=Index}/{id?}");
             });
         }
     }

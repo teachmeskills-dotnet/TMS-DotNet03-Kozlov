@@ -1,0 +1,45 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    <link href="~/css/app.css" rel="stylesheet" asp-append-version="true" />
+    @RenderSection("css", false)
+</head>
+<body>
+    <header>
+        <div class="wrapper">
+            <div class="header header__indent-bottom">
+
+                <a class="logo" asp-controller="Home" asp-action="Index"><img class="logo" src="~/images/logo.png" alt="Proper Nutrition app." /></a>
+
+                @if (User.Identity.IsAuthenticated)
+                {
+                    <div class="auth">
+                        <span class="auth__name"><a asp-controller="Profile" asp-action="Index">@User.Identity.Name</a></span>
+                        <form method="post" asp-controller="Account" asp-action="Logout">
+                            <button class="button" type="submit">LogOut </button>
+                        </form>
+                    </div>
+                }
+                else
+                {
+                    <div class="auth">
+                        <a class="link" asp-controller="Account" asp-action="SignUp">Sign Up</a>
+                        <a class="button button__link" asp-controller="Account" asp-action="SignIn">Sign In</a>
+                    </div>
+                }
+            </div>
+        </div>
+    </header>
+    <hr />
+    <div class="wrapper">
+
+        @RenderBody()
+        <footer>Copyright Illia Kozlov. For advertising placement, please contact with fearofwr@mail.ru</footer>
+    </div>
+
+    @RenderSection("js", false)
+</body>
+</html>

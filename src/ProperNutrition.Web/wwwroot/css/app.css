@@ -1,0 +1,178 @@
+﻿* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto', sans-serif;
+    color: #7ac245;
+}
+
+.auth {
+    width: 170px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-decoration: none;
+}
+
+.button {
+    cursor: pointer;
+    padding: 4px 12px;
+    background: #b8e0e8;
+    border-radius: 3px;
+    border: none;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 14px;
+    line-height: 17px;
+    text-transform: uppercase;
+    color: #9f56e5;
+    margin: 8px;
+    margin-top: 8px;
+    text-decoration: none;
+}
+
+    .button:hover {
+        background: #9f56e5;
+        color: #b8e0e8;
+    }
+
+.button__link {
+    text-decoration: none;
+}
+
+.auth__name {
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 15px;
+    line-height: normal;
+    text-align: center;
+    color: #123e25;
+}
+
+body {
+    background-image: url('/images/look.com.ua-55662.png');
+    background-position: top, center;
+    background-repeat: no-repeat;
+    background-size: 80%;
+}
+
+footer {
+    display: flex;
+    justify-content: center;
+    padding: 5px;
+    color: #3a9c3d;
+    position: absolute;
+    bottom: 0;
+    margin-left: 80px;
+    font-size: 10px;
+}
+
+.footer div {
+    margin-right: 17px;
+    Смещаем фон, чтобы не накладывался на скролбар
+}
+
+hr {
+    margin: -30px auto 30px;
+    padding: 0;
+    height: 50px;
+    border: none;
+    border-bottom: 1px solid #3b9c3f;
+    box-shadow: 0 20px 20px -20px #333;
+    width: 75%;
+}
+
+.header {
+    display: flex;
+    padding: 10px 0;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header__indent-bottom {
+    margin-bottom: 10px;
+}
+
+.input {
+    padding: 8px 16px;
+    border: 1px solid #eaf5f9;
+    box-sizing: border-box;
+    border-radius: 5px;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 16px;
+    color: #bbe3ea;
+    border-color: #b8e0e8;
+    border-bottom-color: #9f56e5;
+    margin-bottom: 5px;
+}
+
+::-webkit-input-placeholder {
+    color: #7ac14b;
+}
+
+:-moz-placeholder {
+    color: #7ac14b;
+}
+
+::-moz-placeholder {
+    color: #7ac14b;
+}
+
+:-ms-input-placeholder {
+    color: #7ac14b;
+}
+
+.link {
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 20px;
+    text-decoration: none;
+}
+
+    .link:hover {
+        text-decoration: underline;
+    }
+
+.logo {
+    font-weight: bold;
+    text-decoration: none;
+    width: 180px;
+}
+
+.welcome {
+    color: #7ac245;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 35px;
+    margin: 10px;
+}
+
+.welcome__name {
+    margin-left: 45px;
+    color: #acf657;
+    font-style: inherit;
+    font-weight: bold;
+    font-size: 45px;
+}
+
+.welcome__margin {
+    color: #7ac245;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 30px;
+    margin: 10px 90px;
+}
+
+.wrapper {
+    margin: 0 auto;
+    height: 46px;
+    width: 1200px;
+}
+
+del {
+    height: 5px;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap');

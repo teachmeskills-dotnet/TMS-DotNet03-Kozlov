@@ -1,0 +1,25 @@
+﻿@model ReadyMealViewModels
+
+@{
+    ViewData["Title"] = string.Format(PageTitleResource.StringFormat, PageTitleResource.ReadymealDetail, PageTitleResource.SiteName);
+}
+
+<div class="main-blank">
+    <div>
+        <p class="todo__detail">Title: @Model.Name</p>
+
+        <p class="todo__detail">Reacrion: @Model.ChildReacrion</p>
+        <p class="todo__detail">Teasty Meal: @Model.TeastyMeal</p>
+        <p class="todo__detail">Comment: @Model.Comment</p>
+        <p class="todo__detail">Preparing Time: @Model.ReadyTime</p>
+    </div>
+</div>
+
+<div>
+    <a class="button" asp-controller="ReadyMeal" asp-action="Edit" asp-route-id="@Model.Id">Edit</a>
+    <a class="button" asp-controller="ReadyMeal" asp-action="Index">Back</a>
+</div>
+
+@section css {
+    <link href="~/css/ingridient.css" rel="stylesheet" asp-append-version="true" />
+}
