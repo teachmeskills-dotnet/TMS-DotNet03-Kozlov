@@ -16,7 +16,7 @@ namespace ProperNutrition.Web.ViewModels
         public string UserId { get; set; }
 
         /// <summary>
-        /// Name of meal. 
+        /// Name of meal.
         /// </summary>
         [Required]
         public string Name { get; set; }

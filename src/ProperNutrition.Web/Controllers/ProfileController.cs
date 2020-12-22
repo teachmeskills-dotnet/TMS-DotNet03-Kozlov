@@ -18,8 +18,6 @@ namespace ProperNutrition.Web.Controllers
         private readonly IProfileManager _profileManager;
         private readonly ProperNutritionContext _context;
 
-
-
         public ProfileController(
             IAccountManager accountManager,
             IProfileManager profileManager,
@@ -53,7 +51,6 @@ namespace ProperNutrition.Web.Controllers
             }
             return View(profileViewModels);
         }
-        #region Create
 
         [HttpGet]
         public IActionResult Create()
@@ -86,7 +83,6 @@ namespace ProperNutrition.Web.Controllers
             }
             return View(model);
         }
-        #endregion Create
 
         //[HttpPost]
         //public async Task<IActionResult> SetAvatar(ProfileViewModels model)

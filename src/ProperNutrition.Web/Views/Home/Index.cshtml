@@ -6,7 +6,7 @@
 
 @if (User.Identity.IsAuthenticated)
 {
-    <div class="welcome__name" 8px"> @User.Identity.Name</div> 
+    <div class="welcome__name" 8px"> @User.Identity.Name</div>
     <div class="welcome__margin">to Proper Nutrition application!</div>
 
     <a class="button" asp-controller="Ingridient" asp-action="Index">My ingridients</a>

@@ -30,15 +30,14 @@
     text-decoration: none;
 }
 
-.button:hover {
-     background: #9f56e5;
-     color: #b8e0e8;
-}
+    .button:hover {
+        background: #9f56e5;
+        color: #b8e0e8;
+    }
 
 .button__link {
     text-decoration: none;
 }
-
 
 .auth__name {
     text-decoration: none;
@@ -68,7 +67,8 @@ footer {
 }
 
 .footer div {
-     margin-right: 17px;  Смещаем фон, чтобы не накладывался на скролбар 
+    margin-right: 17px;
+    Смещаем фон, чтобы не накладывался на скролбар
 }
 
 hr {
@@ -110,12 +110,15 @@ hr {
 ::-webkit-input-placeholder {
     color: #7ac14b;
 }
+
 :-moz-placeholder {
     color: #7ac14b;
 }
+
 ::-moz-placeholder {
     color: #7ac14b;
 }
+
 :-ms-input-placeholder {
     color: #7ac14b;
 }
@@ -128,9 +131,9 @@ hr {
     text-decoration: none;
 }
 
-.link:hover {
-    text-decoration: underline;
-}
+    .link:hover {
+        text-decoration: underline;
+    }
 
 .logo {
     font-weight: bold;
@@ -171,8 +174,5 @@ hr {
 del {
     height: 5px;
 }
-
-
-
 
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap');

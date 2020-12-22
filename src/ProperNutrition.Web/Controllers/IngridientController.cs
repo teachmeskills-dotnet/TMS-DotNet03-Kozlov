@@ -131,7 +131,6 @@ namespace ProperNutrition.Web.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(IngridientActionViewModel model)
         {
-
             if (ModelState.IsValid)
             {
                 var userId = await _accountManager.GetUserIdByNameAsync(User.Identity.Name);

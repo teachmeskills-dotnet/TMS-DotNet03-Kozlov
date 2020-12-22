@@ -48,7 +48,6 @@ namespace ProperNutrition.DAL.Configuration
                    .WithOne(identity => identity.Profile)
                    .HasForeignKey<Profile>(profile => profile.UserId)
                    .OnDelete(DeleteBehavior.Restrict);
-
         }
     }
 }

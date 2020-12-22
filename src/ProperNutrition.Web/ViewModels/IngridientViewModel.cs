@@ -3,7 +3,7 @@
 namespace ProperNutrition.Web.ViewModels
 {
     /// <summary>
-    /// Ingridient View Model. 
+    /// Ingridient View Model.
     /// </summary>
     public class IngridientViewModel
     {

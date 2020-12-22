@@ -21,9 +21,6 @@ namespace ProperNutrition.DAL.Configuration
             builder.Property(readyMealIngridients => readyMealIngridients.Weight);
 
             //builder.HasMany(readyMealIngridients => readyMealIngridients.)
-
-
-
         }
     }
 }

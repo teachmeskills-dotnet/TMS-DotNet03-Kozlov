@@ -19,8 +19,9 @@ namespace ProperNutrition.DAL.Entities
         /// ReadyMealId identifier.
         /// </summary>
         public int ReadyMealId { get; set; }
+
         /// <summary>
-        /// Navigation to ReadyMeal. 
+        /// Navigation to ReadyMeal.
         /// </summary>
         public ReadyMeal ReadyMeal { get; set; }
 
@@ -30,7 +31,7 @@ namespace ProperNutrition.DAL.Entities
         public int IngridientId { get; set; }
 
         /// <summary>
-        /// Navigation to Ingridient. 
+        /// Navigation to Ingridient.
         /// </summary>
         public Ingridient Ingridient { get; set; }
     }

@@ -6,7 +6,6 @@
     <title>@ViewBag.Title</title>
     <link href="~/css/app.css" rel="stylesheet" asp-append-version="true" />
     @RenderSection("css", false)
-
 </head>
 <body>
     <header>
@@ -29,7 +28,6 @@
                     <div class="auth">
                         <a class="link" asp-controller="Account" asp-action="SignUp">Sign Up</a>
                         <a class="button button__link" asp-controller="Account" asp-action="SignIn">Sign In</a>
-
                     </div>
                 }
             </div>
@@ -43,8 +41,5 @@
     </div>
 
     @RenderSection("js", false)
-
-
-
 </body>
 </html>

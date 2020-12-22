@@ -19,7 +19,7 @@ namespace ProperNutrition.DAL.Entities
         public string UserId { get; set; }
 
         /// <summary>
-        /// Navigation to Application User. 
+        /// Navigation to Application User.
         /// </summary>
         public ApplicationUser User { get; set; }
 

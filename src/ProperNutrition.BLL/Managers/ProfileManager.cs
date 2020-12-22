@@ -131,7 +131,6 @@ namespace ProperNutrition.BLL.Managers
                         updated = true;
                     }
 
-
                     if (userProfile.Telegram != profileDto.Telegram && profileDto.Telegram != null)
                     {
                         userProfile.Telegram = profileDto.Telegram;

@@ -1,7 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using ProperNutrition.BLL.Interfaces;
 using ProperNutrition.BLL.Models;
-using ProperNutrition.Common.Interfaces;
 using ProperNutrition.Common.Resources;
 using ProperNutrition.DAL.Entities;
 using System;
@@ -43,19 +42,19 @@ namespace ProperNutrition.BLL.Managers
             await _repositoryReadyMeal.SaveChangesAsync();
         }
 
-        public async Task<ReadyMealDto> GetReadyMealAsync (int id, string userId)
+        public async Task<ReadyMealDto> GetReadyMealAsync(int id, string userId)
         {
             var readymeal = await _repositoryReadyMeal
                 .GetEntityWithoutTrackingAsync(readymeal =>
                     readymeal.Id == id && readymeal.UserId == userId);
-            
+
             if (readymeal is null)
             {
                 throw new ArgumentNullException(nameof(readymeal));
             }
 
             var readyMealDto = new ReadyMealDto
-            {              
+            {
                 Id = readymeal.Id,
                 UserId = readymeal.UserId,
                 Name = readymeal.Name,
@@ -85,7 +84,7 @@ namespace ProperNutrition.BLL.Managers
             foreach (var readymeal in readymeals)
             {
                 readyMealDtos.Add(new ReadyMealDto
-                { 
+                {
                     Id = readymeal.Id,
                     Name = readymeal.Name,
                     ChildReacrion = readymeal.ChildReacrion,
@@ -183,6 +182,5 @@ namespace ProperNutrition.BLL.Managers
                 await _repositoryReadyMeal.SaveChangesAsync();
             }
         }
-
     }
 }

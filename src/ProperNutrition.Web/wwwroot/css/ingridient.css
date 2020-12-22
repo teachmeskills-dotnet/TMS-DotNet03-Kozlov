@@ -1,6 +1,4 @@
-﻿
-
-.button__link {
+﻿.button__link {
     text-decoration: none;
 }
 
@@ -65,7 +63,6 @@ description_readymeal {
     font-style: inherit;
     font-size: 16px;
     line-height: 20px;
-    
     text-decoration: none;
 }
 
@@ -142,7 +139,6 @@ h1 {
     border-left: 10px solid #fceade;
 }
 
-
 .reaction__low {
     border-left: 10px solid #FFDAB9;
 }
@@ -154,4 +150,3 @@ h1 {
 .reaction__high {
     border-left: 10px solid #DC143C;
 }
-

@@ -4,7 +4,6 @@ using ProperNutrition.Common.Constants;
 using ProperNutrition.DAL.Entities;
 using System;
 
-
 namespace ProperNutrition.DAL.Configuration
 {
     /// <summary>

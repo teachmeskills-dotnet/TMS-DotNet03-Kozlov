@@ -3,7 +3,7 @@
     /// <summary>
     /// ReadyMealIngridients data transfer object.
     /// </summary>
-    class ReadyMealIngridientsDto
+    internal class ReadyMealIngridientsDto
     {
         /// <inheritdoc/>
         public int Id { get; set; }

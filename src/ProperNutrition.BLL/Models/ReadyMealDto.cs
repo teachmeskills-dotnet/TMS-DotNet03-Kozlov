@@ -16,7 +16,7 @@ namespace ProperNutrition.BLL.Models
         public string UserId { get; set; }
 
         /// <summary>
-        /// Name of meal. 
+        /// Name of meal.
         /// </summary>
         public string Name { get; set; }
 

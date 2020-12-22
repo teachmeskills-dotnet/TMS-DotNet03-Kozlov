@@ -3,7 +3,6 @@ using System;
 
 namespace ProperNutrition.Web.ViewModels
 {
-
     /// <summary>
     /// Profile View Models.
     /// </summary>

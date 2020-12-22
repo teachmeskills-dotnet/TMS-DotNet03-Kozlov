@@ -31,7 +31,7 @@ namespace ProperNutrition.BLL.Models
         /// <summary>
         /// Vegan or Meat.
         /// </summary>
-         public bool IsVeggie { get; set; }
+        public bool IsVeggie { get; set; }
 
         /// <summary>
         /// Description of ingridient.

@@ -13,7 +13,7 @@ namespace ProperNutrition.DAL.Entities
         public int Id { get; set; }
 
         /// <summary>
-        /// Name of meal. 
+        /// Name of meal.
         /// </summary>
         public string Name { get; set; }
 

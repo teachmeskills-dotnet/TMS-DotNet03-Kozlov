@@ -1,5 +1,5 @@
 ﻿h1 {
-margin-bottom: 5px;
+    margin-bottom: 5px;
 }
 
 .firstName {
@@ -20,7 +20,6 @@ margin-bottom: 5px;
 }
 
 .date {
-
     font-style: inherit;
     font-size: 16px;
     line-height: 20px;
@@ -28,7 +27,6 @@ margin-bottom: 5px;
 }
 
 .date__acction {
-
     font-style: inherit;
     font-size: 14px;
     line-height: 20px;
@@ -50,7 +48,6 @@ margin-bottom: 5px;
     background: rgba(250, 253, 196, 0.3);
     border-radius: 5px;
 }
-
 
 .button__link {
     text-decoration: none;

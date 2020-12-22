@@ -28,7 +28,6 @@ namespace ProperNutrition.Web
             // Repositoy pattern services.
             services.AddScoped(typeof(IRepositoryManager<>), typeof(RepositoryManager<>));
 
-
             // Managers services.
             services.AddScoped<IAccountManager, AccountManager>();
             services.AddScoped<IIngridientManager, IngridientManager>();
@@ -58,14 +57,14 @@ namespace ProperNutrition.Web
         {
             app.UseDeveloperExceptionPage();
 
-            app.UseSerilogRequestLogging(); // add serilog
+            app.UseSerilogRequestLogging();
 
             app.UseHttpsRedirection();
             app.UseStaticFiles();
 
             app.UseRouting();
 
-            app.UseAuthentication();    // подключение аутентификации
+            app.UseAuthentication();
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
